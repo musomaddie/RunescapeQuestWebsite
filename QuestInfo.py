@@ -3,7 +3,8 @@ class Quest:
     def __init__(self, name):
         self.name = name
         self.free = False
-        self.parent = None
+        self.pre_quests = []
+        self.post_quests = []
         self.children = []
         self.other_requirements = []
         self.agility = 0
@@ -32,3 +33,9 @@ class Quest:
         self.summouning = 0
         self.thieving = 0
         self.woodcutting = 0
+
+    def add_pre_quest(self, q):
+        self.pre_quests.append(q)
+
+    def add_post_quest(self, q):
+        self.post_quests.append(q)

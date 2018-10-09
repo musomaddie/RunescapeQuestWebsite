@@ -19,6 +19,7 @@ from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
 from quests.Gunnars_Ground import Gunnars_Ground
 from quests.Imp_Catcher import Imp_Catcher
+from quests.The_Knights_Sword import The_Knights_Sword
 
 
 def create_all_quests():
@@ -44,6 +45,8 @@ def create_all_quests():
 
     imp_catcher = Imp_Catcher()
 
+    the_knights_sword = The_Knights_Sword()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -59,6 +62,7 @@ def create_all_quests():
           gower_quest,
           gunnars_ground,
           imp_catcher,
+          the_knights_sword,
           "done")
 
 

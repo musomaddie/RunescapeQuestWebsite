@@ -17,6 +17,7 @@ from quests.Ernest_The_Chicken import Ernest_The_Chicken
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
+from quests.Gunnars_Ground import Gunnars_Ground
 
 
 def create_all_quests():
@@ -38,6 +39,7 @@ def create_all_quests():
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
     gower_quest = Gower_Quest()
+    gunnars_ground = Gunnars_Ground()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -52,6 +54,7 @@ def create_all_quests():
           gertrudes_cat,
           goblin_diplomacy,
           gower_quest,
+          gunnars_ground,
           "done")
 
 

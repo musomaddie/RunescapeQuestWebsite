@@ -14,6 +14,7 @@ from quests.Demon_Slayer import Demon_Slayer
 from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Druidic_Ritual import Druidic_Ritual
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
+from quests.Gertrudes_Cat import Gertrudes_Cat
 
 
 def create_all_quests():
@@ -32,6 +33,8 @@ def create_all_quests():
 
     ernest_the_chicken = Ernest_The_Chicken()
 
+    gertrudes_cat = Gertrudes_Cat()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -42,6 +45,7 @@ def create_all_quests():
           dragon_slayer,
           druidic_ritual,
           ernest_the_chicken,
+          gertrudes_cat,
           "done")
 
 

@@ -20,6 +20,7 @@ from quests.Gower_Quest import Gower_Quest
 from quests.Gunnars_Ground import Gunnars_Ground
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
+from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 
 
 def create_all_quests():
@@ -47,6 +48,8 @@ def create_all_quests():
 
     the_knights_sword = The_Knights_Sword()
 
+    let_them_eat_pie = Let_Them_Eat_Pie()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -63,6 +66,7 @@ def create_all_quests():
           gunnars_ground,
           imp_catcher,
           the_knights_sword,
+          let_them_eat_pie,
           "done")
 
 

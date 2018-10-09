@@ -11,6 +11,7 @@ from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
+from quests.Dragon_Slayer import Dragon_Slayer
 
 
 def create_all_quests():
@@ -22,6 +23,7 @@ def create_all_quests():
     the_death_of_chivalry = The_Death_Of_Chivalry()
     death_plateau = Death_Plateau()
     demon_slayer = Demon_Slayer()
+    dragon_slayer = Dragon_Slayer()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -30,6 +32,7 @@ def create_all_quests():
           the_death_of_chivalry,
           death_plateau,
           demon_slayer,
+          dragon_slayer,
           "done")
 
 

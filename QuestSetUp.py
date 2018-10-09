@@ -12,6 +12,7 @@ from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
 from quests.Dragon_Slayer import Dragon_Slayer
+from quests.Druidic_Ritual import Druidic_Ritual
 
 
 def create_all_quests():
@@ -24,6 +25,7 @@ def create_all_quests():
     death_plateau = Death_Plateau()
     demon_slayer = Demon_Slayer()
     dragon_slayer = Dragon_Slayer()
+    druidic_ritual = Druidic_Ritual()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -33,6 +35,7 @@ def create_all_quests():
           death_plateau,
           demon_slayer,
           dragon_slayer,
+          druidic_ritual,
           "done")
 
 

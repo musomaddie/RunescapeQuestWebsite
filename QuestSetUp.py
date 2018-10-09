@@ -18,6 +18,7 @@ from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
 from quests.Gunnars_Ground import Gunnars_Ground
+from quests.Imp_Catcher import Imp_Catcher
 
 
 def create_all_quests():
@@ -41,6 +42,8 @@ def create_all_quests():
     gower_quest = Gower_Quest()
     gunnars_ground = Gunnars_Ground()
 
+    imp_catcher = Imp_Catcher()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -55,6 +58,7 @@ def create_all_quests():
           goblin_diplomacy,
           gower_quest,
           gunnars_ground,
+          imp_catcher,
           "done")
 
 

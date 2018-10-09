@@ -9,6 +9,7 @@ from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Broken_Home import Broken_Home
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
+from quests.Death_Plateau import Death_Plateau
 
 
 def create_all_quests():
@@ -18,12 +19,14 @@ def create_all_quests():
     broken_home = Broken_Home()
     cooks_assistant = Cooks_Assistant()
     the_death_of_chivalry = The_Death_Of_Chivalry()
+    death_plateau = Death_Plateau()
 
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
           cooks_assistant,
           the_death_of_chivalry,
+          death_plateau,
           "done")
 
 

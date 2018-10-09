@@ -13,6 +13,7 @@ from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
 from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Druidic_Ritual import Druidic_Ritual
+from quests.Ernest_The_Chicken import Ernest_The_Chicken
 
 
 def create_all_quests():
@@ -20,12 +21,16 @@ def create_all_quests():
     beneath_cursed_tides = Beneath_Cursed_Tides()
     the_blood_pact = The_Blood_Pact()
     broken_home = Broken_Home()
+
     cooks_assistant = Cooks_Assistant()
+
     the_death_of_chivalry = The_Death_Of_Chivalry()
     death_plateau = Death_Plateau()
     demon_slayer = Demon_Slayer()
     dragon_slayer = Dragon_Slayer()
     druidic_ritual = Druidic_Ritual()
+
+    ernest_the_chicken = Ernest_The_Chicken()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -36,6 +41,7 @@ def create_all_quests():
           demon_slayer,
           dragon_slayer,
           druidic_ritual,
+          ernest_the_chicken,
           "done")
 
 

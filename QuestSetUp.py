@@ -30,6 +30,7 @@ from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Restless_Ghost import The_Restless_Ghost
 from quests.Rune_Mysteries import Rune_Mysteries
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
+from quests.Shield_Of_Arrav import Shield_Of_Arrav
 
 
 def create_all_quests():
@@ -72,6 +73,7 @@ def create_all_quests():
     rune_mysteries = Rune_Mysteries()
 
     a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
+    shield_of_arrav = Shield_Of_Arrav()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -98,6 +100,7 @@ def create_all_quests():
           the_restless_ghost,
           rune_mysteries,
           a_shadow_over_ashdale,
+          shield_of_arrav,
           "done")
 
 

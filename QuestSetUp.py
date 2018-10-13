@@ -28,6 +28,7 @@ from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
 from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Restless_Ghost import The_Restless_Ghost
+from quests.Rune_Mysteries import Rune_Mysteries
 
 
 def create_all_quests():
@@ -67,6 +68,7 @@ def create_all_quests():
     priest_in_peril = Priest_In_Peril()
 
     the_restless_ghost = The_Restless_Ghost()
+    rune_mysteries = Rune_Mysteries()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -91,6 +93,7 @@ def create_all_quests():
           perils_of_ice_mountain,
           priest_in_peril,
           the_restless_ghost,
+          rune_mysteries,
           "done")
 
 

@@ -27,6 +27,7 @@ from quests.One_Piercing_Note import One_Piercing_Note
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
 from quests.Priest_In_Peril import Priest_In_Peril
+from quests.The_Restless_Ghost import The_Restless_Ghost
 
 
 def create_all_quests():
@@ -65,6 +66,8 @@ def create_all_quests():
     pirates_treasure = Pirates_Treasure()
     priest_in_peril = Priest_In_Peril()
 
+    the_restless_ghost = The_Restless_Ghost()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -87,6 +90,7 @@ def create_all_quests():
           one_piercing_note,
           perils_of_ice_mountain,
           priest_in_peril,
+          the_restless_ghost,
           "done")
 
 

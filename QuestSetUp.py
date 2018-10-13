@@ -33,6 +33,7 @@ from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
 from quests.Song_From_The_Depths import Song_From_The_Depths
 from quests.A_Souls_Bane import A_Souls_Bane
+from quests.Stolen_Hearts import Stolen_Hearts
 
 
 def create_all_quests():
@@ -78,6 +79,7 @@ def create_all_quests():
     shield_of_arrav = Shield_Of_Arrav()
     song_from_the_depths = Song_From_The_Depths()
     a_souls_bane = A_Souls_Bane()
+    stolen_hearts = Stolen_Hearts()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -107,6 +109,7 @@ def create_all_quests():
           shield_of_arrav,
           song_from_the_depths,
           a_souls_bane,
+          stolen_hearts,
           "done")
 
 

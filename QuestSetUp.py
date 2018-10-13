@@ -23,6 +23,7 @@ from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
+from quests.One_Piercing_Note import One_Piercing_Note
 
 
 def create_all_quests():
@@ -55,6 +56,8 @@ def create_all_quests():
     missing_presumed_death = Missing_Presumed_Death()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
 
+    one_piercing_note = One_Piercing_Note()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -74,6 +77,7 @@ def create_all_quests():
           let_them_eat_pie,
           missing_presumed_death,
           myths_of_the_white_lands,
+          one_piercing_note,
           "done")
 
 

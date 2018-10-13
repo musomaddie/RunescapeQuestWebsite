@@ -3,6 +3,7 @@ class Quest:
     def __init__(self, name):
         self.name = name
         self.free = False
+        self.age = None
         self.pre_quests = []
         self.post_quests = []
         self.children = []

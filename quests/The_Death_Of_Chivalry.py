@@ -12,3 +12,4 @@ class The_Death_Of_Chivalry(Quest):
     def __init__(self):
         super().__init__("The Death of Chivalry")
         self.free = True
+        self.age = 6

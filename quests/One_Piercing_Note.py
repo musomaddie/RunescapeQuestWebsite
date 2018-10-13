@@ -11,4 +11,5 @@ class One_Piercing_Note(Quest):
 
     def __init__(self):
         super().__init__("One Piercing Note")
+        self.age = 5
         self.free = True

@@ -12,3 +12,4 @@ class Goblin_Diplomacy(Quest):
     def __init__(self):
         super().__init__("Goblin Diplomacy")
         self.free = True
+        self.age = 5

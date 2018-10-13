@@ -12,3 +12,4 @@ class The_Blood_Pact(Quest):
     def __init__(self):
         super().__init__("The Blood Pact")
         self.free = True
+        self.age = 5

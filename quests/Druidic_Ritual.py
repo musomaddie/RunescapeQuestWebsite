@@ -12,3 +12,4 @@ class Druidic_Ritual(Quest):
     def __init__(self):
         super().__init__("Druidic Ritual")
         self.free = True
+        self.age = 5

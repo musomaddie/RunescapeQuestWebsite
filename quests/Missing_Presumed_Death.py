@@ -11,4 +11,5 @@ class Missing_Presumed_Death(Quest):
 
     def __init__(self):
         super().__init__("Missing, Presumed Death")
+        self.age = 6
         self.free = True

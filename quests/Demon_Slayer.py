@@ -12,3 +12,4 @@ class Demon_Slayer(Quest):
     def __init__(self):
         super().__init__("Demon Slayer")
         self.free = True
+        self.age = 5

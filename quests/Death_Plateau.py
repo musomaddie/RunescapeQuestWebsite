@@ -12,3 +12,4 @@ class Death_Plateau(Quest):
     def __init__(self):
         super().__init__("Death Plateau")
         self.free = True
+        self.age = 5

@@ -11,4 +11,5 @@ class Imp_Catcher(Quest):
 
     def __init__(self):
         super().__init__("Imp Catcher")
+        self.age = 5
         self.free = True

@@ -11,4 +11,5 @@ class Let_Them_Eat_Pie(Quest):
 
     def __init__(self):
         super().__init__("Let Them Eat Pie")
+        self.age = 5
         self.free = True

@@ -12,3 +12,4 @@ class Cooks_Assistant(Quest):
     def __init__(self):
         super().__init__("Cook's Assistant")
         self.free = True
+        self.age = 5

@@ -12,3 +12,4 @@ class Gertrudes_Cat(Quest):
     def __init__(self):
         super().__init__("Gertrude's Cat")
         self.free = True
+        self.age = 5

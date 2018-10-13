@@ -12,3 +12,4 @@ class Gower_Quest(Quest):
     def __init__(self):
         super().__init__("Gower Quest")
         self.free = True
+        self.age = 6

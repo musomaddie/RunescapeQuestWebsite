@@ -12,3 +12,4 @@ class Ernest_The_Chicken(Quest):
     def __init__(self):
         super().__init__("Ernest The Chicken")
         self.free = True
+        self.age = 5

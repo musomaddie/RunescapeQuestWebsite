@@ -11,6 +11,7 @@ class Beneath_Cursed_Tides(Quest):
 
     def __init__(self):
         super().__init__("Beneath Cursed Tides")
+        self.age = 6
         self.free = True
         self.attack = 30
         self.strength = 30

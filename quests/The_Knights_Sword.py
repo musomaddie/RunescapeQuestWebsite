@@ -11,5 +11,6 @@ class The_Knights_Sword(Quest):
 
     def __init__(self):
         super().__init__("The Knights Sword")
+        self.age = 5
         self.free = True
         self.mining = 10

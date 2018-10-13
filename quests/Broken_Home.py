@@ -12,3 +12,4 @@ class Broken_Home(Quest):
     def __init__(self):
         super().__init__("Broken Home")
         self.free = True
+        self.age = 6

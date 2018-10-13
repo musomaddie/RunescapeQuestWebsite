@@ -12,3 +12,4 @@ class Dragon_Slayer(Quest):
     def __init__(self):
         super().__init__("Dragon Slayer")
         self.free = True
+        self.age = 5

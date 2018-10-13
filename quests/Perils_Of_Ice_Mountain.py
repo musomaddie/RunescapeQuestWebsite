@@ -7,11 +7,12 @@ sys.path.insert(0,
 from QuestInfo import Quest
 
 
-class Gunnars_Ground(Quest):
+class Perils_Of_Ice_Mountain(Quest):
 
     def __init__(self):
-        super().__init__("Gunnar's Ground")
-        self.age = 5
+        super().__init__("Perils of Ice Mountain")
         self.free = True
-        self.crafting = 5
-
+        self.age = 5
+        self.farming = 5
+        self.hunting = 5
+        self.thieving = 5

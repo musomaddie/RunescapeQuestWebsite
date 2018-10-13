@@ -26,6 +26,7 @@ from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.One_Piercing_Note import One_Piercing_Note
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
+from quests.Priest_In_Peril import Priest_In_Peril
 
 
 def create_all_quests():
@@ -62,6 +63,7 @@ def create_all_quests():
 
     perils_of_ice_mountain = Perils_Of_Ice_Mountain()
     pirates_treasure = Pirates_Treasure()
+    priest_in_peril = Priest_In_Peril()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -84,6 +86,7 @@ def create_all_quests():
           myths_of_the_white_lands,
           one_piercing_note,
           perils_of_ice_mountain,
+          priest_in_peril,
           "done")
 
 

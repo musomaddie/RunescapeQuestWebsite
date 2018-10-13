@@ -5,6 +5,7 @@ sys.path.insert(0,
                 os.path.dirname(os.path.realpath(__file__))[
                     0:-len("")])
 from quests.All_Fired_Up import All_Fired_Up
+from quests.Animal_Magnetism import Animal_Magnetism
 from quests.Beneath_Cursed_Tides import Beneath_Cursed_Tides
 from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Broken_Home import Broken_Home
@@ -45,6 +46,7 @@ from quests.Wolf_Whistle import Wolf_Whistle
 def create_all_quests():
 
     all_fired_up = All_Fired_Up()
+    animal_magnetism = Animal_Magnetism()
 
     beneath_cursed_tides = Beneath_Cursed_Tides()
     the_blood_pact = The_Blood_Pact()

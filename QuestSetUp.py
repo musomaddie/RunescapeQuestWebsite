@@ -22,6 +22,7 @@ from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
+from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 
 
 def create_all_quests():
@@ -52,6 +53,7 @@ def create_all_quests():
     let_them_eat_pie = Let_Them_Eat_Pie()
 
     missing_presumed_death = Missing_Presumed_Death()
+    myths_of_the_white_lands = Myths_Of_The_White_Lands()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -71,6 +73,7 @@ def create_all_quests():
           the_knights_sword,
           let_them_eat_pie,
           missing_presumed_death,
+          myths_of_the_white_lands,
           "done")
 
 

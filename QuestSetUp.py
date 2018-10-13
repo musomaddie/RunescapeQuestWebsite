@@ -29,6 +29,7 @@ from quests.Pirates_Treasure import Pirates_Treasure
 from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Restless_Ghost import The_Restless_Ghost
 from quests.Rune_Mysteries import Rune_Mysteries
+from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 
 
 def create_all_quests():
@@ -70,6 +71,8 @@ def create_all_quests():
     the_restless_ghost = The_Restless_Ghost()
     rune_mysteries = Rune_Mysteries()
 
+    a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
+
     print(beneath_cursed_tides,
           the_blood_pact,
           broken_home,
@@ -94,6 +97,7 @@ def create_all_quests():
           priest_in_peril,
           the_restless_ghost,
           rune_mysteries,
+          a_shadow_over_ashdale,
           "done")
 
 

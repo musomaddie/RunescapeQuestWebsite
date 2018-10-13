@@ -35,6 +35,9 @@ class Quest:
         self.thieving = 0
         self.woodcutting = 0
 
+    def __str__(self):
+        return "{}\n".format(self.name)
+
     def add_pre_quest(self, q):
         self.pre_quests.append(q)
 

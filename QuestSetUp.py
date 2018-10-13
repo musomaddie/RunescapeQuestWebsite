@@ -37,6 +37,7 @@ from quests.Stolen_Hearts import Stolen_Hearts
 from quests.Swept_Away import Swept_Away
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
+from quests.Witchs_House import Witchs_House
 
 
 def create_all_quests():
@@ -88,6 +89,7 @@ def create_all_quests():
     vampyre_slayer = Vampyre_Slayer()
 
     whats_mine_is_yours = Whats_Mine_Is_Yours()
+    witchs_house = Witchs_House()
 
     print(beneath_cursed_tides,
           the_blood_pact,
@@ -121,6 +123,7 @@ def create_all_quests():
           swept_away,
           vampyre_slayer,
           whats_mine_is_yours,
+          witchs_house,
           "done")
 
 

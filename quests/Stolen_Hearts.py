@@ -13,3 +13,6 @@ class Stolen_Hearts(Quest):
         super().__init__("Stolen Hearts")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Medium to Long"
+        self.quest_points = 3

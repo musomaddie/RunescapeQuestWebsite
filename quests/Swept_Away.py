@@ -13,3 +13,6 @@ class Swept_Away(Quest):
         super().__init__("Swept Away")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short to Medium"
+        self.quest_points = 2

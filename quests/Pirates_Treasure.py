@@ -13,3 +13,6 @@ class Pirates_Treasure(Quest):
         super().__init__("Pirate's Treasure")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 2

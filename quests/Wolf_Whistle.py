@@ -13,3 +13,6 @@ class Wolf_Whistle(Quest):
         super().__init__("Wolf Whistle")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short to Medium"
+        self.quest_points = 1

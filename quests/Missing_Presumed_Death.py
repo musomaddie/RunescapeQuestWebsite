@@ -13,3 +13,6 @@ class Missing_Presumed_Death(Quest):
         super().__init__("Missing, Presumed Death")
         self.age = 6
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Medium to Long"
+        self.quest_points = 2

@@ -13,3 +13,6 @@ class Myths_Of_The_White_Lands(Quest):
         super().__init__("Myths of the White Lands")
         self.age = 5
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 2

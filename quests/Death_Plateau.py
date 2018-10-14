@@ -13,3 +13,6 @@ class Death_Plateau(Quest):
         super().__init__("Death Plateau")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 1

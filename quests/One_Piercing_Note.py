@@ -13,3 +13,6 @@ class One_Piercing_Note(Quest):
         super().__init__("One Piercing Note")
         self.age = 5
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Medium to Long"
+        self.quest_points = 2

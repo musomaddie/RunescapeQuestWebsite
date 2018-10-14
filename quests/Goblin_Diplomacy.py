@@ -13,3 +13,6 @@ class Goblin_Diplomacy(Quest):
         super().__init__("Goblin Diplomacy")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 5

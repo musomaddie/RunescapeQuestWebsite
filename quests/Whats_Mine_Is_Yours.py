@@ -13,4 +13,8 @@ class Whats_Mine_Is_Yours(Quest):
         super().__init__("What's Mine Is Yours")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 1
+
         self.smithing = 5

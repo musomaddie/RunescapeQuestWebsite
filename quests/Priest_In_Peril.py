@@ -13,3 +13,6 @@ class Priest_In_Peril(Quest):
         super().__init__("Priest In Peril")
         self.age = 5
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 1

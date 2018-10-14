@@ -13,3 +13,6 @@ class Dragon_Slayer(Quest):
         super().__init__("Dragon Slayer")
         self.free = True
         self.age = 5
+        self.difficulty = "Experienced"
+        self.length = "Long"
+        self.quest_points = 2

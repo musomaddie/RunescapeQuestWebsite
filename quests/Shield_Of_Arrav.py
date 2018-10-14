@@ -13,3 +13,6 @@ class Shield_Of_Arrav(Quest):
         super().__init__("Shield of Arrav")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 1

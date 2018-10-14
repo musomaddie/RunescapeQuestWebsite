@@ -12,6 +12,10 @@ class Back_To_My_Roots(Quest):
     def __init__(self):
         super().__init__("Back to my Roots")
         self.age = 5
+        self.difficulty = "Master"
+        self.length = "Medium"
+        self.quest_points = 1
+
         self.agility = 55
         self.farming = 53
         self.slayer = 59

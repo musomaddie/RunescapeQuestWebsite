@@ -13,3 +13,6 @@ class Gower_Quest(Quest):
         super().__init__("Gower Quest")
         self.free = True
         self.age = 6
+        self.difficulty = "Experienced"
+        self.length = "Medium to Long"
+        self.quest_points = 1

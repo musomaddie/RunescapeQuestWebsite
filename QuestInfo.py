@@ -4,10 +4,14 @@ class Quest:
         self.name = name
         self.free = False
         self.age = None
+        self.difficulty = None
+        self.length = None
+        self.quest_points = 0
         self.pre_quests = []
         self.post_quests = []
         self.children = []
         self.other_requirements = []
+
         self.agility = 0
         self.attack = 0
         self.constitution = 0

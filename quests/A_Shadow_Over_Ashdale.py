@@ -13,3 +13,6 @@ class A_Shadow_Over_Ashdale(Quest):
         super().__init__("A Shadow Over Ashadale")
         self.age = 6
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 1

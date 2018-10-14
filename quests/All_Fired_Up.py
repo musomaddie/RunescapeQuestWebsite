@@ -12,4 +12,8 @@ class All_Fired_Up(Quest):
     def __init__(self):
         super().__init__("All Fired Up")
         self.age = 5
+        self.difficulty = "Intermediate"
+        self.length = "Short to Medium"
+        self.quest_points = 1
+
         self.firemaking = 43

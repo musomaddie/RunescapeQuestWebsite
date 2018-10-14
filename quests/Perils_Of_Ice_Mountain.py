@@ -13,6 +13,10 @@ class Perils_Of_Ice_Mountain(Quest):
         super().__init__("Perils of Ice Mountain")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 1
+
         self.farming = 5
         self.hunting = 5
         self.thieving = 5

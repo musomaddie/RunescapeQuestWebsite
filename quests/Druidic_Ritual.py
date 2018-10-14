@@ -13,3 +13,6 @@ class Druidic_Ritual(Quest):
         super().__init__("Druidic Ritual")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 4

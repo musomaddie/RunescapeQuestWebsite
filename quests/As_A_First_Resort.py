@@ -12,6 +12,10 @@ class As_A_First_Resort(Quest):
     def __init__(self):
         super().__init__("As a First Resort")
         self.age = 5
+        self.difficulty = "Experienced"
+        self.length = "Long"
+        self.quest_points = 1
+
         self.hunter = 48
         self.firemaking = 51
         self.woodcutting = 58

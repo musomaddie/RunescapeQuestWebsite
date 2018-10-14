@@ -13,3 +13,6 @@ class Broken_Home(Quest):
         super().__init__("Broken Home")
         self.free = True
         self.age = 6
+        self.difficulty = "Novice"
+        self.length = "Medium to Long"
+        self.quest_points = 1

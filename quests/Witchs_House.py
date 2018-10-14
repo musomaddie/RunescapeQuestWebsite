@@ -12,4 +12,7 @@ class Witchs_House(Quest):
     def __init__(self):
         super().__init__("Witch's House")
         self.free = True
+        self.difficulty = "Intermediate"
+        self.length = "Short"
+        self.quest_points = 4
         self.age = 5

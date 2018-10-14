@@ -13,3 +13,6 @@ class Imp_Catcher(Quest):
         super().__init__("Imp Catcher")
         self.age = 5
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 1

@@ -13,3 +13,6 @@ class Rune_Mysteries(Quest):
         super().__init__("Rune Mysteries")
         self.age = 5
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Medium to Long"
+        self.quest_points = 1

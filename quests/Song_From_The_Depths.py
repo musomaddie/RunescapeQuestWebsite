@@ -13,3 +13,6 @@ class Song_From_The_Depths(Quest):
         super().__init__("Song from the Depths")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short to Medium"
+        self.quest_points = 1

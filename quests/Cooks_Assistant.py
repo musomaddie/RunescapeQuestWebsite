@@ -13,3 +13,6 @@ class Cooks_Assistant(Quest):
         super().__init__("Cook's Assistant")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 1

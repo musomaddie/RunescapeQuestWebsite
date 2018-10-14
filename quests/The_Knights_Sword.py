@@ -13,4 +13,8 @@ class The_Knights_Sword(Quest):
         super().__init__("The Knights Sword")
         self.age = 5
         self.free = True
+        self.difficulty = "Intermediate"
+        self.length = "Short"
+        self.quest_points = 1
+
         self.mining = 10

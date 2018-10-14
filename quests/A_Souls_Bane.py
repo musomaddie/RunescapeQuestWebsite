@@ -13,3 +13,6 @@ class A_Souls_Bane(Quest):
         super().__init__("A Soul's Bane")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short to Medium"
+        self.quest_points = 1

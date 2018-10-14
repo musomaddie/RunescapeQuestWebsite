@@ -13,3 +13,6 @@ class Ernest_The_Chicken(Quest):
         super().__init__("Ernest The Chicken")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Medium"
+        self.quest_points = 4

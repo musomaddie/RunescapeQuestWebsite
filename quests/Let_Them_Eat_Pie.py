@@ -13,3 +13,6 @@ class Let_Them_Eat_Pie(Quest):
         super().__init__("Let Them Eat Pie")
         self.age = 5
         self.free = True
+        self.difficulty = "Novice"
+        self.length = "Short to Medium"
+        self.quest_points = 1

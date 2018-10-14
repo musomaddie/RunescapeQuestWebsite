@@ -13,3 +13,6 @@ class Demon_Slayer(Quest):
         super().__init__("Demon Slayer")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.length = "Short"
+        self.quest_points = 3

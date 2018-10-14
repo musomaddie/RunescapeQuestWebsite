@@ -13,3 +13,6 @@ class The_Death_Of_Chivalry(Quest):
         super().__init__("The Death of Chivalry")
         self.free = True
         self.age = 6
+        self.difficulty = "Novice"
+        self.length = "Long"
+        self.quest_points = 3

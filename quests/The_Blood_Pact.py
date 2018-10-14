@@ -13,3 +13,6 @@ class The_Blood_Pact(Quest):
         super().__init__("The Blood Pact")
         self.free = True
         self.age = 5
+        self.difficulty = "Novice"
+        self.quest_points = 1
+        self.length = "Short"

@@ -12,5 +12,9 @@ class Another_Slice_Of_Ham(Quest):
     def __init__(self):
         super().__init__("Another Slice of H.A.M.")
         self.age = 5
+        self.difficulty = "Intermediate"
+        self.length = "Medium"
+        self.quest_points = 1
+
         self.attack = 15
         self.prayer = 25

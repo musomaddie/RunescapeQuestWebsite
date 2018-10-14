@@ -24,6 +24,7 @@ from quests.Broken_Home import Broken_Home
 from quests.Buyers_And_Cellars import Buyers_And_Cellars
 from quests.Cabin_Fever import Cabin_Fever
 from quests.Call_Of_The_Ancestors import Call_Of_The_Ancestors
+from quests.Carnillean_Rising import Carnillean_Rising
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
@@ -82,6 +83,7 @@ def create_all_quests():
 
     cabin_fever = Cabin_Fever()
     call_of_the_ancestors = Call_Of_The_Ancestors()
+    carnillean_rising = Carnillean_Rising()
     cooks_assistant = Cooks_Assistant()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
@@ -180,6 +182,7 @@ def create_all_quests():
                   buyers_and_cellars,
                   cabin_fever,
                   call_of_the_ancestors,
+                  carnillean_rising,
           "done"]
     print(all_quests)
 

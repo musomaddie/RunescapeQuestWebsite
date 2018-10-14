@@ -26,6 +26,7 @@ from quests.Cabin_Fever import Cabin_Fever
 from quests.Call_Of_The_Ancestors import Call_Of_The_Ancestors
 from quests.Carnillean_Rising import Carnillean_Rising
 from quests.Catapult_Construction import Catapult_Construction
+from quests.Children_Of_Mah import Children_Of_Mah
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
@@ -86,6 +87,7 @@ def create_all_quests():
     call_of_the_ancestors = Call_Of_The_Ancestors()
     carnillean_rising = Carnillean_Rising()
     catapult_construction = Catapult_Construction()
+    children_of_mah = Children_Of_Mah()
     cooks_assistant = Cooks_Assistant()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
@@ -186,6 +188,7 @@ def create_all_quests():
                   call_of_the_ancestors,
                   carnillean_rising,
                   catapult_construction,
+                  children_of_mah,
           "done"]
     print(all_quests)
 

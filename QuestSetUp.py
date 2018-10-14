@@ -28,6 +28,7 @@ from quests.Carnillean_Rising import Carnillean_Rising
 from quests.Catapult_Construction import Catapult_Construction
 from quests.Children_Of_Mah import Children_Of_Mah
 from quests.The_Chosen_Commander import The_Chosen_Commander
+from quests.Clock_Tower import Clock_Tower
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
@@ -90,6 +91,7 @@ def create_all_quests():
     catapult_construction = Catapult_Construction()
     children_of_mah = Children_Of_Mah()
     the_chosen_commander = The_Chosen_Commander()
+    clock_tower = Clock_Tower()
     cooks_assistant = Cooks_Assistant()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
@@ -192,6 +194,7 @@ def create_all_quests():
                   catapult_construction,
                   children_of_mah,
                   the_chosen_commander,
+                  clock_tower,
           "done"]
     print(all_quests)
 

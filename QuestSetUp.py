@@ -11,6 +11,7 @@ from quests.As_A_First_Resort import As_A_First_Resort
 from quests.Back_To_My_Roots import Back_To_My_Roots
 from quests.Back_To_The_Freezer import Back_To_The_Freezer
 from quests.Beneath_Cursed_Tides import Beneath_Cursed_Tides
+from quests.Between_A_Rock import Between_A_Rock
 from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Broken_Home import Broken_Home
 from quests.Cooks_Assistant import Cooks_Assistant
@@ -56,6 +57,7 @@ def create_all_quests():
 
     back_to_my_roots = Back_To_My_Roots()
     back_to_the_freezer = Back_To_The_Freezer()
+    between_a_rock = Between_A_Rock()
     beneath_cursed_tides = Beneath_Cursed_Tides()
     the_blood_pact = The_Blood_Pact()
     broken_home = Broken_Home()
@@ -146,6 +148,7 @@ def create_all_quests():
           as_a_first_resort,
           back_to_my_roots,
           back_to_the_freezer,
+          between_a_rock,
           "done")
 
 

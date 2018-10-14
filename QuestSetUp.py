@@ -17,6 +17,7 @@ from quests.Biohazard import Biohazard
 from quests.Birthright_Of_The_Dwarves import Birthright_Of_The_Dwarves
 from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Blood_Runs_Deep import Blood_Runs_Deep
+from quests.The_Branches_Of_Darkmeyer import The_Branches_Of_Darkmeyer
 from quests.Broken_Home import Broken_Home
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
@@ -68,6 +69,7 @@ def create_all_quests():
     birthright_of_the_dwarves = Birthright_Of_The_Dwarves()
     the_blood_pact = The_Blood_Pact()
     blood_runs_deep = Blood_Runs_Deep()
+    the_branches_of_darkmeyer = The_Branches_Of_Darkmeyer()
     broken_home = Broken_Home()
 
     cooks_assistant = Cooks_Assistant()
@@ -162,6 +164,7 @@ def create_all_quests():
           pirates_treasure,
           birthright_of_the_dwarves,
           blood_runs_deep,
+          the_branches_of_darkmeyer,
           "done")
 
 

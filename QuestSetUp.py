@@ -8,6 +8,7 @@ from quests.All_Fired_Up import All_Fired_Up
 from quests.Animal_Magnetism import Animal_Magnetism
 from quests.Another_Slice_Of_Ham import Another_Slice_Of_Ham
 from quests.As_A_First_Resort import As_A_First_Resort
+from quests.Back_To_My_Roots import Back_To_My_Roots
 from quests.Beneath_Cursed_Tides import Beneath_Cursed_Tides
 from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Broken_Home import Broken_Home
@@ -52,6 +53,7 @@ def create_all_quests():
     another_slice_of_ham = Another_Slice_Of_Ham()
     as_a_first_resort = As_A_First_Resort()
 
+    back_to_my_roots = Back_To_My_Roots()
     beneath_cursed_tides = Beneath_Cursed_Tides()
     the_blood_pact = The_Blood_Pact()
     broken_home = Broken_Home()
@@ -140,6 +142,7 @@ def create_all_quests():
           another_slice_of_ham,
           animal_magnetism,
           as_a_first_resort,
+          back_to_my_roots,
           "done")
 
 

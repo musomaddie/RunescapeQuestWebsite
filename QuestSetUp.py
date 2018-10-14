@@ -22,6 +22,7 @@ from quests.Bringing_Home_The_Bacon import Bringing_Home_The_Bacon
 from quests.The_Brink_Of_Extinction import The_Brink_Of_Extinction
 from quests.Broken_Home import Broken_Home
 from quests.Buyers_And_Cellars import Buyers_And_Cellars
+from quests.Cabin_Fever import Cabin_Fever
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
@@ -78,6 +79,7 @@ def create_all_quests():
     broken_home = Broken_Home()
     buyers_and_cellars = Buyers_And_Cellars()
 
+    cabin_fever = Cabin_Fever()
     cooks_assistant = Cooks_Assistant()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
@@ -173,6 +175,7 @@ def create_all_quests():
                   the_branches_of_darkmeyer,
                   bringing_home_the_bacon,
                   the_brink_of_extinction,
+                  cabin_fever,
           "done"]
     print(all_quests)
 

@@ -12,6 +12,7 @@ from quests.Back_To_My_Roots import Back_To_My_Roots
 from quests.Back_To_The_Freezer import Back_To_The_Freezer
 from quests.Beneath_Cursed_Tides import Beneath_Cursed_Tides
 from quests.Between_A_Rock import Between_A_Rock
+from quests.Big_Chompy_Bird_Hunting import Big_Chompy_Bird_Hunting
 from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Broken_Home import Broken_Home
 from quests.Cooks_Assistant import Cooks_Assistant
@@ -59,6 +60,7 @@ def create_all_quests():
     back_to_the_freezer = Back_To_The_Freezer()
     between_a_rock = Between_A_Rock()
     beneath_cursed_tides = Beneath_Cursed_Tides()
+    big_chompy_bird_hunting = Big_Chompy_Bird_Hunting()
     the_blood_pact = The_Blood_Pact()
     broken_home = Broken_Home()
 
@@ -149,6 +151,7 @@ def create_all_quests():
           back_to_my_roots,
           back_to_the_freezer,
           between_a_rock,
+          big_chompy_bird_hunting,
           "done")
 
 

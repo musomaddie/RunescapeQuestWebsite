@@ -19,6 +19,7 @@ from quests.The_Blood_Pact import The_Blood_Pact
 from quests.Blood_Runs_Deep import Blood_Runs_Deep
 from quests.The_Branches_Of_Darkmeyer import The_Branches_Of_Darkmeyer
 from quests.Bringing_Home_The_Bacon import Bringing_Home_The_Bacon
+from quests.The_Brink_Of_Extinction import The_Brink_Of_Extinction
 from quests.Broken_Home import Broken_Home
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
@@ -72,6 +73,7 @@ def create_all_quests():
     blood_runs_deep = Blood_Runs_Deep()
     the_branches_of_darkmeyer = The_Branches_Of_Darkmeyer()
     bringing_home_the_bacon = Bringing_Home_The_Bacon()
+    the_brink_of_extinction = The_Brink_Of_Extinction()
     broken_home = Broken_Home()
 
     cooks_assistant = Cooks_Assistant()
@@ -168,6 +170,7 @@ def create_all_quests():
           blood_runs_deep,
           the_branches_of_darkmeyer,
           bringing_home_the_bacon,
+          the_brink_of_extinction,
           "done")
 
 

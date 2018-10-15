@@ -30,6 +30,7 @@ from quests.Children_Of_Mah import Children_Of_Mah
 from quests.The_Chosen_Commander import The_Chosen_Commander
 from quests.Clock_Tower import Clock_Tower
 from quests.A_Clockwork_Syringe import A_Clockwork_Syringe
+from quests.Cold_War import Cold_War
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
@@ -94,6 +95,7 @@ def create_all_quests():
     the_chosen_commander = The_Chosen_Commander()
     clock_tower = Clock_Tower()
     a_clockwork_syringe = A_Clockwork_Syringe()
+    cold_war = Cold_War()
     cooks_assistant = Cooks_Assistant()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
@@ -198,6 +200,7 @@ def create_all_quests():
                   the_chosen_commander,
                   clock_tower,
                   a_clockwork_syringe,
+                  cold_war,
           "done"]
     print(all_quests)
 

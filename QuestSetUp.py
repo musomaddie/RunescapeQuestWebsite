@@ -35,6 +35,7 @@ from quests.Contact import Contact
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.Creature_Of_Fenkenstrain import Creature_Of_Fenkenstrain
 from quests.Crocodile_Tears import Crocodile_Tears
+from quests.The_Curse_Of_Arrav import The_Curse_Of_Arrav
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
@@ -103,6 +104,7 @@ def create_all_quests():
     cooks_assistant = Cooks_Assistant()
     creature_of_fenkenstrain = Creature_Of_Fenkenstrain()
     crocodile_tears = Crocodile_Tears()
+    the_curse_of_arrav = The_Curse_Of_Arrav()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
     death_plateau = Death_Plateau()
@@ -210,6 +212,7 @@ def create_all_quests():
                   contact,
                   creature_of_fenkenstrain,
                   crocodile_tears,
+                  the_curse_of_arrav,
                   "done"]
     print(all_quests)
 

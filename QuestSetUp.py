@@ -40,6 +40,7 @@ from quests.Darkness_Of_Hallowvale import Darkness_Of_Hallowvale
 from quests.Deadliest_Catch import Deadliest_Catch
 from quests.Dealing_With_Scabaras import Dealing_With_Scabaras
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
+from quests.Death_To_The_Dorgeshuun import Death_To_The_Dorgeshuun
 from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
 from quests.Dragon_Slayer import Dragon_Slayer
@@ -113,6 +114,7 @@ def create_all_quests():
     deadliest_catch = Deadliest_Catch()
     dealing_with_scabaras = Dealing_With_Scabaras()
     the_death_of_chivalry = The_Death_Of_Chivalry()
+    death_to_the_dorgeshuun = Death_To_The_Dorgeshuun()
     death_plateau = Death_Plateau()
     demon_slayer = Demon_Slayer()
     dragon_slayer = Dragon_Slayer()
@@ -222,6 +224,7 @@ def create_all_quests():
                   darkness_of_hallowvale,
                   deadliest_catch,
                   dealing_with_scabaras,
+                  death_to_the_dorgeshuun,
                   "done"]
     print(all_quests)
 

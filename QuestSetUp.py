@@ -44,6 +44,7 @@ from quests.Death_To_The_Dorgeshuun import Death_To_The_Dorgeshuun
 from quests.Death_Plateau import Death_Plateau
 from quests.Defender_Of_Varrock import Defender_Of_Varrock
 from quests.Demon_Slayer import Demon_Slayer
+from quests.Desert_Treasure import Desert_Treasure
 from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Druidic_Ritual import Druidic_Ritual
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
@@ -119,6 +120,7 @@ def create_all_quests():
     death_plateau = Death_Plateau()
     defender_of_varrock = Defender_Of_Varrock()
     demon_slayer = Demon_Slayer()
+    desert_treasure = Desert_Treasure()
     dragon_slayer = Dragon_Slayer()
     druidic_ritual = Druidic_Ritual()
 
@@ -228,6 +230,7 @@ def create_all_quests():
                   dealing_with_scabaras,
                   death_to_the_dorgeshuun,
                   defender_of_varrock,
+                  desert_treasure,
                   "done"]
     print(all_quests)
 

@@ -59,6 +59,7 @@ from quests.Eadgars_Ruse import Eadgars_Ruse
 from quests.Eagles_Peak import Eagles_Peak
 from quests.The_Elder_Kiln import The_Elder_Kiln
 from quests.Elemental_Workshop_I import Elemental_Workshop_I
+from quests.Elemental_Workshop_II import Elemental_Workshop_II
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
@@ -148,6 +149,7 @@ def create_all_quests():
     eagles_peak = Eagles_Peak()
     the_elder_kiln = The_Elder_Kiln()
     elemental_workshop_i = Elemental_Workshop_I()
+    elemental_workshop_ii = Elemental_Workshop_II()
     ernest_the_chicken = Ernest_The_Chicken()
 
     gertrudes_cat = Gertrudes_Cat()
@@ -267,6 +269,7 @@ def create_all_quests():
                   eagles_peak,
                   the_elder_kiln,
                   elemental_workshop_i,
+                  elemental_workshop_ii,
                   "done"]
     print(all_quests)
 

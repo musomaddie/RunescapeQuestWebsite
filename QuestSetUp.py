@@ -55,6 +55,7 @@ from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Dream_Mentor import Dream_Mentor
 from quests.Druidic_Ritual import Druidic_Ritual
 from quests.Dwarf_Cannon import Dwarf_Cannon
+from quests.Eadgars_Ruse import Eadgars_Ruse
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
@@ -140,6 +141,7 @@ def create_all_quests():
     druidic_ritual = Druidic_Ritual()
     dwarf_cannon = Dwarf_Cannon()
 
+    eadgars_ruse = Eadgars_Ruse()
     ernest_the_chicken = Ernest_The_Chicken()
 
     gertrudes_cat = Gertrudes_Cat()
@@ -255,6 +257,7 @@ def create_all_quests():
                   do_no_evil,
                   dream_mentor,
                   dwarf_cannon,
+                  eadgars_ruse,
                   "done"]
     print(all_quests)
 

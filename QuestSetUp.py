@@ -54,6 +54,7 @@ from quests.Do_No_Evil import Do_No_Evil
 from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Dream_Mentor import Dream_Mentor
 from quests.Druidic_Ritual import Druidic_Ritual
+from quests.Dwarf_Cannon import Dwarf_Cannon
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
@@ -137,6 +138,7 @@ def create_all_quests():
     dragon_slayer = Dragon_Slayer()
     dream_mentor = Dream_Mentor()
     druidic_ritual = Druidic_Ritual()
+    dwarf_cannon = Dwarf_Cannon()
 
     ernest_the_chicken = Ernest_The_Chicken()
 
@@ -252,6 +254,7 @@ def create_all_quests():
                   dishonour_among_thieves,
                   do_no_evil,
                   dream_mentor,
+                  dwarf_cannon,
                   "done"]
     print(all_quests)
 

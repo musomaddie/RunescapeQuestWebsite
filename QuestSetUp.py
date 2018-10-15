@@ -35,8 +35,9 @@ from quests.Contact import Contact
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.Creature_Of_Fenkenstrain import Creature_Of_Fenkenstrain
 from quests.Crocodile_Tears import Crocodile_Tears
-from quests.Darkness_Of_Hallowvale import Darkness_Of_Hallowvale
 from quests.The_Curse_Of_Arrav import The_Curse_Of_Arrav
+from quests.Darkness_Of_Hallowvale import Darkness_Of_Hallowvale
+from quests.Deadliest_Catch import Deadliest_Catch
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
@@ -108,6 +109,7 @@ def create_all_quests():
     the_curse_of_arrav = The_Curse_Of_Arrav()
 
     darkness_of_hallowvale = Darkness_Of_Hallowvale()
+    deadliest_catch = Deadliest_Catch()
     the_death_of_chivalry = The_Death_Of_Chivalry()
     death_plateau = Death_Plateau()
     demon_slayer = Demon_Slayer()
@@ -215,6 +217,7 @@ def create_all_quests():
                   creature_of_fenkenstrain,
                   crocodile_tears,
                   the_curse_of_arrav,
+                  deadliest_catch,
                   "done"]
     print(all_quests)
 

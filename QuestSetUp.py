@@ -48,6 +48,7 @@ from quests.Desert_Treasure import Desert_Treasure
 from quests.Devious_Minds import Devious_Minds
 from quests.Diamond_In_The_Rough import Diamond_In_The_Rough
 from quests.The_Dig_Site import The_Dig_Site
+from quests.Dimension_Of_Disaster import Dimension_Of_Disaster
 from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Druidic_Ritual import Druidic_Ritual
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
@@ -127,6 +128,7 @@ def create_all_quests():
     devious_minds = Devious_Minds()
     diamond_in_the_rough = Diamond_In_The_Rough()
     the_dig_site = The_Dig_Site()
+    dimension_of_disaster = Dimension_Of_Disaster()
     dragon_slayer = Dragon_Slayer()
     druidic_ritual = Druidic_Ritual()
 
@@ -240,6 +242,7 @@ def create_all_quests():
                   devious_minds,
                   diamond_in_the_rough,
                   the_dig_site,
+                  dimension_of_disaster,
                   "done"]
     print(all_quests)
 

@@ -38,6 +38,7 @@ from quests.Crocodile_Tears import Crocodile_Tears
 from quests.The_Curse_Of_Arrav import The_Curse_Of_Arrav
 from quests.Darkness_Of_Hallowvale import Darkness_Of_Hallowvale
 from quests.Deadliest_Catch import Deadliest_Catch
+from quests.Dealing_With_Scabaras import Dealing_With_Scabaras
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
 from quests.Demon_Slayer import Demon_Slayer
@@ -110,6 +111,7 @@ def create_all_quests():
 
     darkness_of_hallowvale = Darkness_Of_Hallowvale()
     deadliest_catch = Deadliest_Catch()
+    dealing_with_scabaras = Dealing_With_Scabaras()
     the_death_of_chivalry = The_Death_Of_Chivalry()
     death_plateau = Death_Plateau()
     demon_slayer = Demon_Slayer()
@@ -217,7 +219,9 @@ def create_all_quests():
                   creature_of_fenkenstrain,
                   crocodile_tears,
                   the_curse_of_arrav,
+                  darkness_of_hallowvale,
                   deadliest_catch,
+                  dealing_with_scabaras,
                   "done"]
     print(all_quests)
 

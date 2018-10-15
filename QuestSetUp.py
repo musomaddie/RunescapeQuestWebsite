@@ -50,6 +50,7 @@ from quests.Diamond_In_The_Rough import Diamond_In_The_Rough
 from quests.The_Dig_Site import The_Dig_Site
 from quests.Dimension_Of_Disaster import Dimension_Of_Disaster
 from quests.Dishonour_Among_Thieves import Dishonour_Among_Thieves
+from quests.Do_No_Evil import Do_No_Evil
 from quests.Dragon_Slayer import Dragon_Slayer
 from quests.Druidic_Ritual import Druidic_Ritual
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
@@ -131,6 +132,7 @@ def create_all_quests():
     the_dig_site = The_Dig_Site()
     dimension_of_disaster = Dimension_Of_Disaster()
     dishonour_among_thieves = Dishonour_Among_Thieves()
+    do_no_evil = Do_No_Evil()
     dragon_slayer = Dragon_Slayer()
     druidic_ritual = Druidic_Ritual()
 
@@ -246,6 +248,7 @@ def create_all_quests():
                   the_dig_site,
                   dimension_of_disaster,
                   dishonour_among_thieves,
+                  do_no_evil,
                   "done"]
     print(all_quests)
 

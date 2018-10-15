@@ -62,6 +62,7 @@ from quests.Elemental_Workshop_I import Elemental_Workshop_I
 from quests.Elemental_Workshop_II import Elemental_Workshop_II
 from quests.Elemental_Workshop_III import Elemental_Workshop_III
 from quests.Elemental_Workshop_IV import Elemental_Workshop_IV
+from quests.Enakhras_Lament import Enakhras_Lament
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
@@ -154,6 +155,7 @@ def create_all_quests():
     elemental_workshop_ii = Elemental_Workshop_II()
     elemental_workshop_iii = Elemental_Workshop_III()
     elemental_workshop_iv = Elemental_Workshop_IV()
+    enakhras_lament = Enakhras_Lament()
     ernest_the_chicken = Ernest_The_Chicken()
 
     gertrudes_cat = Gertrudes_Cat()
@@ -276,6 +278,7 @@ def create_all_quests():
                   elemental_workshop_ii,
                   elemental_workshop_iii,
                   elemental_workshop_iv,
+                  enakhras_lament,
                   "done"]
     print(all_quests)
 

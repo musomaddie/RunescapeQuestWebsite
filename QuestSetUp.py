@@ -31,6 +31,7 @@ from quests.The_Chosen_Commander import The_Chosen_Commander
 from quests.Clock_Tower import Clock_Tower
 from quests.A_Clockwork_Syringe import A_Clockwork_Syringe
 from quests.Cold_War import Cold_War
+from quests.Contact import Contact
 from quests.Cooks_Assistant import Cooks_Assistant
 from quests.The_Death_Of_Chivalry import The_Death_Of_Chivalry
 from quests.Death_Plateau import Death_Plateau
@@ -96,6 +97,7 @@ def create_all_quests():
     clock_tower = Clock_Tower()
     a_clockwork_syringe = A_Clockwork_Syringe()
     cold_war = Cold_War()
+    contact = Contact()
     cooks_assistant = Cooks_Assistant()
 
     the_death_of_chivalry = The_Death_Of_Chivalry()
@@ -201,7 +203,8 @@ def create_all_quests():
                   clock_tower,
                   a_clockwork_syringe,
                   cold_war,
-          "done"]
+                  contact,
+zsh:1: command not found: :q
     print(all_quests)
 
 

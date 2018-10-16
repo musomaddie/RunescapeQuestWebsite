@@ -66,6 +66,7 @@ from quests.Enakhras_Lament import Enakhras_Lament
 from quests.Enlightened_Journey import Enlightened_Journey
 from quests.Ernest_The_Chicken import Ernest_The_Chicken
 from quests.Evil_Daves_Big_Day_Out import Evil_Daves_Big_Day_Out
+from quests.The_Eyes_Of_Glouphrie import The_Eyes_Of_Glouphrie
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -161,6 +162,7 @@ def create_all_quests():
     enlightened_journey = Enlightened_Journey()
     ernest_the_chicken = Ernest_The_Chicken()
     evil_daves_big_day_out = Evil_Daves_Big_Day_Out()
+    the_eyes_of_glouphrie = The_Eyes_Of_Glouphrie()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -285,6 +287,7 @@ def create_all_quests():
                   enakhras_lament,
                   enlightened_journey,
                   evil_daves_big_day_out,
+                  the_eyes_of_glouphrie,
                   "done"]
     print(all_quests)
 

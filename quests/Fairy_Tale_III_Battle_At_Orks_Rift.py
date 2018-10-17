@@ -7,15 +7,17 @@ sys.path.insert(0,
 from QuestInfo import Quest
 
 
-class Fairy_Tale_II_Cure_A_Queen(Quest):
+class Fairy_Tale_III_Battle_At_Orks_Rift(Quest):
 
     def __init__(self):
-        super().__init__("Fairy Tale II - Cure a Queen")
+        super().__init__("Fairy Tale III - Battle at Ork's Rift")
         self.age = 5
         self.difficulty = "Experienced"
         self.length = "Medium"
         self.quest_points = 2
 
-        self.thieving = 40
-        self.farming = 49
-        self.herblore = 57
+        self.magic = 59
+        self.farming = 54
+        self.thieving = 51
+        self.summoning = 37
+        self.crafting = 36

@@ -69,6 +69,7 @@ from quests.Evil_Daves_Big_Day_Out import Evil_Daves_Big_Day_Out
 from quests.The_Eyes_Of_Glouphrie import The_Eyes_Of_Glouphrie
 from quests.Fairy_Tale_I_Growing_Pains import Fairy_Tale_I_Growing_Pains
 from quests.Fairy_Tale_II_Cure_A_Queen import Fairy_Tale_II_Cure_A_Queen
+from quests.Fairy_Tale_III_Battle_At_Orks_Rift import Fairy_Tale_III_Battle_At_Orks_Rift
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -168,6 +169,7 @@ def create_all_quests():
 
     fairy_tale_i_growing_pains = Fairy_Tale_I_Growing_Pains()
     fairy_tale_ii_cure_a_queen = Fairy_Tale_II_Cure_A_Queen()
+    fairy_tale_iii_battle_at_orks_rift = Fairy_Tale_III_Battle_At_Orks_Rift()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -295,6 +297,7 @@ def create_all_quests():
                   the_eyes_of_glouphrie,
                   fairy_tale_i_growing_pains,
                   fairy_tale_ii_cure_a_queen,
+                  fairy_tale_iii_battle_at_orks_rift,
                   "done"]
     print(all_quests)
 

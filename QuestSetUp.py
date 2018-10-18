@@ -87,6 +87,7 @@ from quests.Ghosts_Ahoy import Ghosts_Ahoy
 from quests.The_Giant_Dwarf import The_Giant_Dwarf
 from quests.Glorious_Memories import Glorious_Memories
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
+from quests.The_Golem import The_Golem
 from quests.Gower_Quest import Gower_Quest
 from quests.Gunnars_Ground import Gunnars_Ground
 from quests.Imp_Catcher import Imp_Catcher
@@ -203,6 +204,7 @@ def create_all_quests():
     the_giant_dwarf = The_Giant_Dwarf()
     glorious_memories = Glorious_Memories()
     goblin_diplomacy = Goblin_Diplomacy()
+    the_golem = The_Golem()
     gower_quest = Gower_Quest()
     gunnars_ground = Gunnars_Ground()
 
@@ -343,6 +345,7 @@ def create_all_quests():
                   ghosts_ahoy,
                   the_giant_dwarf,
                   glorious_memories,
+                  the_golem,
                   "done"]
     print(all_quests)
 

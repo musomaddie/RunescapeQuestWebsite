@@ -104,6 +104,7 @@ from quests.Horror_From_The_Deep import Horror_From_The_Deep
 from quests.Hunt_For_Red_Raktuber import Hunt_For_Red_Raktuber
 from quests.Icthlarins_Little_Helper import Icthlarins_Little_Helper
 from quests.Imp_Catcher import Imp_Catcher
+from quests.Impressing_The_Locals import Impressing_The_Locals
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
@@ -236,6 +237,7 @@ def create_all_quests():
 
     imp_catcher = Imp_Catcher()
     icthlarins_little_helper = Icthlarins_Little_Helper()
+    impressing_the_locals = Impressing_The_Locals()
 
     the_knights_sword = The_Knights_Sword()
 
@@ -386,6 +388,7 @@ def create_all_quests():
                   horror_from_the_deep,
                   hunt_for_red_raktuber,
                   icthlarins_little_helper,
+                  impressing_the_locals,
                   "done"]
     print(all_quests)
 

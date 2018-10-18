@@ -93,6 +93,7 @@ from quests.The_Grand_Tree import The_Grand_Tree
 from quests.The_Great_Brain_Robbery import The_Great_Brain_Robbery
 from quests.Gunnars_Ground import Gunnars_Ground
 from quests.Grim_Tales import Grim_Tales
+from quests.The_Hand_In_The_Sand import The_Hand_In_The_Sand
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
@@ -213,6 +214,8 @@ def create_all_quests():
     the_great_brain_robbery = The_Great_Brain_Robbery()
     grim_tales = Grim_Tales()
     gunnars_ground = Gunnars_Ground()
+
+    the_hand_in_the_sand = The_Hand_In_The_Sand()
 
     imp_catcher = Imp_Catcher()
 
@@ -355,6 +358,7 @@ def create_all_quests():
                   the_grand_tree,
                   the_great_brain_robbery,
                   grim_tales,
+                  the_hand_in_the_sand,
                   "done"]
     print(all_quests)
 

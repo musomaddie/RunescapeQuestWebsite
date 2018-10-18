@@ -96,6 +96,7 @@ from quests.Grim_Tales import Grim_Tales
 from quests.The_Hand_In_The_Sand import The_Hand_In_The_Sand
 from quests.Haunted_Mine import Haunted_Mine
 from quests.Hazeel_Cult import Hazeel_Cult
+from quests.Heart_Of_Stone import Heart_Of_Stone
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
@@ -220,6 +221,7 @@ def create_all_quests():
     the_hand_in_the_sand = The_Hand_In_The_Sand()
     haunted_mine = Haunted_Mine()
     hazeel_cult = Hazeel_Cult()
+    heart_of_stone = Heart_Of_Stone()
 
     imp_catcher = Imp_Catcher()
 
@@ -365,6 +367,7 @@ def create_all_quests():
                   the_hand_in_the_sand,
                   haunted_mine,
                   hazeel_cult,
+                  heart_of_stone,
                   "done"]
     print(all_quests)
 

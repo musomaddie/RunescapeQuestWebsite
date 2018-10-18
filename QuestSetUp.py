@@ -81,6 +81,7 @@ from quests.Forgiveness_Of_A_Chaos_Dwarf import Forgiveness_Of_A_Chaos_Dwarf
 from quests.The_Fremennik_Isles import The_Fremennik_Isles
 from quests.The_Fremennik_Trials import The_Fremennik_Trials
 from quests.Fur_N_Seek import Fur_N_Seek
+from quests.Garden_Of_Tranquillity import Garden_Of_Tranquillity
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -193,6 +194,7 @@ def create_all_quests():
     the_fremennik_trials = The_Fremennik_Trials()
     fur_n_seek = Fur_N_Seek()
 
+    garden_of_tranquillity = Garden_Of_Tranquillity()
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
     gower_quest = Gower_Quest()
@@ -331,6 +333,7 @@ def create_all_quests():
                   the_fremennik_isles,
                   the_fremennik_trials,
                   fur_n_seek,
+                  garden_of_tranquillity,
                   "done"]
     print(all_quests)
 

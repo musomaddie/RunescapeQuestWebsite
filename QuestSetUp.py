@@ -109,6 +109,7 @@ from quests.In_Aid_Of_The_Myreque import In_Aid_Of_The_Myreque
 from quests.In_Pyre_Need import In_Pyre_Need
 from quests.In_Search_Of_The_Myreque import In_Search_Of_The_Myreque
 from quests.The_Jack_Of_Spades import The_Jack_Of_Spades
+from quests.Jungle_Potion import Jungle_Potion
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
@@ -247,6 +248,7 @@ def create_all_quests():
     in_search_of_the_myreque = In_Search_Of_The_Myreque()
 
     the_jack_of_spades = The_Jack_Of_Spades()
+    jungle_potion = Jungle_Potion()
 
     the_knights_sword = The_Knights_Sword()
 
@@ -402,6 +404,7 @@ def create_all_quests():
                   in_pyre_need,
                   in_search_of_the_myreque,
                   the_jack_of_spades,
+                  jungle_potion,
                   "done"]
     print(all_quests)
 

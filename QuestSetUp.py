@@ -76,6 +76,7 @@ from quests.The_Feud import The_Feud
 from quests.Fight_Arena import Fight_Arena
 from quests.The_Firemakers_Curse import The_Firemakers_Curse
 from quests.Fishing_Contest import Fishing_Contest
+from quests.Forgettable_Tale import Forgettable_Tale
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -182,6 +183,7 @@ def create_all_quests():
     fight_arena = Fight_Arena()
     the_firemakers_curse = The_Firemakers_Curse()
     fishing_contest = Fishing_Contest()
+    forgettable_tale = Forgettable_Tale()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -316,6 +318,7 @@ def create_all_quests():
                   fight_arena,
                   the_firemakers_curse,
                   fishing_contest,
+                  forgettable_tale,
                   "done"]
     print(all_quests)
 

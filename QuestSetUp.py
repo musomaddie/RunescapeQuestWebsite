@@ -71,6 +71,7 @@ from quests.Fairy_Tale_I_Growing_Pains import Fairy_Tale_I_Growing_Pains
 from quests.Fairy_Tale_II_Cure_A_Queen import Fairy_Tale_II_Cure_A_Queen
 from quests.Fairy_Tale_III_Battle_At_Orks_Rift import Fairy_Tale_III_Battle_At_Orks_Rift
 from quests.Family_Crest import Family_Crest
+from quests.Fate_Of_The_Gods import Fate_Of_The_Gods
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -172,6 +173,7 @@ def create_all_quests():
     fairy_tale_ii_cure_a_queen = Fairy_Tale_II_Cure_A_Queen()
     fairy_tale_iii_battle_at_orks_rift = Fairy_Tale_III_Battle_At_Orks_Rift()
     family_crest = Family_Crest()
+    fate_of_the_gods = Fate_Of_The_Gods()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -301,6 +303,7 @@ def create_all_quests():
                   fairy_tale_ii_cure_a_queen,
                   fairy_tale_iii_battle_at_orks_rift,
                   family_crest,
+                  fate_of_the_gods,
                   "done"]
     print(all_quests)
 

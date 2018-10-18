@@ -110,6 +110,8 @@ from quests.In_Pyre_Need import In_Pyre_Need
 from quests.In_Search_Of_The_Myreque import In_Search_Of_The_Myreque
 from quests.The_Jack_Of_Spades import The_Jack_Of_Spades
 from quests.Jungle_Potion import Jungle_Potion
+from quests.Kenniths_Concerns import Kenniths_Concerns
+from quests.Kindred_Spirits import Kindred_Spirits
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
@@ -250,6 +252,8 @@ def create_all_quests():
     the_jack_of_spades = The_Jack_Of_Spades()
     jungle_potion = Jungle_Potion()
 
+    kenniths_concerns = Kenniths_Concerns()
+    kindred_spirits = Kindred_Spirits()
     the_knights_sword = The_Knights_Sword()
 
     let_them_eat_pie = Let_Them_Eat_Pie()
@@ -405,6 +409,8 @@ def create_all_quests():
                   in_search_of_the_myreque,
                   the_jack_of_spades,
                   jungle_potion,
+                  kenniths_concerns,
+                  kindred_spirits,
                   "done"]
     print(all_quests)
 

@@ -102,6 +102,7 @@ from quests.Heroes_Quest import Heroes_Quest
 from quests.Holy_Grail import Holy_Grail
 from quests.Horror_From_The_Deep import Horror_From_The_Deep
 from quests.Hunt_For_Red_Raktuber import Hunt_For_Red_Raktuber
+from quests.Icthlarins_Little_Helper import Icthlarins_Little_Helper
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
@@ -234,6 +235,7 @@ def create_all_quests():
     hunt_for_red_raktuber = Hunt_For_Red_Raktuber()
 
     imp_catcher = Imp_Catcher()
+    icthlarins_little_helper = Icthlarins_Little_Helper()
 
     the_knights_sword = The_Knights_Sword()
 
@@ -383,6 +385,7 @@ def create_all_quests():
                   holy_grail,
                   horror_from_the_deep,
                   hunt_for_red_raktuber,
+                  icthlarins_little_helper,
                   "done"]
     print(all_quests)
 

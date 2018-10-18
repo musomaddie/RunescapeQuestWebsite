@@ -106,6 +106,7 @@ from quests.Icthlarins_Little_Helper import Icthlarins_Little_Helper
 from quests.Imp_Catcher import Imp_Catcher
 from quests.Impressing_The_Locals import Impressing_The_Locals
 from quests.In_Aid_Of_The_Myreque import In_Aid_Of_The_Myreque
+from quests.In_Pyre_Need import In_Pyre_Need
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
@@ -240,6 +241,7 @@ def create_all_quests():
     icthlarins_little_helper = Icthlarins_Little_Helper()
     impressing_the_locals = Impressing_The_Locals()
     in_aid_of_the_myreque = In_Aid_Of_The_Myreque()
+    in_pyre_need = In_Pyre_Need()
 
     the_knights_sword = The_Knights_Sword()
 
@@ -392,6 +394,7 @@ def create_all_quests():
                   icthlarins_little_helper,
                   impressing_the_locals,
                   in_aid_of_the_myreque,
+                  in_pyre_need,
                   "done"]
     print(all_quests)
 

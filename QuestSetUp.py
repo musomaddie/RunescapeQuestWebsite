@@ -73,6 +73,7 @@ from quests.Fairy_Tale_III_Battle_At_Orks_Rift import Fairy_Tale_III_Battle_At_O
 from quests.Family_Crest import Family_Crest
 from quests.Fate_Of_The_Gods import Fate_Of_The_Gods
 from quests.The_Feud import The_Feud
+from quests.Fight_Arena import Fight_Arena
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -176,6 +177,7 @@ def create_all_quests():
     family_crest = Family_Crest()
     fate_of_the_gods = Fate_Of_The_Gods()
     the_feud = The_Feud()
+    fight_arena = Fight_Arena()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -307,6 +309,7 @@ def create_all_quests():
                   family_crest,
                   fate_of_the_gods,
                   the_feud,
+                  fight_arena,
                   "done"]
     print(all_quests)
 

@@ -116,6 +116,7 @@ from quests.King_Of_The_Dwarves import King_Of_The_Dwarves
 from quests.Kings_Ransom import Kings_Ransom
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Land_Of_The_Goblins import Land_Of_The_Goblins
+from quests.Legacy_Of_Seergaze import Legacy_Of_Seergaze
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
@@ -262,6 +263,7 @@ def create_all_quests():
     the_knights_sword = The_Knights_Sword()
 
     land_of_the_goblins = Land_Of_The_Goblins()
+    legacy_of_seergaze = Legacy_Of_Seergaze()
     let_them_eat_pie = Let_Them_Eat_Pie()
 
     missing_presumed_death = Missing_Presumed_Death()
@@ -420,6 +422,7 @@ def create_all_quests():
                   king_of_the_dwarves,
                   kings_ransom,
                   land_of_the_goblins,
+                  legacy_of_seergaze,
                   "done"]
     print(all_quests)
 

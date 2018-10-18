@@ -105,6 +105,7 @@ from quests.Hunt_For_Red_Raktuber import Hunt_For_Red_Raktuber
 from quests.Icthlarins_Little_Helper import Icthlarins_Little_Helper
 from quests.Imp_Catcher import Imp_Catcher
 from quests.Impressing_The_Locals import Impressing_The_Locals
+from quests.In_Aid_Of_The_Myreque import In_Aid_Of_The_Myreque
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
@@ -238,6 +239,7 @@ def create_all_quests():
     imp_catcher = Imp_Catcher()
     icthlarins_little_helper = Icthlarins_Little_Helper()
     impressing_the_locals = Impressing_The_Locals()
+    in_aid_of_the_myreque = In_Aid_Of_The_Myreque()
 
     the_knights_sword = The_Knights_Sword()
 
@@ -389,6 +391,7 @@ def create_all_quests():
                   hunt_for_red_raktuber,
                   icthlarins_little_helper,
                   impressing_the_locals,
+                  in_aid_of_the_myreque,
                   "done"]
     print(all_quests)
 

@@ -119,6 +119,7 @@ from quests.Land_Of_The_Goblins import Land_Of_The_Goblins
 from quests.Legacy_Of_Seergaze import Legacy_Of_Seergaze
 from quests.Legends_Quest import Legends_Quest
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
+from quests.The_Light_Within import The_Light_Within
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.One_Piercing_Note import One_Piercing_Note
@@ -267,6 +268,7 @@ def create_all_quests():
     legacy_of_seergaze = Legacy_Of_Seergaze()
     legends_quest = Legends_Quest()
     let_them_eat_pie = Let_Them_Eat_Pie()
+    the_light_within = The_Light_Within()
 
     missing_presumed_death = Missing_Presumed_Death()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
@@ -426,6 +428,7 @@ def create_all_quests():
                   land_of_the_goblins,
                   legacy_of_seergaze,
                   legends_quest,
+                  the_light_within,
                   "done"]
     print(all_quests)
 

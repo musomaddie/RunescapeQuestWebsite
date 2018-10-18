@@ -75,6 +75,7 @@ from quests.Fate_Of_The_Gods import Fate_Of_The_Gods
 from quests.The_Feud import The_Feud
 from quests.Fight_Arena import Fight_Arena
 from quests.The_Firemakers_Curse import The_Firemakers_Curse
+from quests.Fishing_Contest import Fishing_Contest
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -180,6 +181,7 @@ def create_all_quests():
     the_feud = The_Feud()
     fight_arena = Fight_Arena()
     the_firemakers_curse = The_Firemakers_Curse()
+    fishing_contest = Fishing_Contest()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -313,6 +315,7 @@ def create_all_quests():
                   the_feud,
                   fight_arena,
                   the_firemakers_curse,
+                  fishing_contest,
                   "done"]
     print(all_quests)
 

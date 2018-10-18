@@ -121,6 +121,7 @@ from quests.Legends_Quest import Legends_Quest
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.The_Light_Within import The_Light_Within
 from quests.The_Lord_Of_Vampyrium import The_Lord_Of_Vampyrium
+from quests.Lost_City import Lost_City
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.One_Piercing_Note import One_Piercing_Note
@@ -271,6 +272,7 @@ def create_all_quests():
     let_them_eat_pie = Let_Them_Eat_Pie()
     the_light_within = The_Light_Within()
     the_lord_of_vampyrium = The_Lord_Of_Vampyrium()
+    lost_city = Lost_City()
 
     missing_presumed_death = Missing_Presumed_Death()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
@@ -432,6 +434,7 @@ def create_all_quests():
                   legends_quest,
                   the_light_within,
                   the_lord_of_vampyrium,
+                  lost_city,
                   "done"]
     print(all_quests)
 

@@ -78,6 +78,7 @@ from quests.The_Firemakers_Curse import The_Firemakers_Curse
 from quests.Fishing_Contest import Fishing_Contest
 from quests.Forgettable_Tale import Forgettable_Tale
 from quests.Forgiveness_Of_A_Chaos_Dwarf import Forgiveness_Of_A_Chaos_Dwarf
+from quests.The_Fremennik_Isles import The_Fremennik_Isles
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
@@ -186,6 +187,7 @@ def create_all_quests():
     fishing_contest = Fishing_Contest()
     forgettable_tale = Forgettable_Tale()
     forgiveness_of_a_chaos_dwarf = Forgiveness_Of_A_Chaos_Dwarf()
+    the_fremennik_isles = The_Fremennik_Isles()
 
     gertrudes_cat = Gertrudes_Cat()
     goblin_diplomacy = Goblin_Diplomacy()
@@ -322,6 +324,7 @@ def create_all_quests():
                   fishing_contest,
                   forgettable_tale,
                   forgiveness_of_a_chaos_dwarf,
+                  the_fremennik_isles,
                   "done"]
     print(all_quests)
 

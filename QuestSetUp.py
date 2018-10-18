@@ -84,6 +84,7 @@ from quests.Fur_N_Seek import Fur_N_Seek
 from quests.Garden_Of_Tranquillity import Garden_Of_Tranquillity
 from quests.Gertrudes_Cat import Gertrudes_Cat
 from quests.Ghosts_Ahoy import Ghosts_Ahoy
+from quests.The_Giant_Dwarf import The_Giant_Dwarf
 from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.Gower_Quest import Gower_Quest
 from quests.Gunnars_Ground import Gunnars_Ground
@@ -198,6 +199,7 @@ def create_all_quests():
     garden_of_tranquillity = Garden_Of_Tranquillity()
     gertrudes_cat = Gertrudes_Cat()
     ghosts_ahoy = Ghosts_Ahoy()
+    the_giant_dwarf = The_Giant_Dwarf()
     goblin_diplomacy = Goblin_Diplomacy()
     gower_quest = Gower_Quest()
     gunnars_ground = Gunnars_Ground()
@@ -337,6 +339,7 @@ def create_all_quests():
                   fur_n_seek,
                   garden_of_tranquillity,
                   ghosts_ahoy,
+                  the_giant_dwarf,
                   "done"]
     print(all_quests)
 

@@ -100,6 +100,7 @@ from quests.Heart_Of_Stone import Heart_Of_Stone
 from quests.Heros_Welcome import Heros_Welcome
 from quests.Heroes_Quest import Heroes_Quest
 from quests.Holy_Grail import Holy_Grail
+from quests.Horror_From_The_Deep import Horror_From_The_Deep
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
@@ -228,6 +229,7 @@ def create_all_quests():
     heros_welcome = Heros_Welcome()
     heroes_quest = Heroes_Quest()
     holy_grail = Holy_Grail()
+    horror_from_the_deep = Horror_From_The_Deep()
 
     imp_catcher = Imp_Catcher()
 
@@ -377,6 +379,7 @@ def create_all_quests():
                   heros_welcome,
                   heroes_quest,
                   holy_grail,
+                  horror_from_the_deep,
                   "done"]
     print(all_quests)
 

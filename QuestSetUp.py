@@ -113,6 +113,7 @@ from quests.Jungle_Potion import Jungle_Potion
 from quests.Kenniths_Concerns import Kenniths_Concerns
 from quests.Kindred_Spirits import Kindred_Spirits
 from quests.King_Of_The_Dwarves import King_Of_The_Dwarves
+from quests.Kings_Ransom import Kings_Ransom
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
@@ -256,6 +257,7 @@ def create_all_quests():
     kenniths_concerns = Kenniths_Concerns()
     kindred_spirits = Kindred_Spirits()
     king_of_the_dwarves = King_Of_The_Dwarves()
+    kings_ransom = Kings_Ransom()
     the_knights_sword = The_Knights_Sword()
 
     let_them_eat_pie = Let_Them_Eat_Pie()
@@ -414,6 +416,7 @@ def create_all_quests():
                   kenniths_concerns,
                   kindred_spirits,
                   king_of_the_dwarves,
+                  kings_ransom,
                   "done"]
     print(all_quests)
 

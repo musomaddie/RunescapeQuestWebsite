@@ -90,6 +90,7 @@ from quests.Goblin_Diplomacy import Goblin_Diplomacy
 from quests.The_Golem import The_Golem
 from quests.Gower_Quest import Gower_Quest
 from quests.The_Grand_Tree import The_Grand_Tree
+from quests.The_Great_Brain_Robbery import The_Great_Brain_Robbery
 from quests.Gunnars_Ground import Gunnars_Ground
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
@@ -208,6 +209,7 @@ def create_all_quests():
     the_golem = The_Golem()
     gower_quest = Gower_Quest()
     the_grand_tree = The_Grand_Tree()
+    the_great_brain_robbery = The_Great_Brain_Robbery()
     gunnars_ground = Gunnars_Ground()
 
     imp_catcher = Imp_Catcher()
@@ -349,6 +351,7 @@ def create_all_quests():
                   glorious_memories,
                   the_golem,
                   the_grand_tree,
+                  the_great_brain_robbery,
                   "done"]
     print(all_quests)
 

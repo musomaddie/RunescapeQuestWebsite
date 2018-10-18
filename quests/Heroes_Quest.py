@@ -7,7 +7,7 @@ sys.path.insert(0,
 from QuestInfo import Quest
 
 
-class Heroes_Quest(quest):
+class Heroes_Quest(Quest):
 
     def __init__(self):
         super().__init__("Heroes' Quest")

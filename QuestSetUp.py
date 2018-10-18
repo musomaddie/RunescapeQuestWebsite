@@ -99,6 +99,7 @@ from quests.Hazeel_Cult import Hazeel_Cult
 from quests.Heart_Of_Stone import Heart_Of_Stone
 from quests.Heros_Welcome import Heros_Welcome
 from quests.Heroes_Quest import Heroes_Quest
+from quests.Holy_Grail import Holy_Grail
 from quests.Imp_Catcher import Imp_Catcher
 from quests.The_Knights_Sword import The_Knights_Sword
 from quests.Let_Them_Eat_Pie import Let_Them_Eat_Pie
@@ -226,6 +227,7 @@ def create_all_quests():
     heart_of_stone = Heart_Of_Stone()
     heros_welcome = Heros_Welcome()
     heroes_quest = Heroes_Quest()
+    holy_grail = Holy_Grail()
 
     imp_catcher = Imp_Catcher()
 
@@ -374,6 +376,7 @@ def create_all_quests():
                   heart_of_stone,
                   heros_welcome,
                   heroes_quest,
+                  holy_grail,
                   "done"]
     print(all_quests)
 

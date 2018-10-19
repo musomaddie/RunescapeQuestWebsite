@@ -127,6 +127,7 @@ from quests.Love_Story import Love_Story
 from quests.Lunar_Diplomacy import Lunar_Diplomacy
 from quests.Making_History import Making_History
 from quests.Meeting_History import Meeting_History
+from quests.Merlins_Crystal import Merlins_Crystal
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.One_Piercing_Note import One_Piercing_Note
@@ -284,6 +285,7 @@ def create_all_quests():
 
     making_history = Making_History()
     meeting_history = Meeting_History()
+    merlins_crystal = Merlins_Crystal()
     missing_presumed_death = Missing_Presumed_Death()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
 
@@ -450,6 +452,7 @@ def create_all_quests():
                   lunar_diplomacy,
                   making_history,
                   meeting_history,
+                  merlins_crystal,
                   "done"]
     print(all_quests)
 

@@ -129,6 +129,7 @@ from quests.Making_History import Making_History
 from quests.Meeting_History import Meeting_History
 from quests.Merlins_Crystal import Merlins_Crystal
 from quests.The_Mighty_Fall import The_Mighty_Fall
+from quests.Missing_My_Mummy import Missing_My_Mummy
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.One_Piercing_Note import One_Piercing_Note
@@ -288,6 +289,7 @@ def create_all_quests():
     meeting_history = Meeting_History()
     merlins_crystal = Merlins_Crystal()
     the_mighty_fall = The_Mighty_Fall()
+    missing_my_mummy = Missing_My_Mummy()
     missing_presumed_death = Missing_Presumed_Death()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
 
@@ -456,6 +458,7 @@ def create_all_quests():
                   meeting_history,
                   merlins_crystal,
                   the_mighty_fall,
+                  missing_my_mummy,
                   "done"]
     print(all_quests)
 

@@ -133,6 +133,7 @@ from quests.Missing_My_Mummy import Missing_My_Mummy
 from quests.Missing_Presumed_Death import Missing_Presumed_Death
 from quests.Monkey_Madness import Monkey_Madness
 from quests.Monks_Friend import Monks_Friend
+from quests.Mountain_Daughter import Mountain_Daughter
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.One_Piercing_Note import One_Piercing_Note
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
@@ -295,6 +296,7 @@ def create_all_quests():
     missing_presumed_death = Missing_Presumed_Death()
     monkey_madness = Monkey_Madness()
     monks_friend = Monks_Friend()
+    mountain_daughter = Mountain_Daughter()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
 
     one_piercing_note = One_Piercing_Note()
@@ -465,6 +467,7 @@ def create_all_quests():
                   missing_my_mummy,
                   monks_friend,
                   monkey_madness,
+                  mountain_daughter,
                   "done"]
     print(all_quests)
 

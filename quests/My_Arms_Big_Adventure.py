@@ -7,16 +7,15 @@ sys.path.insert(0,
 from QuestInfo import Quest
 
 
-class Evil_Daves_Big_Day_Out(Quest):
+class My_Arms_Big_Adventure(Quest):
 
     def __init__(self):
-        super().__init__("Evil Dave's Big Day Out")
-        self.age = 6
+        super().__init__("My Arm's Big Adventure")
+        self.age = 5
         self.difficulty = "Intermediate"
-        self.length = "Medium"
-        self.quest_points = 2
+        self.length = "Medium to Long"
+        self.quest_points = 1
 
-        self.agility = 30
-        self.cooking = 30
-        self.herblore = 30
-        self.magic = 30
+        self.woodcutting = 10
+        self.farming = 20
+        self.other_requirements.append("60%% favour with the people of Tai Bwo Wannai Village")

@@ -143,6 +143,7 @@ from quests.Nature_Spirit import Nature_Spirit
 from quests.Nomads_Elegy import Nomads_Elegy
 from quests.Nomads_Requiem import Nomads_Requiem
 from quests.Observatory_Quest import Observatory_Quest
+from quests.Olafs_Quest import Olafs_Quest
 from quests.One_Piercing_Note import One_Piercing_Note
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
@@ -316,6 +317,7 @@ def create_all_quests():
     nomads_requiem = Nomads_Requiem()
 
     observatory_quest = Observatory_Quest()
+    olafs_quest = Olafs_Quest()
     one_piercing_note = One_Piercing_Note()
 
     perils_of_ice_mountain = Perils_Of_Ice_Mountain()
@@ -493,6 +495,7 @@ def create_all_quests():
                   nomads_elegy,
                   nomads_requiem,
                   observatory_quest,
+                  olafs_quest,
                   "done"]
     print(all_quests)
 

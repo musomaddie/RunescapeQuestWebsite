@@ -141,6 +141,7 @@ from quests.My_Arms_Big_Adventure import My_Arms_Big_Adventure
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
 from quests.Nature_Spirit import Nature_Spirit
 from quests.Nomads_Elegy import Nomads_Elegy
+from quests.Nomads_Requiem import Nomads_Requiem
 from quests.One_Piercing_Note import One_Piercing_Note
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
@@ -311,6 +312,7 @@ def create_all_quests():
 
     nature_spirit = Nature_Spirit()
     nomads_elegy = Nomads_Elegy()
+    nomads_requiem = Nomads_Requiem()
 
     one_piercing_note = One_Piercing_Note()
 
@@ -487,6 +489,7 @@ def create_all_quests():
                   my_arms_big_adventure,
                   nature_spirit,
                   nomads_elegy,
+                  nomads_requiem,
                   "done"]
     print(all_quests)
 

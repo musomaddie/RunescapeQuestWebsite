@@ -139,6 +139,7 @@ from quests.Mournings_End_Part_II import Mournings_End_Part_II
 from quests.Murder_Mystery import Murder_Mystery
 from quests.My_Arms_Big_Adventure import My_Arms_Big_Adventure
 from quests.Myths_Of_The_White_Lands import Myths_Of_The_White_Lands
+from quests.Nature_Spirit import Nature_Spirit
 from quests.One_Piercing_Note import One_Piercing_Note
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
@@ -306,6 +307,8 @@ def create_all_quests():
     murder_mystery = Murder_Mystery()
     my_arms_big_adventure = My_Arms_Big_Adventure()
     myths_of_the_white_lands = Myths_Of_The_White_Lands()
+
+    nature_spirit = Nature_Spirit()
 
     one_piercing_note = One_Piercing_Note()
 
@@ -480,6 +483,7 @@ def create_all_quests():
                   mournings_end_part_ii,
                   murder_mystery,
                   my_arms_big_adventure,
+                  nature_spirit,
                   "done"]
     print(all_quests)
 

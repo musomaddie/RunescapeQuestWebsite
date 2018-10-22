@@ -11,7 +11,7 @@ class Phite_Club(Quest):
 
     def __init__(self):
         super().__init__("'Phite Club")
-        print(self.name)
-        print(self.agility)
-
-Phite_Club()
+        self.age = 5
+        self.difficulty = "Master"
+        self.length = "Short"
+        self.quest_points = 1

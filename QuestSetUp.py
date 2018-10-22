@@ -147,6 +147,7 @@ from quests.Olafs_Quest import Olafs_Quest
 from quests.One_Of_A_Kind import One_Of_A_Kind
 from quests.One_Piercing_Note import One_Piercing_Note
 from quests.One_Small_Favour import One_Small_Favour
+from quests.Our_Man_In_The_North import Our_Man_In_The_North
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pirates_Treasure import Pirates_Treasure
 from quests.Priest_In_Peril import Priest_In_Peril
@@ -323,6 +324,7 @@ def create_all_quests():
     one_of_a_kind = One_Of_A_Kind()
     one_piercing_note = One_Piercing_Note()
     one_small_favour = One_Small_Favour()
+    our_man_in_the_north = Our_Man_In_The_North()
 
     perils_of_ice_mountain = Perils_Of_Ice_Mountain()
     pirates_treasure = Pirates_Treasure()
@@ -502,6 +504,7 @@ def create_all_quests():
                   olafs_quest,
                   one_of_a_kind,
                   one_small_favour,
+                  our_man_in_the_north,
                   "done"]
     print(all_quests)
 

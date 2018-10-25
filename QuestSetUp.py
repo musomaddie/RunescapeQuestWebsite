@@ -151,6 +151,7 @@ from quests.Our_Man_In_The_North import Our_Man_In_The_North
 from quests.The_Path_Of_Glouphrie import The_Path_Of_Glouphrie
 from quests.Phite_Club import Phite_Club
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
+from quests.Pieces_Of_Hate import Pieces_Of_Hate
 from quests.Pirates_Treasure import Pirates_Treasure
 from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Restless_Ghost import The_Restless_Ghost
@@ -331,6 +332,7 @@ def create_all_quests():
     the_path_of_glouphrie = The_Path_Of_Glouphrie()
     phite_club = Phite_Club()
     perils_of_ice_mountain = Perils_Of_Ice_Mountain()
+    pieces_of_hate = Pieces_Of_Hate()
     pirates_treasure = Pirates_Treasure()
     priest_in_peril = Priest_In_Peril()
 
@@ -511,8 +513,11 @@ def create_all_quests():
                   our_man_in_the_north,
                   the_path_of_glouphrie,
                   phite_club,
+                  pieces_of_hate,
                   "done"]
-    print(all_quests)
+
+    for quest in all_quests:
+        print(quest)
 
 
 create_all_quests()

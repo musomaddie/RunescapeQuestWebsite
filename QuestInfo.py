@@ -40,7 +40,7 @@ class Quest:
         self.woodcutting = 0
 
     def __str__(self):
-        return "{}\n".format(self.name)
+        return "{}".format(self.name)
 
     def add_pre_quest(self, q):
         self.pre_quests.append(q)

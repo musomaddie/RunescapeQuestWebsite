@@ -171,6 +171,7 @@ from quests.Roving_Elves import Roving_Elves
 from quests.Royal_Trouble import Royal_Trouble
 from quests.Rum_Deal import Rum_Deal
 from quests.Rune_Mysteries import Rune_Mysteries
+from quests.Rune_Mechanics import Rune_Mechanics
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
 from quests.Song_From_The_Depths import Song_From_The_Depths
@@ -368,6 +369,7 @@ def create_all_quests():
     roving_elves = Roving_Elves()
     royal_trouble = Royal_Trouble()
     rum_deal = Rum_Deal()
+    rune_mechanics = Rune_Mechanics()
     rune_mysteries = Rune_Mysteries()
 
     a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
@@ -560,6 +562,7 @@ def create_all_quests():
                   roving_elves,
                   royal_trouble,
                   rum_deal,
+                  rune_mechanics,
                   "done"]
 
     for quest in all_quests:

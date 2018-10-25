@@ -153,6 +153,7 @@ from quests.Phite_Club import Phite_Club
 from quests.Perils_Of_Ice_Mountain import Perils_Of_Ice_Mountain
 from quests.Pieces_Of_Hate import Pieces_Of_Hate
 from quests.Pirates_Treasure import Pirates_Treasure
+from quests.Plague_City import Plague_City
 from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Restless_Ghost import The_Restless_Ghost
 from quests.Rune_Mysteries import Rune_Mysteries
@@ -334,6 +335,7 @@ def create_all_quests():
     perils_of_ice_mountain = Perils_Of_Ice_Mountain()
     pieces_of_hate = Pieces_Of_Hate()
     pirates_treasure = Pirates_Treasure()
+    plague_city = Plague_City()
     priest_in_peril = Priest_In_Peril()
 
     the_restless_ghost = The_Restless_Ghost()
@@ -514,6 +516,7 @@ def create_all_quests():
                   the_path_of_glouphrie,
                   phite_club,
                   pieces_of_hate,
+                  plague_city,
                   "done"]
 
     for quest in all_quests:

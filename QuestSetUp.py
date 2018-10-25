@@ -159,6 +159,7 @@ from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Prisoner_Of_Glouphrie import The_Prisoner_Of_Glouphrie
 from quests.Quiet_Before_The_Swarm import Quiet_Before_The_Swarm
 from quests.Rag_And_Bone_Man import Rag_And_Bone_Man
+from quests.Ratcatchers import Ratcatchers
 from quests.The_Restless_Ghost import The_Restless_Ghost
 from quests.Rune_Mysteries import Rune_Mysteries
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
@@ -347,6 +348,7 @@ def create_all_quests():
     quiet_before_the_swarm = Quiet_Before_The_Swarm()
 
     rag_and_bone_man = Rag_And_Bone_Man()
+    ratcatchers = Ratcatchers()
     the_restless_ghost = The_Restless_Ghost()
     rune_mysteries = Rune_Mysteries()
 
@@ -530,6 +532,7 @@ def create_all_quests():
                   the_prisoner_of_glouphrie,
                   quiet_before_the_swarm,
                   rag_and_bone_man,
+                  ratcatchers,
                   "done"]
 
     for quest in all_quests:

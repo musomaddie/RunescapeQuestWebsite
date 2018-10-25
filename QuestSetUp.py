@@ -164,6 +164,7 @@ from quests.Recipe_For_Disaster import Recipe_For_Disaster
 from quests.Recruitment_Drive import Recruitment_Drive
 from quests.Regicide import Regicide
 from quests.The_Restless_Ghost import The_Restless_Ghost
+from quests.Ritual_Of_The_Mahjarrat import Ritual_Of_The_Mahjarrat
 from quests.Rune_Mysteries import Rune_Mysteries
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
@@ -356,6 +357,7 @@ def create_all_quests():
     recruitment_drive = Recruitment_Drive()
     regicide = Regicide()
     the_restless_ghost = The_Restless_Ghost()
+    ritual_of_the_mahjarrat = Ritual_Of_The_Mahjarrat()
     rune_mysteries = Rune_Mysteries()
 
     a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
@@ -542,6 +544,7 @@ def create_all_quests():
                   recipe_for_disaster,
                   recruitment_drive,
                   regicide,
+                  ritual_of_the_mahjarrat,
                   "done"]
 
     for quest in all_quests:

@@ -157,6 +157,7 @@ from quests.Plague_City import Plague_City
 from quests.Plagues_End import Plagues_End
 from quests.Priest_In_Peril import Priest_In_Peril
 from quests.The_Prisoner_Of_Glouphrie import The_Prisoner_Of_Glouphrie
+from quests.Quiet_Before_The_Swarm import Quiet_Before_The_Swarm
 from quests.The_Restless_Ghost import The_Restless_Ghost
 from quests.Rune_Mysteries import Rune_Mysteries
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
@@ -342,6 +343,8 @@ def create_all_quests():
     priest_in_peril = Priest_In_Peril()
     the_prisoner_of_glouphrie = The_Prisoner_Of_Glouphrie()
 
+    quiet_before_the_swarm = Quiet_Before_The_Swarm()
+
     the_restless_ghost = The_Restless_Ghost()
     rune_mysteries = Rune_Mysteries()
 
@@ -523,6 +526,7 @@ def create_all_quests():
                   plague_city,
                   plagues_end,
                   the_prisoner_of_glouphrie,
+                  quiet_before_the_swarm,
                   "done"]
 
     for quest in all_quests:

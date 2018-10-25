@@ -21,3 +21,4 @@ class The_Path_Of_Glouphrie(Quest):
         self.slayer = 56
         self.ranged = 47
         self.agility = 45
+

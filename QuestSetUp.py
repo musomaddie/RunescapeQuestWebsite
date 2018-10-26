@@ -188,6 +188,7 @@ from quests.Smoking_Kills import Smoking_Kills
 from quests.Some_Like_It_Cold import Some_Like_It_Cold
 from quests.Song_From_The_Depths import Song_From_The_Depths
 from quests.A_Souls_Bane import A_Souls_Bane
+from quests.Spirit_Of_Summer import Spirit_Of_Summer
 from quests.Stolen_Hearts import Stolen_Hearts
 from quests.Swept_Away import Swept_Away
 from quests.Vampyre_Slayer import Vampyre_Slayer
@@ -400,6 +401,7 @@ def create_all_quests():
     some_like_it_cold = Some_Like_It_Cold()
     song_from_the_depths = Song_From_The_Depths()
     a_souls_bane = A_Souls_Bane()
+    spirit_of_summer = Spirit_Of_Summer()
     stolen_hearts = Stolen_Hearts()
     swept_away = Swept_Away()
 
@@ -599,6 +601,7 @@ def create_all_quests():
                   the_slug_menace,
                   smoking_kills,
                   some_like_it_cold,
+                  spirit_of_summer,
                   "done"]
 
     for quest in all_quests:

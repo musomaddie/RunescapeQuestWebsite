@@ -178,6 +178,7 @@ from quests.Scorpion_Catcher import Scorpion_Catcher
 from quests.Sea_Slug import Sea_Slug
 from quests.Shades_Of_Mortton import Shades_Of_Mortton
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
+from quests.Shadow_Of_The_Storm import Shadow_Of_The_Storm
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
 from quests.Song_From_The_Depths import Song_From_The_Depths
 from quests.A_Souls_Bane import A_Souls_Bane
@@ -383,6 +384,7 @@ def create_all_quests():
     sea_slug = Sea_Slug()
     shades_of_mortton = Shades_Of_Mortton()
     a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
+    shadow_of_the_storm = Shadow_Of_The_Storm()
     shield_of_arrav = Shield_Of_Arrav()
     song_from_the_depths = Song_From_The_Depths()
     a_souls_bane = A_Souls_Bane()
@@ -578,6 +580,7 @@ def create_all_quests():
                   scorpion_catcher,
                   sea_slug,
                   shades_of_mortton,
+                  shadow_of_the_storm,
                   "done"]
 
     for quest in all_quests:

@@ -198,6 +198,7 @@ from quests.Tai_Bwo_Wannai_Trio import Tai_Bwo_Wannai_Trio
 from quests.A_Tail_Of_Two_Cats import A_Tail_Of_Two_Cats
 from quests.The_Tale_Of_The_Muspah import The_Tale_Of_The_Muspah
 from quests.Tears_Of_Guthix import Tears_Of_Guthix
+from quests.The_Temple_At_Senntisten import The_Temple_At_Senntisten
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
@@ -419,6 +420,7 @@ def create_all_quests():
     a_tail_of_two_cats = A_Tail_Of_Two_Cats()
     the_tale_of_the_muspah = The_Tale_Of_The_Muspah()
     tears_of_guthix = Tears_Of_Guthix()
+    the_temple_at_senntisten = The_Temple_At_Senntisten()
 
     vampyre_slayer = Vampyre_Slayer()
 
@@ -624,6 +626,7 @@ def create_all_quests():
                   a_tail_of_two_cats,
                   the_tale_of_the_muspah,
                   tears_of_guthix,
+                  the_temple_at_senntisten,
                   "done"]
 
     for quest in all_quests:

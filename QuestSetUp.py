@@ -194,6 +194,7 @@ from quests.Stolen_Hearts import Stolen_Hearts
 from quests.Summers_End import Summers_End
 from quests.Swan_Song import Swan_Song
 from quests.Swept_Away import Swept_Away
+from quests.Tai_Bwo_Wannai_Trio import Tai_Bwo_Wannai_Trio
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
@@ -411,6 +412,8 @@ def create_all_quests():
     swan_song = Swan_Song()
     swept_away = Swept_Away()
 
+    tai_bwo_wannai_trio = Tai_Bwo_Wannai_Trio()
+
     vampyre_slayer = Vampyre_Slayer()
 
     whats_mine_is_yours = Whats_Mine_Is_Yours()
@@ -611,6 +614,7 @@ def create_all_quests():
                   spirits_of_the_elid,
                   summers_end,
                   swan_song,
+                  tai_bwo_wannai_trio,
                   "done"]
 
     for quest in all_quests:

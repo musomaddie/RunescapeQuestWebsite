@@ -181,6 +181,7 @@ from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 from quests.Shadow_Of_The_Storm import Shadow_Of_The_Storm
 from quests.Sheep_Herder import Sheep_Herder
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
+from quests.Shilo_Village import Shilo_Village
 from quests.Song_From_The_Depths import Song_From_The_Depths
 from quests.A_Souls_Bane import A_Souls_Bane
 from quests.Stolen_Hearts import Stolen_Hearts
@@ -388,6 +389,7 @@ def create_all_quests():
     shadow_of_the_storm = Shadow_Of_The_Storm()
     shield_of_arrav = Shield_Of_Arrav()
     sheep_herder = Sheep_Herder()
+    shilo_village = Shilo_Village()
     song_from_the_depths = Song_From_The_Depths()
     a_souls_bane = A_Souls_Bane()
     stolen_hearts = Stolen_Hearts()
@@ -584,6 +586,7 @@ def create_all_quests():
                   shades_of_mortton,
                   shadow_of_the_storm,
                   sheep_herder,
+                  shilo_village,
                   "done"]
 
     for quest in all_quests:

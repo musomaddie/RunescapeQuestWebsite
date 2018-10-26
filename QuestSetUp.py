@@ -175,6 +175,7 @@ from quests.Rune_Memories import Rune_Memories
 from quests.Rune_Mysteries import Rune_Mysteries
 from quests.Salt_In_The_Wound import Salt_In_The_Wound
 from quests.Scorpion_Catcher import Scorpion_Catcher
+from quests.Sea_Slug import Sea_Slug
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
 from quests.Song_From_The_Depths import Song_From_The_Depths
@@ -378,6 +379,7 @@ def create_all_quests():
 
     salt_in_the_wound = Salt_In_The_Wound()
     scorpion_catcher = Scorpion_Catcher()
+    sea_slug = Sea_Slug()
     a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
     shield_of_arrav = Shield_Of_Arrav()
     song_from_the_depths = Song_From_The_Depths()
@@ -572,6 +574,7 @@ def create_all_quests():
                   rune_memories,
                   salt_in_the_wound,
                   scorpion_catcher,
+                  sea_slug,
                   "done"]
 
     for quest in all_quests:

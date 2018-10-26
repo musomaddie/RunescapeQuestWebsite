@@ -191,6 +191,7 @@ from quests.A_Souls_Bane import A_Souls_Bane
 from quests.Spirit_Of_Summer import Spirit_Of_Summer
 from quests.Spirits_Of_The_Elid import Spirits_Of_The_Elid
 from quests.Stolen_Hearts import Stolen_Hearts
+from quests.Summers_End import Summers_End
 from quests.Swept_Away import Swept_Away
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
@@ -405,6 +406,7 @@ def create_all_quests():
     spirit_of_summer = Spirit_Of_Summer()
     spirits_of_the_elid = Spirits_Of_The_Elid()
     stolen_hearts = Stolen_Hearts()
+    summers_end = Summers_End()
     swept_away = Swept_Away()
 
     vampyre_slayer = Vampyre_Slayer()
@@ -605,6 +607,7 @@ def create_all_quests():
                   some_like_it_cold,
                   spirit_of_summer,
                   spirits_of_the_elid,
+                  summers_end,
                   "done"]
 
     for quest in all_quests:

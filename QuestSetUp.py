@@ -200,6 +200,7 @@ from quests.The_Tale_Of_The_Muspah import The_Tale_Of_The_Muspah
 from quests.Tears_Of_Guthix import Tears_Of_Guthix
 from quests.The_Temple_At_Senntisten import The_Temple_At_Senntisten
 from quests.Temple_Of_Ikov import Temple_Of_Ikov
+from quests.Throne_Of_Miscellania import Throne_Of_Miscellania
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
@@ -423,6 +424,7 @@ def create_all_quests():
     tears_of_guthix = Tears_Of_Guthix()
     the_temple_at_senntisten = The_Temple_At_Senntisten()
     temple_of_ikov = Temple_Of_Ikov()
+    throne_of_miscellania = Throne_Of_Miscellania()
 
     vampyre_slayer = Vampyre_Slayer()
 
@@ -630,6 +632,7 @@ def create_all_quests():
                   tears_of_guthix,
                   the_temple_at_senntisten,
                   temple_of_ikov,
+                  throne_of_miscellania,
                   "done"]
 
     for quest in all_quests:

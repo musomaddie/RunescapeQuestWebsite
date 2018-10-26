@@ -189,6 +189,7 @@ from quests.Some_Like_It_Cold import Some_Like_It_Cold
 from quests.Song_From_The_Depths import Song_From_The_Depths
 from quests.A_Souls_Bane import A_Souls_Bane
 from quests.Spirit_Of_Summer import Spirit_Of_Summer
+from quests.Spirits_Of_The_Elid import Spirits_Of_The_Elid
 from quests.Stolen_Hearts import Stolen_Hearts
 from quests.Swept_Away import Swept_Away
 from quests.Vampyre_Slayer import Vampyre_Slayer
@@ -402,6 +403,7 @@ def create_all_quests():
     song_from_the_depths = Song_From_The_Depths()
     a_souls_bane = A_Souls_Bane()
     spirit_of_summer = Spirit_Of_Summer()
+    spirits_of_the_elid = Spirits_Of_The_Elid()
     stolen_hearts = Stolen_Hearts()
     swept_away = Swept_Away()
 
@@ -602,6 +604,7 @@ def create_all_quests():
                   smoking_kills,
                   some_like_it_cold,
                   spirit_of_summer,
+                  spirits_of_the_elid,
                   "done"]
 
     for quest in all_quests:

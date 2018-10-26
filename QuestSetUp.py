@@ -197,6 +197,7 @@ from quests.Swept_Away import Swept_Away
 from quests.Tai_Bwo_Wannai_Trio import Tai_Bwo_Wannai_Trio
 from quests.A_Tail_Of_Two_Cats import A_Tail_Of_Two_Cats
 from quests.The_Tale_Of_The_Muspah import The_Tale_Of_The_Muspah
+from quests.Tears_Of_Guthix import Tears_Of_Guthix
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
@@ -417,6 +418,7 @@ def create_all_quests():
     tai_bwo_wannai_trio = Tai_Bwo_Wannai_Trio()
     a_tail_of_two_cats = A_Tail_Of_Two_Cats()
     the_tale_of_the_muspah = The_Tale_Of_The_Muspah()
+    tears_of_guthix = Tears_Of_Guthix()
 
     vampyre_slayer = Vampyre_Slayer()
 
@@ -621,6 +623,7 @@ def create_all_quests():
                   tai_bwo_wannai_trio,
                   a_tail_of_two_cats,
                   the_tale_of_the_muspah,
+                  tears_of_guthix,
                   "done"]
 
     for quest in all_quests:

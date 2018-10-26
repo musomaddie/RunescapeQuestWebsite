@@ -195,6 +195,7 @@ from quests.Summers_End import Summers_End
 from quests.Swan_Song import Swan_Song
 from quests.Swept_Away import Swept_Away
 from quests.Tai_Bwo_Wannai_Trio import Tai_Bwo_Wannai_Trio
+from quests.A_Tail_Of_Two_Cats import A_Tail_Of_Two_Cats
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
@@ -413,6 +414,7 @@ def create_all_quests():
     swept_away = Swept_Away()
 
     tai_bwo_wannai_trio = Tai_Bwo_Wannai_Trio()
+    a_tail_of_two_cats = A_Tail_Of_Two_Cats()
 
     vampyre_slayer = Vampyre_Slayer()
 
@@ -615,6 +617,7 @@ def create_all_quests():
                   summers_end,
                   swan_song,
                   tai_bwo_wannai_trio,
+                  a_tail_of_two_cats,
                   "done"]
 
     for quest in all_quests:

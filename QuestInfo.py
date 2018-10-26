@@ -35,7 +35,7 @@ class Quest:
         self.slayer = 0
         self.smithing = 0
         self.strength = 0
-        self.summouning = 0
+        self.summoning = 0
         self.thieving = 0
         self.woodcutting = 0
 

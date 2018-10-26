@@ -173,6 +173,7 @@ from quests.Rum_Deal import Rum_Deal
 from quests.Rune_Mechanics import Rune_Mechanics
 from quests.Rune_Memories import Rune_Memories
 from quests.Rune_Mysteries import Rune_Mysteries
+from quests.Salt_In_The_Wound import Salt_In_The_Wound
 from quests.A_Shadow_Over_Ashdale import A_Shadow_Over_Ashdale
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
 from quests.Song_From_The_Depths import Song_From_The_Depths
@@ -374,6 +375,7 @@ def create_all_quests():
     rune_memories = Rune_Memories()
     rune_mysteries = Rune_Mysteries()
 
+    salt_in_the_wound = Salt_In_The_Wound()
     a_shadow_over_ashdale = A_Shadow_Over_Ashdale()
     shield_of_arrav = Shield_Of_Arrav()
     song_from_the_depths = Song_From_The_Depths()
@@ -566,6 +568,7 @@ def create_all_quests():
                   rum_deal,
                   rune_mechanics,
                   rune_memories,
+                  salt_in_the_wound,
                   "done"]
 
     for quest in all_quests:

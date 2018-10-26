@@ -183,6 +183,7 @@ from quests.Sheep_Herder import Sheep_Herder
 from quests.Shield_Of_Arrav import Shield_Of_Arrav
 from quests.Shilo_Village import Shilo_Village
 from quests.Sliskes_Endgame import Sliskes_Endgame
+from quests.The_Slug_Menace import The_Slug_Menace
 from quests.Song_From_The_Depths import Song_From_The_Depths
 from quests.A_Souls_Bane import A_Souls_Bane
 from quests.Stolen_Hearts import Stolen_Hearts
@@ -392,6 +393,7 @@ def create_all_quests():
     sheep_herder = Sheep_Herder()
     shilo_village = Shilo_Village()
     sliskes_endgame = Sliskes_Endgame()
+    the_slug_menace = The_Slug_Menace()
     song_from_the_depths = Song_From_The_Depths()
     a_souls_bane = A_Souls_Bane()
     stolen_hearts = Stolen_Hearts()
@@ -590,6 +592,7 @@ def create_all_quests():
                   sheep_herder,
                   shilo_village,
                   sliskes_endgame,
+                  the_slug_menace,
                   "done"]
 
     for quest in all_quests:

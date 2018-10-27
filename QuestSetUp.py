@@ -223,6 +223,7 @@ from quests.Within_The_Light import Within_The_Light
 from quests.Wolf_Whistle import Wolf_Whistle
 from quests.The_World_Wakes import The_World_Wakes
 from quests.You_Are_It import You_Are_It
+from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 
 
 def create_all_quests():
@@ -470,6 +471,8 @@ def create_all_quests():
 
     you_are_it = You_Are_It()
 
+    zogre_flesh_eaters = Zogre_Flesh_Eaters()
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,
@@ -689,6 +692,7 @@ def create_all_quests():
                   within_the_light,
                   the_world_wakes,
                   you_are_it,
+                  zogre_flesh_eaters,
                   "done"]
 
     for quest in all_quests:

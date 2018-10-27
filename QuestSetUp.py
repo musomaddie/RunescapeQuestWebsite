@@ -215,6 +215,7 @@ from quests.The_Void_Stares_Back import The_Void_Stares_Back
 from quests.Wanted import Wanted
 from quests.WatchTower import WatchTower
 from quests.Waterfall_Quest import Waterfall_Quest
+from quests.What_Lies_Below import What_Lies_Below
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
 from quests.Wolf_Whistle import Wolf_Whistle
@@ -455,6 +456,7 @@ def create_all_quests():
     wanted = Wanted()
     watchtower = WatchTower()
     waterfall_quest = Waterfall_Quest()
+    what_lies_below = What_Lies_Below()
     whats_mine_is_yours = Whats_Mine_Is_Yours()
     witchs_house = Witchs_House()
     wolf_whistle = Wolf_Whistle()
@@ -673,6 +675,7 @@ def create_all_quests():
                   wanted,
                   watchtower,
                   waterfall_quest,
+                  what_lies_below,
                   "done"]
 
     for quest in all_quests:

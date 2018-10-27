@@ -19,7 +19,7 @@ class Quest:
         self.cooking = 0
         self.crafting = 0
         self.defence = 0
-        self.divintation = 0
+        self.divination = 0
         self.dungeoneering = 0
         self.farming = 0
         self.firemaking = 0

@@ -692,11 +692,9 @@ def create_all_quests():
                   within_the_light,
                   the_world_wakes,
                   you_are_it,
-                  zogre_flesh_eaters,
-                  "done"]
+                  zogre_flesh_eaters]
 
-    for quest in all_quests:
-        print(quest)
+    return all_quests
 
 
 create_all_quests()

@@ -207,6 +207,7 @@ from quests.TokTz_Ket_Dill import TokTz_Ket_Dill
 from quests.Tree_Gnome_Village import Tree_Gnome_Village
 from quests.Tribal_Totem import Tribal_Totem
 from quests.Troll_Romance import Troll_Romance
+from quests.Troll_Stronghold import Troll_Stronghold
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
@@ -437,6 +438,7 @@ def create_all_quests():
     tree_gnome_village = Tree_Gnome_Village()
     tribal_totem = Tribal_Totem()
     troll_romance = Troll_Romance()
+    troll_stronghold = Troll_Stronghold()
 
     vampyre_slayer = Vampyre_Slayer()
 
@@ -651,6 +653,7 @@ def create_all_quests():
                   tree_gnome_village,
                   tribal_totem,
                   troll_romance,
+                  troll_stronghold,
                   "done"]
 
     for quest in all_quests:

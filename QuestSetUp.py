@@ -213,6 +213,7 @@ from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.A_Void_Dance import A_Void_Dance
 from quests.The_Void_Stares_Back import The_Void_Stares_Back
 from quests.Wanted import Wanted
+from quests.WatchTower import WatchTower
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
 from quests.Wolf_Whistle import Wolf_Whistle
@@ -451,6 +452,7 @@ def create_all_quests():
     the_void_stares_back = The_Void_Stares_Back()
 
     wanted = Wanted()
+    watchtower = WatchTower()
     whats_mine_is_yours = Whats_Mine_Is_Yours()
     witchs_house = Witchs_House()
     wolf_whistle = Wolf_Whistle()
@@ -667,6 +669,7 @@ def create_all_quests():
                   a_void_dance,
                   the_void_stares_back,
                   wanted,
+                  watchtower,
                   "done"]
 
     for quest in all_quests:

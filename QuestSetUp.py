@@ -219,6 +219,7 @@ from quests.What_Lies_Below import What_Lies_Below
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.While_Guthix_Sleeps import While_Guthix_Sleeps
 from quests.Witchs_House import Witchs_House
+from quests.Within_The_Light import Within_The_Light
 from quests.Wolf_Whistle import Wolf_Whistle
 
 
@@ -461,6 +462,7 @@ def create_all_quests():
     whats_mine_is_yours = Whats_Mine_Is_Yours()
     while_guthix_sleeps = While_Guthix_Sleeps()
     witchs_house = Witchs_House()
+    within_the_light = Within_The_Light()
     wolf_whistle = Wolf_Whistle()
 
     all_quests = [beneath_cursed_tides,
@@ -679,6 +681,7 @@ def create_all_quests():
                   waterfall_quest,
                   what_lies_below,
                   while_guthix_sleeps,
+                  within_the_light,
                   "done"]
 
     for quest in all_quests:

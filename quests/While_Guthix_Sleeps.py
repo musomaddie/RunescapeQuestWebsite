@@ -23,3 +23,6 @@ class While_Guthix_Sleeps(Quest):
         self.farming = 65
         self.herblore = 65
         self.magic = 75
+        self.other_requirements.append("Gained a total of 270 quest points")
+        self.other_requirements.append("Be eligible for entry to the Warriors Guild")
+        self.other_requirements.append("Have defeated Bork in the Chaos Tunnels")

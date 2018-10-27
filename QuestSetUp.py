@@ -210,6 +210,8 @@ from quests.Troll_Romance import Troll_Romance
 from quests.Troll_Stronghold import Troll_Stronghold
 from quests.Underground_Pass import Underground_Pass
 from quests.Vampyre_Slayer import Vampyre_Slayer
+from quests.A_Void_Dance import A_Void_Dance
+from quests.The_Void_Stares_Back import The_Void_Stares_Back
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
 from quests.Witchs_House import Witchs_House
 from quests.Wolf_Whistle import Wolf_Whistle
@@ -444,6 +446,8 @@ def create_all_quests():
     underground_pass = Underground_Pass()
 
     vampyre_slayer = Vampyre_Slayer()
+    a_void_dance = A_Void_Dance()
+    the_void_stares_back = The_Void_Stares_Back()
 
     whats_mine_is_yours = Whats_Mine_Is_Yours()
     witchs_house = Witchs_House()
@@ -658,6 +662,8 @@ def create_all_quests():
                   troll_romance,
                   troll_stronghold,
                   underground_pass,
+                  a_void_dance,
+                  the_void_stares_back,
                   "done"]
 
     for quest in all_quests:

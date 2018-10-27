@@ -202,6 +202,7 @@ from quests.The_Temple_At_Senntisten import The_Temple_At_Senntisten
 from quests.Temple_Of_Ikov import Temple_Of_Ikov
 from quests.Throne_Of_Miscellania import Throne_Of_Miscellania
 from quests.The_Tourist_Trap import The_Tourist_Trap
+from quests.Tower_Of_Life import Tower_Of_Life
 from quests.TokTz_Ket_Dill import TokTz_Ket_Dill
 from quests.Vampyre_Slayer import Vampyre_Slayer
 from quests.Whats_Mine_Is_Yours import Whats_Mine_Is_Yours
@@ -429,6 +430,7 @@ def create_all_quests():
     throne_of_miscellania = Throne_Of_Miscellania()
     toktz_ket_dill = TokTz_Ket_Dill()
     the_tourist_trap = The_Tourist_Trap()
+    tower_of_life = Tower_Of_Life()
 
     vampyre_slayer = Vampyre_Slayer()
 
@@ -639,6 +641,7 @@ def create_all_quests():
                   throne_of_miscellania,
                   toktz_ket_dill,
                   the_tourist_trap,
+                  tower_of_life,
                   "done"]
 
     for quest in all_quests:

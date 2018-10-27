@@ -221,6 +221,7 @@ from quests.While_Guthix_Sleeps import While_Guthix_Sleeps
 from quests.Witchs_House import Witchs_House
 from quests.Within_The_Light import Within_The_Light
 from quests.Wolf_Whistle import Wolf_Whistle
+from quests.The_World_Wakes import The_World_Wakes
 
 
 def create_all_quests():
@@ -464,6 +465,7 @@ def create_all_quests():
     witchs_house = Witchs_House()
     within_the_light = Within_The_Light()
     wolf_whistle = Wolf_Whistle()
+    the_world_wakes = The_World_Wakes()
 
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
@@ -682,6 +684,7 @@ def create_all_quests():
                   what_lies_below,
                   while_guthix_sleeps,
                   within_the_light,
+                  the_world_wakes,
                   "done"]
 
     for quest in all_quests:

@@ -18,3 +18,4 @@ class Carnillean_Rising(Quest):
 
         self.thieving = 33
         self.construction = 31
+        self.other_requirments.append("50 quest points")

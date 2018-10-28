@@ -23,3 +23,4 @@ class The_Curse_Of_Arrav(Quest):
         self.strength = 64
         self.mining = 64
         self.thieving = 66
+        self.other_requirements.append("Senliten fully restored")

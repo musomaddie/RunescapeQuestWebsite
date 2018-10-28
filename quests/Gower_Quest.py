@@ -16,3 +16,5 @@ class Gower_Quest(Quest):
         self.difficulty = "Experienced"
         self.length = "Medium to Long"
         self.quest_points = 1
+
+        self.other_requirements.append("34 quest points")

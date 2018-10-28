@@ -16,3 +16,5 @@ class Dragon_Slayer(Quest):
         self.difficulty = "Experienced"
         self.length = "Long"
         self.quest_points = 2
+
+        self.other_requirements.append("33 quest points")

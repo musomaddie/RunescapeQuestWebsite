@@ -20,5 +20,3 @@ class Crocodile_Tears(Quest):
         self.fishing = 72
         self.woodcutting = 47
         self.agility = 30
-        self.other_requirements.append("Rank 3 overall Menaphos reputation")
-        self.other_requirements.append("Bring Leela back to Senliten's tomb")

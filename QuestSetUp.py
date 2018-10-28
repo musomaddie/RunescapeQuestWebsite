@@ -550,6 +550,13 @@ def create_all_quests():
     dream_mentor.add_pre_quest(eadgars_ruse)
     dream_mentor.add_pre_quest(lunar_diplomacy)
 
+    eadgars_ruse.add_pre_quest(druidic_ritual)
+    eadgars_ruse.add_pre_quest(troll_stronghold)
+    elemental_workshop_ii.add_pre_quest(elemental_workshop_i)
+    elemental_workshop_iii.add_pre_quest(elemental_workshop_ii)
+    elemental_workshop_iv.add_pre_quest(elemental_workshop_iv)
+    the_eyes_of_glouphrie.add_pre_quest(the_grand_tree)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

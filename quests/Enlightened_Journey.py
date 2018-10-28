@@ -19,3 +19,4 @@ class Enlightened_Journey(Quest):
         self.firemaking = 20
         self.farming = 30
         self.crafting = 36
+        self.other_requirements.append("21 quest points")

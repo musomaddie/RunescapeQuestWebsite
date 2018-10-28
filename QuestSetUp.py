@@ -601,7 +601,16 @@ def create_all_quests():
     icthlarins_little_helper.add_pre_quest(the_restless_ghost)
     in_aid_of_the_myreque.add_pre_quest(in_search_of_the_myreque)
     in_search_of_the_myreque.add_pre_quest(nature_spirit)
+
     the_jack_of_spades.add_pre_quest(diamond_in_the_rough)
+
+    kenniths_concerns.add_pre_quest(the_slug_menace)
+    kindred_spirits.add_pre_quest(missing_presumed_death)
+    king_of_the_dwarves.add_pre_quest(forgiveness_of_a_chaos_dwarf)
+    king_of_the_dwarves.add_pre_quest(my_arms_big_adventure)
+    kings_ransom.add_pre_quest(holy_grail)
+    kings_ransom.add_pre_quest(murder_mystery)
+    kings_ransom.add_pre_quest(one_small_favour)
 
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,

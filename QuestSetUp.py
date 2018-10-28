@@ -527,6 +527,29 @@ def create_all_quests():
     the_curse_of_arrav.add_pre_quest(the_tale_of_the_muspah)
     the_curse_of_arrav.add_pre_quest(troll_romance)
 
+    darkness_of_hallowvale.add_pre_quest(in_aid_of_the_myreque)
+    deadliest_catch.add_pre_quest(tower_of_life)
+    dealing_with_scabaras.add_pre_quest(contact)
+    dealing_with_scabaras.add_pre_quest(the_feud)
+    dealing_with_scabaras.add_pre_quest(zogre_flesh_eaters)
+    death_to_the_dorgeshuun.add_pre_quest(the_lost_tribe)
+    desert_treasure.add_pre_quest(the_dig_site)
+    desert_treasure.add_pre_quest(priest_in_peril)
+    desert_treasure.add_pre_quest(temple_of_ikov)
+    desert_treasure.add_pre_quest(the_tourist_trap)
+    desert_treasure.add_pre_quest(troll_stronghold)
+    desert_treasure.add_pre_quest(waterfall_quest)
+    devious_minds.add_pre_quest(troll_stronghold)
+    devious_minds.add_pre_quest(wanted)
+    devious_minds.add_pre_quest(whats_mine_is_yours)
+    diamond_in_the_rough.add_pre_quest(stolen_hearts)
+    dimension_of_disaster.add_pre_quest(the_curse_of_arrav)
+    dimension_of_disaster.add_pre_quest(shadow_of_the_storm)
+    dishonour_among_thieves.add_pre_quest(hazeel_cult)
+    dimension_of_disaster.add_pre_quest(missing_presumed_death)
+    dream_mentor.add_pre_quest(eadgars_ruse)
+    dream_mentor.add_pre_quest(lunar_diplomacy)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

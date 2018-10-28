@@ -571,6 +571,16 @@ def create_all_quests():
     the_fremennik_isles.add_pre_quest(the_fremennik_trials)
     fur_n_seek.add_pre_quest(rag_and_bone_man)
 
+    garden_of_tranquillity.add_pre_quest(creature_of_fenkenstrain)
+    ghosts_ahoy.add_pre_quest(priest_in_peril)
+    ghosts_ahoy.add_pre_quest(the_restless_ghost)
+    glorious_memories.add_pre_quest(royal_trouble)
+    glorious_memories.add_pre_quest(the_fremennik_isles)
+    glorious_memories.add_pre_quest(mountain_daughter)
+    the_great_brain_robbery.add_pre_quest(creature_of_fenkenstrain)
+    the_great_brain_robbery.add_pre_quest(cabin_fever)
+    grim_tales.add_pre_quest(witchs_house)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

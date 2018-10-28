@@ -581,6 +581,21 @@ def create_all_quests():
     the_great_brain_robbery.add_pre_quest(cabin_fever)
     grim_tales.add_pre_quest(witchs_house)
 
+    haunted_mine.add_pre_quest(priest_in_peril)
+    haunted_mine.add_pre_quest(nature_spirit)
+    heart_of_stone.add_pre_quest(carnillean_rising)
+    heart_of_stone.add_pre_quest(rune_memories)
+    heros_welcome.add_pre_quest(lunar_diplomacy)
+    heros_welcome.add_pre_quest(tai_bwo_wannai_trio)
+    heroes_quest.add_pre_quest(shield_of_arrav)
+    heroes_quest.add_pre_quest(lost_city)
+    heroes_quest.add_pre_quest(dragon_slayer)
+    heroes_quest.add_pre_quest(merlins_crystal)
+    heroes_quest.add_pre_quest(druidic_ritual)
+    holy_grail.add_pre_quest(merlins_crystal)
+    hunt_for_red_raktuber.add_pre_quest(cold_war)
+    hunt_for_red_raktuber.add_pre_quest(sea_slug)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

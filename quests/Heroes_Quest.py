@@ -21,3 +21,4 @@ class Heroes_Quest(Quest):
         self.herblore = 25
         self.defence = 25
         self.mining = 50
+        self.other_requirements.append("56 quest points")

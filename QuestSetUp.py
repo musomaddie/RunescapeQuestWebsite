@@ -596,6 +596,13 @@ def create_all_quests():
     hunt_for_red_raktuber.add_pre_quest(cold_war)
     hunt_for_red_raktuber.add_pre_quest(sea_slug)
 
+    icthlarins_little_helper.add_pre_quest(diamond_in_the_rough)
+    icthlarins_little_helper.add_pre_quest(gertrudes_cat)
+    icthlarins_little_helper.add_pre_quest(the_restless_ghost)
+    in_aid_of_the_myreque.add_pre_quest(in_search_of_the_myreque)
+    in_search_of_the_myreque.add_pre_quest(nature_spirit)
+    the_jack_of_spades.add_pre_quest(diamond_in_the_rough)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

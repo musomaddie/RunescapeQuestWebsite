@@ -557,6 +557,20 @@ def create_all_quests():
     elemental_workshop_iv.add_pre_quest(elemental_workshop_iv)
     the_eyes_of_glouphrie.add_pre_quest(the_grand_tree)
 
+    fairy_tale_i_growing_pains.add_pre_quest(jungle_potion)
+    fairy_tale_i_growing_pains.add_pre_quest(lost_city)
+    fairy_tale_i_growing_pains.add_pre_quest(nature_spirit)
+    fairy_tale_ii_cure_a_queen.add_pre_quest(fairy_tale_i_growing_pains)
+    fairy_tale_iii_battle_at_orks_rift.add_pre_quest(
+        fairy_tale_ii_cure_a_queen)
+    fate_of_the_gods.add_pre_quest(missing_presumed_death)
+    forgettable_tale.add_pre_quest(the_giant_dwarf)
+    forgettable_tale.add_pre_quest(fishing_contest)
+    forgiveness_of_a_chaos_dwarf.add_pre_quest(forgettable_tale)
+    forgiveness_of_a_chaos_dwarf.add_pre_quest(between_a_rock)
+    the_fremennik_isles.add_pre_quest(the_fremennik_trials)
+    fur_n_seek.add_pre_quest(rag_and_bone_man)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

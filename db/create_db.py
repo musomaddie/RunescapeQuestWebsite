@@ -66,6 +66,8 @@ def init_db(filename):
     conn = sqlite3.connect(filename)
     cur = conn.cursor()
     cur.execute("""DROP TABLE IF EXISTS quest_details""")
+    cur.execute("""DROP TABLE IF EXISTS pre_quests""")
+    cur.execute("""DROP TABLE IF EXISTS quest_other_requirements""")
 
     # Set up table of quest details
     cur.execute('''
@@ -104,6 +106,16 @@ def init_db(filename):
                     woodcutting INTEGER
                 );
             ''')
+
+    cur.execute('''
+                CREATE TABLE pre_quests (
+                    main_quest INTEGER,
+                    pre_quest INTEGER,
+                    PRIMARY KEY (main_quest, pre_quest)
+                    FOREIGN KEY (main_quest) REFERENCES quest_details (name),
+                    FOREIGN KEY (pre_quest) REFERENCES quest_details (name)
+                );
+                ''')
     conn.commit()
     cur.close()
     conn.close()

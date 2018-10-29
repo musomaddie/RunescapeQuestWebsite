@@ -547,6 +547,7 @@ def create_all_quests():
     dimension_of_disaster.add_pre_quest(shadow_of_the_storm)
     dishonour_among_thieves.add_pre_quest(hazeel_cult)
     dimension_of_disaster.add_pre_quest(missing_presumed_death)
+    do_no_evil.add_pre_quest(recipe_for_disaster)
     dream_mentor.add_pre_quest(eadgars_ruse)
     dream_mentor.add_pre_quest(lunar_diplomacy)
 
@@ -555,6 +556,7 @@ def create_all_quests():
     elemental_workshop_ii.add_pre_quest(elemental_workshop_i)
     elemental_workshop_iii.add_pre_quest(elemental_workshop_ii)
     elemental_workshop_iv.add_pre_quest(elemental_workshop_iv)
+    evil_daves_big_day_out.add_pre_quest(recipe_for_disaster)
     the_eyes_of_glouphrie.add_pre_quest(the_grand_tree)
 
     fairy_tale_i_growing_pains.add_pre_quest(jungle_potion)
@@ -579,6 +581,7 @@ def create_all_quests():
     glorious_memories.add_pre_quest(mountain_daughter)
     the_great_brain_robbery.add_pre_quest(creature_of_fenkenstrain)
     the_great_brain_robbery.add_pre_quest(cabin_fever)
+    the_great_brain_robbery.add_pre_quest(recipe_for_disaster)
     grim_tales.add_pre_quest(witchs_house)
 
     haunted_mine.add_pre_quest(priest_in_peril)
@@ -611,6 +614,27 @@ def create_all_quests():
     kings_ransom.add_pre_quest(holy_grail)
     kings_ransom.add_pre_quest(murder_mystery)
     kings_ransom.add_pre_quest(one_small_favour)
+
+    land_of_the_goblins.add_pre_quest(another_slice_of_ham)
+    land_of_the_goblins.add_pre_quest(fishing_contest)
+    legacy_of_seergaze.add_pre_quest(darkness_of_hallowvale)
+    legends_quest.add_pre_quest(family_crest)
+    legends_quest.add_pre_quest(heroes_quest)
+    legends_quest.add_pre_quest(shilo_village)
+    legends_quest.add_pre_quest(underground_pass)
+    legends_quest.add_pre_quest(waterfall_quest)
+    the_light_within.add_pre_quest(fate_of_the_gods)
+    the_light_within.add_pre_quest(meeting_history)
+    the_light_within.add_pre_quest(plagues_end)
+    the_light_within.add_pre_quest(the_temple_at_senntisten)
+    the_light_within.add_pre_quest(the_world_wakes)
+    the_lord_of_vampyrium.add_pre_quest(the_branches_of_darkmeyer)
+    the_lost_tribe.add_pre_quest(goblin_diplomacy)
+    love_story.add_pre_quest(swan_song)
+    love_story.add_pre_quest(recipe_for_disaster)
+    lunar_diplomacy.add_pre_quest(lost_city)
+    lunar_diplomacy.add_pre_quest(the_fremennik_trials)
+    lunar_diplomacy.add_pre_quest(shilo_village)
 
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,

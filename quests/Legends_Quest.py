@@ -26,3 +26,4 @@ class Legends_Quest(Quest):
         self.strength = 50
         self.thieving = 50
         self.woodcutting = 50
+        self.other_requirements.append("107 quest points")

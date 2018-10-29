@@ -636,6 +636,25 @@ def create_all_quests():
     lunar_diplomacy.add_pre_quest(the_fremennik_trials)
     lunar_diplomacy.add_pre_quest(shilo_village)
 
+    making_history.add_pre_quest(the_restless_ghost)
+    making_history.add_pre_quest(priest_in_peril)
+    meeting_history.add_pre_quest(meeting_history)
+    the_mighty_fall.add_pre_quest(missing_presumed_death)
+    the_mighty_fall.add_pre_quest(the_chosen_commander)
+    the_mighty_fall.add_pre_quest(my_arms_big_adventure)
+    the_mighty_fall.add_pre_quest(what_lies_below)
+    missing_my_mummy.add_pre_quest(the_golem)
+    missing_my_mummy.add_pre_quest(icthlarins_little_helper)
+    monkey_madness.add_pre_quest(the_grand_tree)
+    monkey_madness.add_pre_quest(tree_gnome_village)
+    mournings_end_part_i.add_pre_quest(big_chompy_bird_hunting)
+    mournings_end_part_i.add_pre_quest(sheep_herder)
+    mournings_end_part_i.add_pre_quest(roving_elves)
+    mournings_end_part_ii.add_pre_quest(mournings_end_part_i)
+    my_arms_big_adventure.add_pre_quest(eadgars_ruse)
+    my_arms_big_adventure.add_pre_quest(the_feud)
+    my_arms_big_adventure.add_pre_quest(jungle_potion)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

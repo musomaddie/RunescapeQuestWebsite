@@ -19,3 +19,4 @@ class My_Arms_Big_Adventure(Quest):
         self.woodcutting = 10
         self.farming = 20
         self.other_requirements.append("60%% favour with the people of Tai Bwo Wannai Village")
+        self.other_requirements.append("Done some work in Tai Bwo Wannai Cleanup")

@@ -20,3 +20,4 @@ class The_Mighty_Fall(Quest):
         self.constitution= 78
         self.attack = 79
         self.strength = 79
+        self.other_requirements.append("Chaos Tunnels: The Hunt for Surok")

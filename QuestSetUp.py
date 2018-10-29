@@ -745,6 +745,16 @@ def create_all_quests():
     swan_song.add_pre_quest(garden_of_tranquillity)
     swan_song.add_pre_quest(one_small_favour)
 
+    tai_bwo_wannai_trio.add_pre_quest(jungle_potion)
+    a_tail_of_two_cats.add_pre_quest(icthlarins_little_helper)
+    the_temple_at_senntisten.add_pre_quest(desert_treasure)
+    the_temple_at_senntisten.add_pre_quest(devious_minds)
+    the_temple_at_senntisten.add_pre_quest(the_curse_of_arrav)
+    throne_of_miscellania.add_pre_quest(heroes_quest)
+    throne_of_miscellania.add_pre_quest(the_fremennik_trials)
+    troll_romance.add_pre_quest(troll_stronghold)
+    troll_stronghold.add_pre_quest(death_plateau)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

@@ -19,3 +19,4 @@ class Tears_Of_Guthix(Quest):
         self.firemaking = 49
         self.mining = 20
         self.crafting = 20
+        self.other_requirements.append("44 quest points")

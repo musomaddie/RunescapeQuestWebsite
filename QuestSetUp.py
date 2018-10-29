@@ -588,6 +588,8 @@ def create_all_quests():
     haunted_mine.add_pre_quest(nature_spirit)
     heart_of_stone.add_pre_quest(carnillean_rising)
     heart_of_stone.add_pre_quest(rune_memories)
+    heart_of_stone.add_pre_quest(rune_mechanics)
+    heart_of_stone.add_pre_quest(the_elder_kiln)
     heros_welcome.add_pre_quest(lunar_diplomacy)
     heros_welcome.add_pre_quest(tai_bwo_wannai_trio)
     heroes_quest.add_pre_quest(shield_of_arrav)

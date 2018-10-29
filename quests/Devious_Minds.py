@@ -19,3 +19,4 @@ class Devious_Minds(Quest):
         self.runecrafting = 50
         self.fletching = 50
         self.smithing = 65
+        self.other_requirements.append("Abyss (miniquest)")

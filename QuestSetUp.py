@@ -726,6 +726,25 @@ def create_all_quests():
     rum_deal.add_pre_quest(zogre_flesh_eaters)
     rune_memories.add_pre_quest(rune_mysteries)
 
+    salt_in_the_wound.add_pre_quest(kenniths_concerns)
+    shadow_of_the_storm.add_pre_quest(demon_slayer)
+    shadow_of_the_storm.add_pre_quest(the_golem)
+    shilo_village.add_pre_quest(jungle_potion)
+    sliskes_endgame.add_pre_quest(the_death_of_chivalry)
+    sliskes_endgame.add_pre_quest(children_of_mah)
+    sliskes_endgame.add_pre_quest(heros_welcome)
+    sliskes_endgame.add_pre_quest(kindred_spirits)
+    sliskes_endgame.add_pre_quest(nomads_elegy)
+    sliskes_endgame.add_pre_quest(one_of_a_kind)
+    the_slug_menace.add_pre_quest(sea_slug)
+    the_slug_menace.add_pre_quest(wanted)
+    smoking_kills.add_pre_quest(icthlarins_little_helper)
+    some_like_it_cold.add_pre_quest(hunt_for_red_raktuber)
+    spirit_of_summer.add_pre_quest(the_restless_ghost)
+    summers_end.add_pre_quest(spirit_of_summer)
+    swan_song.add_pre_quest(garden_of_tranquillity)
+    swan_song.add_pre_quest(one_small_favour)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

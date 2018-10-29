@@ -22,3 +22,4 @@ class Swan_Song(Quest):
         self.smithing = 45
         self.firemaking = 42
         self.crafting = 40
+        self.other_requirements.append("101 quest points")

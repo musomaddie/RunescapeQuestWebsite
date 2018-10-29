@@ -17,3 +17,4 @@ class Scorpion_Catcher(Quest):
         self.quest_points = 1
 
         self.prayer = 31
+        self.other_requirements.append("Bar Crawl")

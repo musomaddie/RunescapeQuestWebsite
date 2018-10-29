@@ -56,6 +56,12 @@ def populate_db(db):
               quest.woodcutting)
         )
 
+    for main_quest in quests:
+        for pre_quest in main_quest.pre_quests:
+            cur.execute("""
+                       INSERT INTO pre_quests VALUES(?, ?);
+             """, (main_quest.name, pre_quest.name))
+
     conn.commit()
 
     cur.close()

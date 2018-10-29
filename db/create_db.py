@@ -115,13 +115,23 @@ def init_db(filename):
 
     cur.execute('''
                 CREATE TABLE pre_quests (
-                    main_quest INTEGER,
-                    pre_quest INTEGER,
+                    main_quest TEXT,
+                    pre_quest TEXT,
                     PRIMARY KEY (main_quest, pre_quest)
                     FOREIGN KEY (main_quest) REFERENCES quest_details (name),
                     FOREIGN KEY (pre_quest) REFERENCES quest_details (name)
                 );
                 ''')
+
+    cur.execute('''
+                CREATE TABLE quest_other_requirements(
+                    name TEXT,
+                    requirement TEXT,
+                    PRIMARY KEY (name, requirement)
+                    FOREIGN KEY (name) REFERENCES quest_details(name)
+                );
+                ''')
+
     conn.commit()
     cur.close()
     conn.close()

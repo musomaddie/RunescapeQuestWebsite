@@ -15,3 +15,5 @@ class Phite_Club(Quest):
         self.difficulty = "Master"
         self.length = "Short"
         self.quest_points = 1
+
+        self.other_requirements.append("Rank 9 in overall Menaphos reputation")

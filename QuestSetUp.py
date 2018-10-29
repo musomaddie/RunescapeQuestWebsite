@@ -677,6 +677,20 @@ def create_all_quests():
     our_man_in_the_north.add_pre_quest(do_no_evil)
     our_man_in_the_north.add_pre_quest(crocodile_tears)
 
+    the_path_of_glouphrie.add_pre_quest(waterfall_quest)
+    the_path_of_glouphrie.add_pre_quest(the_eyes_of_glouphrie)
+    the_path_of_glouphrie.add_pre_quest(tree_gnome_village)
+    phite_club.add_pre_quest(our_man_in_the_north)
+    pieces_of_hate.add_pre_quest(gertrudes_cat)
+    pieces_of_hate.add_pre_quest(a_clockwork_syringe)
+    plagues_end.add_pre_quest(making_history)
+    pieces_of_hate.add_pre_quest(catapult_construction)
+    pieces_of_hate.add_pre_quest(within_the_light)
+    the_prisoner_of_glouphrie.add_pre_quest(the_path_of_glouphrie)
+    the_prisoner_of_glouphrie.add_pre_quest(roving_elves)
+    quiet_before_the_swarm.add_pre_quest(imp_catcher)
+    quiet_before_the_swarm.add_pre_quest(wanted)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

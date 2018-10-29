@@ -15,3 +15,5 @@ class Our_Man_In_The_North(Quest):
         self.difficulty = "Master"
         self.length = "Short to Medium"
         self.quest_points = 1
+
+        self.other_requirements.append("Rank 6 overall Menaphos reputation")

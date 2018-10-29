@@ -21,3 +21,5 @@ class Nomads_Requiem(Quest):
         self.mining = 66
         self.hunter = 65
         self.construction = 60
+        self.other_requirements.append("Knight Waves training Ground")
+        self.other_requirements.append("Completed Soul Wars tutorial")

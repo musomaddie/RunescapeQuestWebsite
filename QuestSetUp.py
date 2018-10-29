@@ -655,6 +655,28 @@ def create_all_quests():
     my_arms_big_adventure.add_pre_quest(the_feud)
     my_arms_big_adventure.add_pre_quest(jungle_potion)
 
+    nature_spirit.add_pre_quest(priest_in_peril)
+    nature_spirit.add_pre_quest(the_restless_ghost)
+    nomads_elegy.add_pre_quest(dishonour_among_thieves)
+    nomads_elegy.add_pre_quest(heart_of_stone)
+    nomads_elegy.add_pre_quest(the_mighty_fall)
+    nomads_elegy.add_pre_quest(throne_of_miscellania)
+    nomads_elegy.add_pre_quest(nomads_requiem)
+    nomads_elegy.add_pre_quest(the_void_stares_back)
+    nomads_elegy.add_pre_quest(while_guthix_sleeps)
+    nomads_elegy.add_pre_quest(blood_runs_deep)
+    nomads_requiem.add_pre_quest(kings_ransom)
+
+    olafs_quest.add_pre_quest(the_fremennik_trials)
+    one_of_a_kind.add_pre_quest(a_tail_of_two_cats)
+    one_of_a_kind.add_pre_quest(the_world_wakes)
+    one_of_a_kind.add_pre_quest(kings_ransom)
+    one_of_a_kind.add_pre_quest(missing_presumed_death)
+    one_small_favour.add_pre_quest(rune_mysteries)
+    one_small_favour.add_pre_quest(shilo_village)
+    our_man_in_the_north.add_pre_quest(do_no_evil)
+    our_man_in_the_north.add_pre_quest(crocodile_tears)
+
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,
                   broken_home,

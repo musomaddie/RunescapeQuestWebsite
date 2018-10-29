@@ -17,3 +17,4 @@ class Horror_From_The_Deep(Quest):
         self.quest_points = 2
 
         self.agility = 35
+        self.other_requirements.append("Bar Crawl")

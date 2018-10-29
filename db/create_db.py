@@ -62,6 +62,12 @@ def populate_db(db):
                        INSERT INTO pre_quests VALUES(?, ?);
              """, (main_quest.name, pre_quest.name))
 
+    for quest in quests:
+        for requirement in quest.other_requirements:
+            cur.execute("""
+                        INSERT INTO quest_other_requirements VALUES(?, ?);
+            """, (quest.name, requirement))
+
     conn.commit()
 
     cur.close()

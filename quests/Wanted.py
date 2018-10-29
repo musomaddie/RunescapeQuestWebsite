@@ -15,3 +15,5 @@ class Wanted(Quest):
         self.difficulty = "Intermediate"
         self.length = "Medium to Long"
         self.quest_points = 1
+
+        self.other_requirements.append("33 quest points")

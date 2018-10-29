@@ -684,6 +684,7 @@ def create_all_quests():
     pieces_of_hate.add_pre_quest(gertrudes_cat)
     pieces_of_hate.add_pre_quest(a_clockwork_syringe)
     plagues_end.add_pre_quest(making_history)
+    plagues_end.add_pre_quest(within_the_light)
     pieces_of_hate.add_pre_quest(catapult_construction)
     pieces_of_hate.add_pre_quest(within_the_light)
     the_prisoner_of_glouphrie.add_pre_quest(the_path_of_glouphrie)
@@ -754,6 +755,40 @@ def create_all_quests():
     throne_of_miscellania.add_pre_quest(the_fremennik_trials)
     troll_romance.add_pre_quest(troll_stronghold)
     troll_stronghold.add_pre_quest(death_plateau)
+
+    underground_pass.add_pre_quest(biohazard)
+
+    a_void_dance.add_pre_quest(quiet_before_the_swarm)
+    a_void_dance.add_pre_quest(druidic_ritual)
+    the_void_stares_back.add_pre_quest(a_void_dance)
+
+    wanted.add_pre_quest(recruitment_drive)
+    wanted.add_pre_quest(the_lost_tribe)
+    wanted.add_pre_quest(priest_in_peril)
+    while_guthix_sleeps.add_pre_quest(defender_of_varrock)
+    while_guthix_sleeps.add_pre_quest(dream_mentor)
+    while_guthix_sleeps.add_pre_quest(the_hand_in_the_sand)
+    while_guthix_sleeps.add_pre_quest(kings_ransom)
+    while_guthix_sleeps.add_pre_quest(legends_quest)
+    while_guthix_sleeps.add_pre_quest(mournings_end_part_ii)
+    while_guthix_sleeps.add_pre_quest(the_path_of_glouphrie)
+    while_guthix_sleeps.add_pre_quest(recipe_for_disaster)
+    while_guthix_sleeps.add_pre_quest(summers_end)
+    while_guthix_sleeps.add_pre_quest(swan_song)
+    while_guthix_sleeps.add_pre_quest(tears_of_guthix)
+    while_guthix_sleeps.add_pre_quest(wanted)
+    while_guthix_sleeps.add_pre_quest(wolf_whistle)
+    while_guthix_sleeps.add_pre_quest(zogre_flesh_eaters)
+    while_guthix_sleeps.add_pre_quest(what_lies_below)
+    within_the_light.add_pre_quest(mournings_end_part_ii)
+    the_world_wakes.add_pre_quest(ritual_of_the_mahjarrat)
+    the_world_wakes.add_pre_quest(the_chosen_commander)
+    the_world_wakes.add_pre_quest(the_void_stares_back)
+    the_world_wakes.add_pre_quest(the_branches_of_darkmeyer)
+    the_world_wakes.add_pre_quest(the_firemakers_curse)
+
+    zogre_flesh_eaters.add_pre_quest(big_chompy_bird_hunting)
+    zogre_flesh_eaters.add_pre_quest(jungle_potion)
 
     all_quests = [beneath_cursed_tides,
                   the_blood_pact,

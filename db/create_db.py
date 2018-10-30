@@ -17,17 +17,21 @@ def populate_db(db):
     for quest in quests:
         cur.execute("""
                     INSERT INTO quest_details VALUES(
-                        ?, ?, ?, ?, ?, ?,
-                        ?, ?, ?, ?, ?, ?,
+                        ?, ?, ?, ?, ?, ?
+                    );
+                    """, (quest.name,
+                          quest.free,
+                          quest.age,
+                          quest.difficulty,
+                          quest.length,
+                          quest.quest_points))
+
+        cur.execute(""" INSERT INTO quest_levels VALUES (
+                        ?, ?, ?, ?, ?, ?, ?,
                         ?, ?, ?, ?, ?, ?,
                         ?, ?, ?, ?, ?, ?, ?,
                         ?, ?, ?, ?, ?, ?, ?);
         """, (quest.name,
-              quest.free,
-              quest.age,
-              quest.difficulty,
-              quest.length,
-              quest.quest_points,
               quest.agility,
               quest.attack,
               quest.constitution,
@@ -78,6 +82,7 @@ def init_db(filename):
     conn = sqlite3.connect(filename)
     cur = conn.cursor()
     cur.execute("""DROP TABLE IF EXISTS quest_details""")
+    cur.execute("""DROP TABLE IF EXISTS quest_levels""")
     cur.execute("""DROP TABLE IF EXISTS pre_quests""")
     cur.execute("""DROP TABLE IF EXISTS quest_other_requirements""")
 
@@ -89,7 +94,13 @@ def init_db(filename):
                     age INTEGER NOT NULL,
                     difficulty TEXT NOT NULL,
                     length TEXT NOT NULL,
-                    quest_points INTEGER NOT NULL,
+                    quest_points INTEGER NOT NULL
+                );
+            ''')
+
+    cur.execute('''
+                CREATE TABLE quest_levels(
+                    name TEXT PRIMARY KEY,
                     agility INTEGER,
                     attack INTEGER,
                     constitution INTEGER,
@@ -115,7 +126,8 @@ def init_db(filename):
                     strength INTEGER,
                     summoning INTEGER,
                     thieving INTEGER,
-                    woodcutting INTEGER
+                    woodcutting INTEGER,
+                    FOREIGN KEY (name) REFERENCES quest_details(name)
                 );
             ''')
 

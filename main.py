@@ -21,4 +21,4 @@ def list_all_quests():
 def view_quest(quest_name):
     quest_info = db.get_quest_info(quest_name)
     print(quest_info)
-    return render_tem5plate('view_quest.html')
+    return render_template('view_quest.html')

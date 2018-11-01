@@ -91,22 +91,38 @@ def get_quest_info(quest_name):
     """
     conn = sqlite3.connect("db/quests.db")
     cur = conn.cursor()
+
     cur.execute(""" SELECT * FROM quest_details WHERE name=?""",
                 (quest_name,))
     results_details = cur.fetchone()
+    print(results_details)
+
     cur.execute(""" SELECT * FROM quest_levels WHERE name=?""",
                 (quest_name,))
     result_levels = remove_zero_skills(get_level_dictionary(cur.fetchone()))
-    print(result_levels)
+
+    cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
+                (quest_name, ))
+    result_pre_quests = [x[0] for x in cur.fetchall()]
+    result_pre_quests.sort()
+
     cur.execute(""" SELECT requirement
                     FROM quest_other_requirements
                     WHERE name=?""", (quest_name,))
     result_other_requirements = [x[0] for x in cur.fetchall()]
-    print(result_other_requirements)
+
     # Make this all into a dictionary so we can refer to it easily inside the
     # HTML
 
     final_result = {"name": results_details[0],
+                    "free?": "yes" if results_details[1] else "no",
+                    "age": results_details[2],
+                    "difficulty": results_details[3],
+                    "length": results_details[4],
+                    "quest points": results_details[5],
+                    "skills": result_levels,
+                    "pre quests": result_pre_quests,
+                    "other requirements": result_other_requirements
                     }
 
     cur.close()

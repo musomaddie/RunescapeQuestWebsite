@@ -2,6 +2,16 @@ import sqlite3
 
 
 def remove_zero_skills(levels):
+    """Given a dict of skills, removes all skills that require level 0 and
+    returns the ones remaining.
+
+    Parameters:
+        levels (dict<str, int>): the original dictionary containing all the
+            skills
+
+    Returns:
+        list<tuple<str, int>>: the list of skills and levels, without the 0s
+    """
     actual_skills = []
     for skill in levels:
         if levels[skill] != 0:
@@ -10,6 +20,17 @@ def remove_zero_skills(levels):
 
 
 def get_level_dictionary(result):
+    """
+    Given a tuple from the quest_levels relation, turn it into a dictionary
+    of skill name to required level.
+
+    Parameters:
+        result (tuple): a tuple consisting of one row from the quest_levels
+            relation
+
+    Returns:
+        dict<str, int>>: each skill mapped to its required level
+    """
     return {'Agility': result[1],
             'Attack': result[2],
             'Constitution': result[3],
@@ -40,6 +61,12 @@ def get_level_dictionary(result):
 
 
 def get_all_quest_names():
+    """Queries the database for all the quest names
+
+    Returns:
+        list<tuple<str>> a list of tuples of which the first (and only) element
+            is the name of the quest
+    """
     conn = sqlite3.connect("db/quests.db")
     cur = conn.cursor()
     cur.execute("SELECT name FROM quest_details")
@@ -52,6 +79,16 @@ def get_all_quest_names():
 
 
 def get_quest_info(quest_name):
+    """ For the quest with the given name, it returns a dictionary of all the
+        information.
+
+        Parameters:
+            quest_name (str): the name of the quest we are investigating
+
+        Returns:
+            dict<str, ?>: a dictionary that maps the name of the quest info to
+                its actual info
+    """
     conn = sqlite3.connect("db/quests.db")
     cur = conn.cursor()
     cur.execute(""" SELECT * FROM quest_details WHERE name=?""",

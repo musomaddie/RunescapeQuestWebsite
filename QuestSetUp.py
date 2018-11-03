@@ -236,6 +236,7 @@ from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
+from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
 
 def create_all_quests():
@@ -1101,6 +1102,11 @@ def create_all_quests():
     sir_owen = Sir_Owen_Signature_Heroes_Quests()
     sir_owen.add_quest(the_death_of_chivalry)
 
+    xenia = Xenia_Signature_Heroes_Quests()
+    xenia.add_quest(the_blood_pact)
+    xenia.add_quest(carnillean_rising)
+    xenia.add_quest(heart_of_stone)
+    xenia.add_quest(nomads_elegy)
 
     all_quest_series = [ariane,
                         desert_series,
@@ -1113,6 +1119,7 @@ def create_all_quests():
                         penguin_series,
                         ozan,
                         sir_owen,
+                        xenia,
                         "done"
                         ]
 

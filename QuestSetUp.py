@@ -230,6 +230,7 @@ from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Gnome_Series import Gnome_Series
+from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 
 
 def create_all_quests():
@@ -1065,11 +1066,17 @@ def create_all_quests():
     gnome_series.add_related_quest(waterfall_quest)
     gnome_series.add_related_quest(roving_elves)
 
+    enchanted_key_series = Enchanted_Key_Series()
+    enchanted_key_series.add_quest(making_history)
+    enchanted_key_series.add_quest(meeting_history)
+    enchanted_key_series.add_quest(the_light_within)
+
     all_quest_series = [desert_series,
                         dragonkin_series,
                         druids_circles_series,
                         elemental_workshop_series,
                         gnome_series,
+                        enchanted_key_series,
                         "done"
                         ]
 

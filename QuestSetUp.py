@@ -231,6 +231,7 @@ from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Gnome_Series import Gnome_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
+from questseries.Monkey_Series import Monkey_Series
 
 
 def create_all_quests():
@@ -1071,12 +1072,18 @@ def create_all_quests():
     enchanted_key_series.add_quest(meeting_history)
     enchanted_key_series.add_quest(the_light_within)
 
+    monkey_series = Monkey_Series()
+    monkey_series.add_quest(monkey_madness)
+    monkey_series.add_quest(recipe_for_disaster)
+    monkey_series.add_quest(do_no_evil)
+
     all_quest_series = [desert_series,
                         dragonkin_series,
                         druids_circles_series,
                         elemental_workshop_series,
                         gnome_series,
                         enchanted_key_series,
+                        monkey_series,
                         "done"
                         ]
 

@@ -233,6 +233,7 @@ from questseries.Gnome_Series import Gnome_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
+from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 
 
 def create_all_quests():
@@ -1085,6 +1086,9 @@ def create_all_quests():
     penguin_series.add_quest(back_to_the_freezer)
     penguin_series.add_related_quest(recipe_for_disaster)
 
+    sir_owen = Sir_Owen_Signature_Heroes_Quests()
+    sir_owen.add_quest(the_death_of_chivalry)
+
     all_quest_series = [desert_series,
                         dragonkin_series,
                         druids_circles_series,
@@ -1093,6 +1097,7 @@ def create_all_quests():
                         enchanted_key_series,
                         monkey_series,
                         penguin_series,
+                        sir_owen,
                         "done"
                         ]
 

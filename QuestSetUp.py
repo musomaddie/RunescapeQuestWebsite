@@ -229,6 +229,7 @@ from questseries.Desert_Series import Desert_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
+from questseries.Gnome_Series import Gnome_Series
 
 
 def create_all_quests():
@@ -1054,10 +1055,21 @@ def create_all_quests():
     elemental_workshop_series.add_quest(elemental_workshop_iii)
     elemental_workshop_series.add_quest(elemental_workshop_iv)
 
+    gnome_series = Gnome_Series()
+    gnome_series.add_quest(the_grand_tree)
+    gnome_series.add_quest(monkey_madness)
+    gnome_series.add_quest(the_eyes_of_glouphrie)
+    gnome_series.add_quest(the_path_of_glouphrie)
+    gnome_series.add_quest(the_prisoner_of_glouphrie)
+    gnome_series.add_related_quest(tree_gnome_village)
+    gnome_series.add_related_quest(waterfall_quest)
+    gnome_series.add_related_quest(roving_elves)
+
     all_quest_series = [desert_series,
                         dragonkin_series,
                         druids_circles_series,
                         elemental_workshop_series,
+                        gnome_series,
                         "done"
                         ]
 

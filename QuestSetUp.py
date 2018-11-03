@@ -232,6 +232,7 @@ from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Gnome_Series import Gnome_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 from questseries.Monkey_Series import Monkey_Series
+from questseries.Penguin_Series import Penguin_Series
 
 
 def create_all_quests():
@@ -1077,6 +1078,12 @@ def create_all_quests():
     monkey_series.add_quest(recipe_for_disaster)
     monkey_series.add_quest(do_no_evil)
 
+    penguin_series = Penguin_Series()
+    penguin_series.add_quest(cold_war)
+    penguin_series.add_quest(hunt_for_red_raktuber)
+    penguin_series.add_quest(some_like_it_cold)
+    penguin_series.add_quest(back_to_the_freezer)
+
     all_quest_series = [desert_series,
                         dragonkin_series,
                         druids_circles_series,
@@ -1084,6 +1091,7 @@ def create_all_quests():
                         gnome_series,
                         enchanted_key_series,
                         monkey_series,
+                        penguin_series,
                         "done"
                         ]
 

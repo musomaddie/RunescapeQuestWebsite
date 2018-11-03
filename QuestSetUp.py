@@ -230,8 +230,6 @@ from questseries.Desert_Series import Desert_Series
 
 def create_all_quests():
 
-    desert_series = Desert_Series()
-
     all_fired_up = All_Fired_Up()
     animal_magnetism = Animal_Magnetism()
     another_slice_of_ham = Another_Slice_Of_Ham()
@@ -1016,6 +1014,27 @@ def create_all_quests():
                   the_world_wakes,
                   you_are_it,
                   zogre_flesh_eaters]
+
+    desert_series = Desert_Series()
+    desert_series.add_quest(stolen_hearts)
+    desert_series.add_quest(diamond_in_the_rough)
+    desert_series.add_quest(icthlarins_little_helper)
+    desert_series.add_quest(spirits_of_the_elid)
+    desert_series.add_quest(contact)
+    desert_series.add_quest(dealing_with_scabaras)
+    desert_series.add_quest(smoking_kills)
+    desert_series.add_quest(missing_my_mummy)
+    desert_series.add_quest(the_jack_of_spades)
+    desert_series.add_quest(crocodile_tears)
+    desert_series.add_quest(do_no_evil)
+    desert_series.add_quest(our_man_in_the_north)
+    desert_series.add_quest(phite_club)
+
+    all_quest_series = [desert_series,
+                        "done"
+    ]
+
+    print(all_quest_series)
 
     return all_quests
 

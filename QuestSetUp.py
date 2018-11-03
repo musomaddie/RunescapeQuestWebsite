@@ -227,6 +227,8 @@ from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 
 from questseries.Desert_Series import Desert_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
+from questseries.Druids_Circle_Series import Druids_Circle_Series
+from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 
 
 def create_all_quests():
@@ -1017,8 +1019,6 @@ def create_all_quests():
                   zogre_flesh_eaters]
 
     desert_series = Desert_Series()
-    dragonkin_series = Dragonkin_Series()
-
     desert_series.add_quest(stolen_hearts)
     desert_series.add_quest(diamond_in_the_rough)
     desert_series.add_quest(icthlarins_little_helper)
@@ -1033,6 +1033,7 @@ def create_all_quests():
     desert_series.add_quest(our_man_in_the_north)
     desert_series.add_quest(phite_club)
 
+    dragonkin_series = Dragonkin_Series()
     dragonkin_series.add_quest(a_tail_of_two_cats)
     dragonkin_series.add_quest(while_guthix_sleeps)
     dragonkin_series.add_quest(ritual_of_the_mahjarrat)
@@ -1041,8 +1042,22 @@ def create_all_quests():
     dragonkin_series.add_quest(heros_welcome)
     dragonkin_series.add_quest(sliskes_endgame)
 
+    druids_circles_series = Druids_Circle_Series()
+    druids_circles_series.add_quest(druidic_ritual)
+    druids_circles_series.add_quest(eadgars_ruse)
+    druids_circles_series.add_related_quest(while_guthix_sleeps)
+    druids_circles_series.add_related_quest(the_world_wakes)
+
+    elemental_workshop_series = Elemental_Workshop_Series()
+    elemental_workshop_series.add_quest(elemental_workshop_i)
+    elemental_workshop_series.add_quest(elemental_workshop_ii)
+    elemental_workshop_series.add_quest(elemental_workshop_iii)
+    elemental_workshop_series.add_quest(elemental_workshop_iv)
+
     all_quest_series = [desert_series,
                         dragonkin_series,
+                        druids_circles_series,
+                        elemental_workshop_series,
                         "done"
                         ]
 

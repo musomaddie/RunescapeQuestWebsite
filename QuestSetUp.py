@@ -225,8 +225,12 @@ from quests.The_World_Wakes import The_World_Wakes
 from quests.You_Are_It import You_Are_It
 from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 
+from questseries.Desert_Series import Desert_Series
+
 
 def create_all_quests():
+
+    desert_series = Desert_Series()
 
     all_fired_up = All_Fired_Up()
     animal_magnetism = Animal_Magnetism()

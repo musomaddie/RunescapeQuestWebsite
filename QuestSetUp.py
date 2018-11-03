@@ -225,6 +225,7 @@ from quests.The_World_Wakes import The_World_Wakes
 from quests.You_Are_It import You_Are_It
 from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 
+from questseries.Ariane_Signature_Heroes_Quests import Ariane_Signature_Heroes_Quests
 from questseries.Desert_Series import Desert_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
@@ -233,8 +234,8 @@ from questseries.Gnome_Series import Gnome_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
-from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
+from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 
 
 def create_all_quests():
@@ -1024,6 +1025,11 @@ def create_all_quests():
                   you_are_it,
                   zogre_flesh_eaters]
 
+    ariane = Ariane_Signature_Heroes_Quests()
+    ariane.add_quest(rune_mysteries)
+    ariane.add_quest(rune_memories)
+    ariane.add_quest(heart_of_stone)
+
     desert_series = Desert_Series()
     desert_series.add_quest(stolen_hearts)
     desert_series.add_quest(diamond_in_the_rough)
@@ -1087,15 +1093,17 @@ def create_all_quests():
     penguin_series.add_quest(back_to_the_freezer)
     penguin_series.add_related_quest(recipe_for_disaster)
 
-    sir_owen = Sir_Owen_Signature_Heroes_Quests()
-    sir_owen.add_quest(the_death_of_chivalry)
-
     ozan = Ozan_Signature_Heroes_Quests()
     ozan.add_quest(stolen_hearts)
     ozan.add_quest(diamond_in_the_rough)
     ozan.add_quest(the_jack_of_spades)
 
-    all_quest_series = [desert_series,
+    sir_owen = Sir_Owen_Signature_Heroes_Quests()
+    sir_owen.add_quest(the_death_of_chivalry)
+
+
+    all_quest_series = [ariane,
+                        desert_series,
                         dragonkin_series,
                         druids_circles_series,
                         elemental_workshop_series,
@@ -1103,8 +1111,8 @@ def create_all_quests():
                         enchanted_key_series,
                         monkey_series,
                         penguin_series,
-                        sir_owen,
                         ozan,
+                        sir_owen,
                         "done"
                         ]
 

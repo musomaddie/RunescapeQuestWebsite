@@ -1083,6 +1083,7 @@ def create_all_quests():
     penguin_series.add_quest(hunt_for_red_raktuber)
     penguin_series.add_quest(some_like_it_cold)
     penguin_series.add_quest(back_to_the_freezer)
+    penguin_series.add_related_quest(recipe_for_disaster)
 
     all_quest_series = [desert_series,
                         dragonkin_series,

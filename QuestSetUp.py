@@ -226,6 +226,7 @@ from quests.You_Are_It import You_Are_It
 from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 
 from questseries.Ariane_Signature_Heroes_Quests import Ariane_Signature_Heroes_Quests
+from questseries.Camelot_Series import Camelot_Series
 from questseries.Desert_Series import Desert_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
@@ -1038,6 +1039,12 @@ def create_all_quests():
     ariane.add_quest(rune_memories)
     ariane.add_quest(heart_of_stone)
 
+    camelot_series = Camelot_Series()
+    camelot_series.add_quest(merlins_crystal)
+    camelot_series.add_quest(holy_grail)
+    camelot_series.add_quest(kings_ransom)
+    camelot_series.add_related_quest(murder_mystery)
+
     desert_series = Desert_Series()
     desert_series.add_quest(stolen_hearts)
     desert_series.add_quest(diamond_in_the_rough)
@@ -1167,6 +1174,7 @@ def create_all_quests():
     xenia.add_quest(nomads_elegy)
 
     all_quest_series = [ariane,
+                        camelot_series,
                         desert_series,
                         dragonkin_series,
                         druids_circles_series,

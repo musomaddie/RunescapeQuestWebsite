@@ -248,6 +248,7 @@ from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
+from questseries.The_Rise_Of_Lucien import The_Rise_Of_Lucien
 from questseries.Void_Knights_Series import Void_Knights_Series
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
@@ -1220,6 +1221,11 @@ def create_all_quests():
     the_raptor = The_Raptor_Signature_Heroes_Quests()
     the_raptor.add_quest(song_from_the_depths)
 
+    the_rise_of_lucien = The_Rise_Of_Lucien()
+    the_rise_of_lucien.add_quest(temple_of_ikov)
+    the_rise_of_lucien.add_quest(while_guthix_sleeps)
+    the_rise_of_lucien.add_quest(ritual_of_the_mahjarrat)
+
     void_knights_series = Void_Knights_Series()
     void_knights_series.add_quest(quiet_before_the_swarm)
     void_knights_series.add_quest(a_void_dance)
@@ -1254,6 +1260,7 @@ def create_all_quests():
                         sea_slug_series,
                         sir_owen,
                         the_raptor,
+                        the_rise_of_lucien,
                         void_knights_series,
                         xenia,
                         "done"

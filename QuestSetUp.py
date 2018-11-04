@@ -238,6 +238,7 @@ from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Que
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
+from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
@@ -1128,6 +1129,15 @@ def create_all_quests():
     ozan.add_quest(diamond_in_the_rough)
     ozan.add_quest(the_jack_of_spades)
 
+    sea_slug_series = Sea_Slug_Series()
+    sea_slug_series.add_quest(sea_slug)
+    sea_slug_series.add_quest(the_slug_menace)
+    sea_slug_series.add_quest(kenniths_concerns)
+    sea_slug_series.add_quest(salt_in_the_wound)
+    sea_slug_series.add_related_quest(rum_deal)
+    sea_slug_series.add_related_quest(hunt_for_red_raktuber)
+    sea_slug_series.add_related_quest(evil_daves_big_day_out)
+
     sir_owen = Sir_Owen_Signature_Heroes_Quests()
     sir_owen.add_quest(the_death_of_chivalry)
 
@@ -1162,6 +1172,7 @@ def create_all_quests():
                         monkey_series,
                         penguin_series,
                         ozan,
+                        sea_slug_series,
                         sir_owen,
                         the_raptor,
                         xenia,

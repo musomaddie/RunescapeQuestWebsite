@@ -252,6 +252,7 @@ from questseries.Rise_Of_The_Red_Axe import Rise_Of_The_Red_Axe
 from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 from questseries.Sliske import Sliske
+from questseries.Summer_Series import Summer_Series
 from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
 from questseries.The_Return_Of_Zaros import The_Return_Of_Zaros
@@ -1270,6 +1271,10 @@ def create_all_quests():
     sliske.add_related_quest(the_world_wakes)
     sliske.add_related_quest(fate_of_the_gods)
 
+    summer_series = Summer_Series()
+    summer_series.add_quest(spirit_of_summer, 1)
+    summer_series.add_quest(summers_end, 2)
+
     temple_knight_series = Temple_Knight_Series()
     temple_knight_series.add_quest(recruitment_drive, 1)
     temple_knight_series.add_quest(wanted, 2)
@@ -1335,6 +1340,7 @@ def create_all_quests():
                         sea_slug_series,
                         sir_owen,
                         sliske,
+                        summer_series,
                         the_raptor,
                         the_return_of_zaros,
                         the_rise_of_lucien,

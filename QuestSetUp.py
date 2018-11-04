@@ -229,6 +229,7 @@ from questseries.Ariane_Signature_Heroes_Quests import Ariane_Signature_Heroes_Q
 from questseries.Desert_Series import Desert_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
+from questseries.Elder_Gods import Elder_Gods
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 from questseries.Gnome_Series import Gnome_Series
@@ -1063,6 +1064,12 @@ def create_all_quests():
     druids_circles_series.add_related_quest(while_guthix_sleeps)
     druids_circles_series.add_related_quest(the_world_wakes)
 
+    elder_gods = Elder_Gods()
+    elder_gods.add_quest(fate_of_the_gods)
+    elder_gods.add_quest(heart_of_stone)
+    elder_gods.add_quest(children_of_mah)
+    elder_gods.add_quest(sliskes_endgame)
+
     elemental_workshop_series = Elemental_Workshop_Series()
     elemental_workshop_series.add_quest(elemental_workshop_i)
     elemental_workshop_series.add_quest(elemental_workshop_ii)
@@ -1121,6 +1128,7 @@ def create_all_quests():
                         desert_series,
                         dragonkin_series,
                         druids_circles_series,
+                        elder_gods,
                         elemental_workshop_series,
                         gnome_series,
                         enchanted_key_series,

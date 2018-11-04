@@ -235,6 +235,7 @@ from questseries.Elder_Gods import Elder_Gods
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Elf_Series import Elf_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
+from questseries.Fairy_Tale_Series import Fairy_Tale_Series
 from questseries.God_Series import God_Series
 from questseries.Gnome_Series import Gnome_Series
 from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Quests
@@ -1121,6 +1122,12 @@ def create_all_quests():
     enchanted_key_series.add_quest(meeting_history)
     enchanted_key_series.add_quest(the_light_within)
 
+    fairy_tale_series = Fairy_Tale_Series()
+    fairy_tale_series.add_quest(lost_city)
+    fairy_tale_series.add_quest(fairy_tale_i_growing_pains)
+    fairy_tale_series.add_quest(fairy_tale_ii_cure_a_queen)
+    fairy_tale_series.add_quest(fairy_tale_iii_battle_at_orks_rift)
+
     god_series = God_Series()
     god_series.add_quest(the_world_wakes)
     god_series.add_quest(the_death_of_chivalry)
@@ -1211,6 +1218,7 @@ def create_all_quests():
                         elemental_workshop_series,
                         elf_series,
                         enchanted_key_series,
+                        fairy_tale_series,
                         god_series,
                         gnome_series,
                         linza,

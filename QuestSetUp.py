@@ -243,6 +243,7 @@ from questseries.Gnome_Series import Gnome_Series
 from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Quests
 from questseries.Mahjarrat_Quest_Series import Mahjarrat_Quest_Series
 from questseries.Monkey_Series import Monkey_Series
+from questseries.Myreque_Series import Myreque_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Other_Mahjarrat_Quests import Other_Mahjarrat_Quests
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
@@ -1193,6 +1194,18 @@ def create_all_quests():
     monkey_series.add_quest(recipe_for_disaster)
     monkey_series.add_quest(do_no_evil)
 
+    myreque_series = Myreque_Series()
+    myreque_series.add_quest(priest_in_peril)
+    myreque_series.add_quest(nature_spirit)
+    myreque_series.add_quest(in_search_of_the_myreque)
+    myreque_series.add_quest(in_aid_of_the_myreque)
+    myreque_series.add_quest(darkness_of_hallowvale)
+    myreque_series.add_quest(legacy_of_seergaze)
+    myreque_series.add_quest(the_branches_of_darkmeyer)
+    myreque_series.add_quest(the_lord_of_vampyrium)
+    myreque_series.add_quest(river_of_blood)
+    myreque_series.add_related_quest(shades_of_mortton)
+
     penguin_series = Penguin_Series()
     penguin_series.add_quest(cold_war)
     penguin_series.add_quest(hunt_for_red_raktuber)
@@ -1270,6 +1283,7 @@ def create_all_quests():
                         linza,
                         mahjarrat_quest_series,
                         monkey_series,
+                        myreque_series,
                         penguin_series,
                         other_mahjarrat_quests,
                         ozan,

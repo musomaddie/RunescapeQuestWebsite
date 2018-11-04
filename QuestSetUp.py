@@ -258,6 +258,7 @@ from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_
 from questseries.The_Return_Of_Zaros import The_Return_Of_Zaros
 from questseries.The_Rise_Of_Lucien import The_Rise_Of_Lucien
 from questseries.Troll_Series import Troll_Series
+from questseries.TzHaar_Series import TzHaar_Series
 from questseries.Void_Knights_Series import Void_Knights_Series
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
@@ -1314,6 +1315,12 @@ def create_all_quests():
     troll_series.add_related_quest(wolf_whistle)
     troll_series.add_related_quest(king_of_the_dwarves)
 
+    tzhaar_series = TzHaar_Series()
+    tzhaar_series.add_quest(the_elder_kiln, 1)
+    tzhaar_series.add_quest(the_brink_of_extinction, 2)
+    tzhaar_series.add_related_quest(toktz_ket_dill)
+    tzhaar_series.add_related_quest(heart_of_stone)
+
     void_knights_series = Void_Knights_Series()
     void_knights_series.add_quest(quiet_before_the_swarm, 1)
     void_knights_series.add_quest(a_void_dance, 2)
@@ -1358,6 +1365,7 @@ def create_all_quests():
                         the_return_of_zaros,
                         the_rise_of_lucien,
                         troll_series,
+                        tzhaar_series,
                         void_knights_series,
                         xenia,
                         "done"

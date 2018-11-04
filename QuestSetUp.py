@@ -240,6 +240,7 @@ from questseries.Fremennik import Fremennik
 from questseries.God_Series import God_Series
 from questseries.Gnome_Series import Gnome_Series
 from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Quests
+from questseries.Mahjarrat_Quest_Series import Mahjarrat_Quest_Series
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
@@ -1171,6 +1172,13 @@ def create_all_quests():
     linza.add_quest(deadliest_catch)
     linza.add_quest(kindred_spirits)
 
+    mahjarrat_quest_series = Mahjarrat_Quest_Series()
+    mahjarrat_quest_series.add_quest(the_tale_of_the_muspah)
+    mahjarrat_quest_series.add_quest(missing_my_mummy)
+    mahjarrat_quest_series.add_quest(the_curse_of_arrav)
+    mahjarrat_quest_series.add_quest(the_temple_at_senntisten)
+    mahjarrat_quest_series.add_quest(ritual_of_the_mahjarrat)
+
     monkey_series = Monkey_Series()
     monkey_series.add_quest(monkey_madness)
     monkey_series.add_quest(recipe_for_disaster)
@@ -1239,6 +1247,7 @@ def create_all_quests():
                         god_series,
                         gnome_series,
                         linza,
+                        mahjarrat_quest_series,
                         monkey_series,
                         penguin_series,
                         ozan,

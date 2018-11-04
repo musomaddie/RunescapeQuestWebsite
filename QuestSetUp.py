@@ -1373,13 +1373,10 @@ def create_all_quests():
                         tzhaar_series,
                         void_knights_series,
                         xenia,
-                        wise_old_man_series,
-                        "done"
+                        wise_old_man_series
                         ]
 
-    print(all_quest_series)
-
-    return all_quests
+    return (all_quests, all_quest_series)
 
 
 create_all_quests()

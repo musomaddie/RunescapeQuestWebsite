@@ -10,7 +10,7 @@ from QuestSetUp import create_all_quests
 
 
 def populate_db(db):
-    quests = create_all_quests()
+    quests, quest_series = create_all_quests()
     conn = sqlite3.connect(db)
     cur = conn.cursor()
 
@@ -72,6 +72,17 @@ def populate_db(db):
                         INSERT INTO quest_other_requirements VALUES(?, ?);
             """, (quest.name, requirement))
 
+    for quest_s in quest_series:
+        for quest in quest_s.quests:
+            cur.execute("""
+                        INSERT INTO quest_series VALUES (?, ?, ?);
+            """, (quest_s.name, quest[0].name, quest[1]))
+
+        for quest in quest_s.related_quests:
+            cur.execute("""
+                        INSERT INTO quest_series_related VALUES (?, ?);
+            """, (quest_s.name, quest.name))
+
     conn.commit()
 
     cur.close()
@@ -85,6 +96,8 @@ def init_db(filename):
     cur.execute("""DROP TABLE IF EXISTS quest_levels""")
     cur.execute("""DROP TABLE IF EXISTS pre_quests""")
     cur.execute("""DROP TABLE IF EXISTS quest_other_requirements""")
+    cur.execute("""DROP TABLE IF EXISTS quest_series""")
+    cur.execute("""DROP TABLE IF EXISTS quest_series_related""")
 
     # Set up table of quest details
     cur.execute('''
@@ -147,6 +160,25 @@ def init_db(filename):
                     requirement TEXT,
                     PRIMARY KEY (name, requirement)
                     FOREIGN KEY (name) REFERENCES quest_details(name)
+                );
+                ''')
+
+    cur.execute('''
+                CREATE TABLE quest_series(
+                    name TEXT,
+                    quest TEXT,
+                    number INTEGER,
+                    PRIMARY KEY (name, quest)
+                    FOREIGN KEY (quest) REFERENCES quest_details(name)
+                );
+                ''')
+
+    cur.execute('''
+                CREATE TABLE quest_series_related(
+                    name TEXT,
+                    quest TEXT,
+                    PRIMARY KEY (name, quest)
+                    FOREIGN KEY (quest) REFERENCES quest_details(name)
                 );
                 ''')
 

@@ -1139,6 +1139,10 @@ def create_all_quests():
     fremennik.add_quest(dream_mentor)
     fremennik.add_quest(glorious_memories)
     fremennik.add_quest(blood_runs_deep)
+    fremennik.add_related_quest(mountain_daughter)
+    fremennik.add_related_quest(olafs_quest)
+    fremennik.add_related_quest(the_tale_of_the_muspah)
+    fremennik.add_related_quest(heros_welcome)
 
     god_series = God_Series()
     god_series.add_quest(the_world_wakes)

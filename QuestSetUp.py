@@ -242,6 +242,7 @@ from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
+from questseries.Void_Knights_Series import Void_Knights_Series
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
 
@@ -1153,6 +1154,12 @@ def create_all_quests():
     the_raptor = The_Raptor_Signature_Heroes_Quests()
     the_raptor.add_quest(song_from_the_depths)
 
+    void_knights_series = Void_Knights_Series()
+    void_knights_series.add_quest(quiet_before_the_swarm)
+    void_knights_series.add_quest(a_void_dance)
+    void_knights_series.add_quest(the_void_stares_back)
+    void_knights_series.add_related_quest(imp_catcher)
+
     xenia = Xenia_Signature_Heroes_Quests()
     xenia.add_quest(the_blood_pact)
     xenia.add_quest(carnillean_rising)
@@ -1175,6 +1182,7 @@ def create_all_quests():
                         sea_slug_series,
                         sir_owen,
                         the_raptor,
+                        void_knights_series,
                         xenia,
                         "done"
                         ]

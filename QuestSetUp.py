@@ -233,6 +233,7 @@ from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elder_Gods import Elder_Gods
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
+from questseries.Elf_Series import Elf_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 from questseries.God_Series import God_Series
 from questseries.Gnome_Series import Gnome_Series
@@ -1099,6 +1100,21 @@ def create_all_quests():
     elemental_workshop_series.add_quest(elemental_workshop_iii)
     elemental_workshop_series.add_quest(elemental_workshop_iv)
 
+    elf_series = Elf_Series()
+    elf_series.add_quest(plague_city)
+    elf_series.add_quest(biohazard)
+    elf_series.add_quest(underground_pass)
+    elf_series.add_quest(regicide)
+    elf_series.add_quest(roving_elves)
+    elf_series.add_quest(mournings_end_part_i)
+    elf_series.add_quest(mournings_end_part_ii)
+    elf_series.add_quest(within_the_light)
+    elf_series.add_quest(plagues_end)
+    elf_series.add_related_quest(lost_city)
+    elf_series.add_related_quest(fairy_tale_i_growing_pains)
+    elf_series.add_related_quest(fairy_tale_ii_cure_a_queen)
+    elf_series.add_related_quest(fairy_tale_iii_battle_at_orks_rift)
+
     enchanted_key_series = Enchanted_Key_Series()
     enchanted_key_series.add_quest(making_history)
     enchanted_key_series.add_quest(meeting_history)
@@ -1192,6 +1208,7 @@ def create_all_quests():
                         druids_circles_series,
                         elder_gods,
                         elemental_workshop_series,
+                        elf_series,
                         enchanted_key_series,
                         god_series,
                         gnome_series,

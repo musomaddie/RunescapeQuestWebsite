@@ -232,6 +232,7 @@ from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elder_Gods import Elder_Gods
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
+from questseries.God_Series import God_Series
 from questseries.Gnome_Series import Gnome_Series
 from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Quests
 from questseries.Monkey_Series import Monkey_Series
@@ -1082,6 +1083,19 @@ def create_all_quests():
     enchanted_key_series.add_quest(meeting_history)
     enchanted_key_series.add_quest(the_light_within)
 
+    god_series = God_Series()
+    god_series.add_quest(the_world_wakes)
+    god_series.add_quest(the_death_of_chivalry)
+    god_series.add_quest(missing_presumed_death)
+    god_series.add_quest(fate_of_the_gods)
+    god_series.add_quest(the_mighty_fall)
+    god_series.add_quest(dishonour_among_thieves)
+    god_series.add_quest(heros_welcome)
+    god_series.add_quest(the_light_within)
+    god_series.add_quest(nomads_elegy)
+    god_series.add_quest(children_of_mah)
+    god_series.add_quest(sliskes_endgame)
+
     gnome_series = Gnome_Series()
     gnome_series.add_quest(the_grand_tree)
     gnome_series.add_quest(monkey_madness)
@@ -1131,8 +1145,9 @@ def create_all_quests():
                         druids_circles_series,
                         elder_gods,
                         elemental_workshop_series,
-                        gnome_series,
                         enchanted_key_series,
+                        god_series,
+                        gnome_series,
                         linza,
                         monkey_series,
                         penguin_series,

@@ -237,6 +237,7 @@ from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
+from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
 
@@ -1107,6 +1108,9 @@ def create_all_quests():
     sir_owen = Sir_Owen_Signature_Heroes_Quests()
     sir_owen.add_quest(the_death_of_chivalry)
 
+    the_raptor = The_Raptor_Signature_Heroes_Quests()
+    the_raptor.add_quest(song_from_the_depths)
+
     xenia = Xenia_Signature_Heroes_Quests()
     xenia.add_quest(the_blood_pact)
     xenia.add_quest(carnillean_rising)
@@ -1120,10 +1124,12 @@ def create_all_quests():
                         elemental_workshop_series,
                         gnome_series,
                         enchanted_key_series,
+                        linza,
                         monkey_series,
                         penguin_series,
                         ozan,
                         sir_owen,
+                        the_raptor,
                         xenia,
                         "done"
                         ]

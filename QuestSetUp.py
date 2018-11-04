@@ -251,6 +251,7 @@ from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quest
 from questseries.Rise_Of_The_Red_Axe import Rise_Of_The_Red_Axe
 from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
+from questseries.Sliske import Sliske
 from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
 from questseries.The_Return_Of_Zaros import The_Return_Of_Zaros
@@ -1258,6 +1259,17 @@ def create_all_quests():
     sir_owen = Sir_Owen_Signature_Heroes_Quests()
     sir_owen.add_quest(the_death_of_chivalry, 1)
 
+    sliske = Sliske()
+    sliske.add_quest(missing_presumed_death, 1)
+    sliske.add_quest(dishonour_among_thieves, 2)
+    sliske.add_quest(nomads_elegy, 3)
+    sliske.add_quest(kindred_spirits, 4)
+    sliske.add_quest(children_of_mah, 5)
+    sliske.add_quest(sliskes_endgame, 6)
+    sliske.add_related_quest(ritual_of_the_mahjarrat)
+    sliske.add_related_quest(the_world_wakes)
+    sliske.add_related_quest(fate_of_the_gods)
+
     temple_knight_series = Temple_Knight_Series()
     temple_knight_series.add_quest(recruitment_drive, 1)
     temple_knight_series.add_quest(wanted, 2)
@@ -1322,6 +1334,7 @@ def create_all_quests():
                         rise_of_the_red_axe,
                         sea_slug_series,
                         sir_owen,
+                        sliske,
                         the_raptor,
                         the_return_of_zaros,
                         the_rise_of_lucien,

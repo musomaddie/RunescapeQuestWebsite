@@ -236,6 +236,7 @@ from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
 from questseries.Elf_Series import Elf_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
 from questseries.Fairy_Tale_Series import Fairy_Tale_Series
+from questseries.Fremennik import Fremennik
 from questseries.God_Series import God_Series
 from questseries.Gnome_Series import Gnome_Series
 from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Quests
@@ -1128,6 +1129,17 @@ def create_all_quests():
     fairy_tale_series.add_quest(fairy_tale_ii_cure_a_queen)
     fairy_tale_series.add_quest(fairy_tale_iii_battle_at_orks_rift)
 
+    fremennik = Fremennik()
+    fremennik.add_quest(the_fremennik_trials)
+    fremennik.add_quest(horror_from_the_deep)
+    fremennik.add_quest(throne_of_miscellania)
+    fremennik.add_quest(royal_trouble)
+    fremennik.add_quest(lunar_diplomacy)
+    fremennik.add_quest(the_fremennik_isles)
+    fremennik.add_quest(dream_mentor)
+    fremennik.add_quest(glorious_memories)
+    fremennik.add_quest(blood_runs_deep)
+
     god_series = God_Series()
     god_series.add_quest(the_world_wakes)
     god_series.add_quest(the_death_of_chivalry)
@@ -1219,6 +1231,7 @@ def create_all_quests():
                         elf_series,
                         enchanted_key_series,
                         fairy_tale_series,
+                        fremennik,
                         god_series,
                         gnome_series,
                         linza,

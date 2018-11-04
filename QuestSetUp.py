@@ -257,6 +257,7 @@ from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
 from questseries.The_Return_Of_Zaros import The_Return_Of_Zaros
 from questseries.The_Rise_Of_Lucien import The_Rise_Of_Lucien
+from questseries.Troll_Series import Troll_Series
 from questseries.Void_Knights_Series import Void_Knights_Series
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
@@ -1301,6 +1302,18 @@ def create_all_quests():
     the_rise_of_lucien.add_quest(while_guthix_sleeps, 2)
     the_rise_of_lucien.add_quest(ritual_of_the_mahjarrat, 3)
 
+    troll_series = Troll_Series()
+    troll_series.add_quest(death_plateau, 1)
+    troll_series.add_quest(troll_stronghold, 2)
+    troll_series.add_quest(eadgars_ruse, 3)
+    troll_series.add_quest(troll_romance, 4)
+    troll_series.add_quest(my_arms_big_adventure, 5)
+    troll_series.add_quest(the_mighty_fall, 6)
+    troll_series.add_related_quest(let_them_eat_pie)
+    troll_series.add_related_quest(druidic_ritual)
+    troll_series.add_related_quest(wolf_whistle)
+    troll_series.add_related_quest(king_of_the_dwarves)
+
     void_knights_series = Void_Knights_Series()
     void_knights_series.add_quest(quiet_before_the_swarm, 1)
     void_knights_series.add_quest(a_void_dance, 2)
@@ -1344,6 +1357,7 @@ def create_all_quests():
                         the_raptor,
                         the_return_of_zaros,
                         the_rise_of_lucien,
+                        troll_series,
                         void_knights_series,
                         xenia,
                         "done"

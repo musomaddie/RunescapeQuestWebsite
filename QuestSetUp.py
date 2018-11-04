@@ -1069,6 +1069,7 @@ def create_all_quests():
     elder_gods.add_quest(heart_of_stone)
     elder_gods.add_quest(children_of_mah)
     elder_gods.add_quest(sliskes_endgame)
+    elder_gods.add_related_quest(one_of_a_kind)
 
     elemental_workshop_series = Elemental_Workshop_Series()
     elemental_workshop_series.add_quest(elemental_workshop_i)

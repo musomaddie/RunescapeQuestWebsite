@@ -10,4 +10,4 @@ from QuestSeriesInfo import QuestSeries
 class The_Rise_Of_Lucien(QuestSeries):
 
     def __init__(self):
-        super().__init__("The Rise of Lucien")
+        super().__init__("The Rise of Lucien: Mahjarrat Quest Series")

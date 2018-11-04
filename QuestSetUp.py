@@ -227,6 +227,7 @@ from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 
 from questseries.Ariane_Signature_Heroes_Quests import Ariane_Signature_Heroes_Quests
 from questseries.Camelot_Series import Camelot_Series
+from questseries.Curse_Of_Arrav import Curse_Of_Arrav
 from questseries.Desert_Series import Desert_Series
 from questseries.Dorgeshuun_Series import Dorgeshuun_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
@@ -1051,6 +1052,12 @@ def create_all_quests():
     camelot_series.add_quest(kings_ransom)
     camelot_series.add_related_quest(murder_mystery)
 
+    curse_of_arrav = Curse_Of_Arrav()
+    curse_of_arrav.add_quest(shield_of_arrav)
+    curse_of_arrav.add_quest(defender_of_varrock)
+    curse_of_arrav.add_quest(the_curse_of_arrav)
+    curse_of_arrav.add_quest(ritual_of_the_mahjarrat)
+
     desert_series = Desert_Series()
     desert_series.add_quest(stolen_hearts)
     desert_series.add_quest(diamond_in_the_rough)
@@ -1240,6 +1247,7 @@ def create_all_quests():
 
     all_quest_series = [ariane,
                         camelot_series,
+                        curse_of_arrav,
                         desert_series,
                         dorgeshuun_series,
                         dragonkin_series,

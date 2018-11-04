@@ -7,7 +7,7 @@ sys.path.insert(0,
 from QuestSeriesInfo import QuestSeries
 
 
-class Mahjarrat_Quest_Series(QuestSeries):
+class Curse_Of_Arrav(QuestSeries):
 
     def __init__(self):
-        super().__init__("Mysteries of the Mahjarrat: Mahjarrat Quest Series")
+        super().__init__("Curse of Arrav: Mahjarrat Quest Series")

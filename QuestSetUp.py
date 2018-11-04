@@ -261,6 +261,7 @@ from questseries.Troll_Series import Troll_Series
 from questseries.TzHaar_Series import TzHaar_Series
 from questseries.Void_Knights_Series import Void_Knights_Series
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
+from questseries.Wise_Old_Man_Series import Wise_Old_Man_Series
 
 
 def create_all_quests():
@@ -1333,6 +1334,10 @@ def create_all_quests():
     xenia.add_quest(heart_of_stone, 3)
     xenia.add_quest(nomads_elegy, 4)
 
+    wise_old_man_series = Wise_Old_Man_Series()
+    wise_old_man_series.add_quest(swan_song, 1)
+    wise_old_man_series.add_quest(love_story, 2)
+
     all_quest_series = [ariane,
                         camelot_series,
                         curse_of_arrav,
@@ -1368,6 +1373,7 @@ def create_all_quests():
                         tzhaar_series,
                         void_knights_series,
                         xenia,
+                        wise_old_man_series,
                         "done"
                         ]
 

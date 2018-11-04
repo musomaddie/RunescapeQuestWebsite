@@ -230,8 +230,9 @@ from questseries.Desert_Series import Desert_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elemental_Workshop_Series import Elemental_Workshop_Series
-from questseries.Gnome_Series import Gnome_Series
 from questseries.Enchanted_Key_Series import Enchanted_Key_Series
+from questseries.Gnome_Series import Gnome_Series
+from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Quests
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
@@ -1067,6 +1068,11 @@ def create_all_quests():
     elemental_workshop_series.add_quest(elemental_workshop_iii)
     elemental_workshop_series.add_quest(elemental_workshop_iv)
 
+    enchanted_key_series = Enchanted_Key_Series()
+    enchanted_key_series.add_quest(making_history)
+    enchanted_key_series.add_quest(meeting_history)
+    enchanted_key_series.add_quest(the_light_within)
+
     gnome_series = Gnome_Series()
     gnome_series.add_quest(the_grand_tree)
     gnome_series.add_quest(monkey_madness)
@@ -1077,10 +1083,9 @@ def create_all_quests():
     gnome_series.add_related_quest(waterfall_quest)
     gnome_series.add_related_quest(roving_elves)
 
-    enchanted_key_series = Enchanted_Key_Series()
-    enchanted_key_series.add_quest(making_history)
-    enchanted_key_series.add_quest(meeting_history)
-    enchanted_key_series.add_quest(the_light_within)
+    linza = Linza_Signature_Heroes_Quests()
+    linza.add_quest(deadliest_catch)
+    linza.add_quest(kindred_spirits)
 
     monkey_series = Monkey_Series()
     monkey_series.add_quest(monkey_madness)

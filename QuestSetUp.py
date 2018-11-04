@@ -245,6 +245,7 @@ from questseries.Mahjarrat_Quest_Series import Mahjarrat_Quest_Series
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Myreque_Series import Myreque_Series
 from questseries.Penguin_Series import Penguin_Series
+from questseries.Pirate_Quest_Series import Pirate_Quest_Series
 from questseries.Other_Mahjarrat_Quests import Other_Mahjarrat_Quests
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
 from questseries.Sea_Slug_Series import Sea_Slug_Series
@@ -1213,6 +1214,15 @@ def create_all_quests():
     penguin_series.add_quest(back_to_the_freezer)
     penguin_series.add_related_quest(recipe_for_disaster)
 
+    pirate_quest_series = Pirate_Quest_Series()
+    pirate_quest_series.add_quest(pirates_treasure)
+    pirate_quest_series.add_quest(rum_deal)
+    pirate_quest_series.add_quest(cabin_fever)
+    pirate_quest_series.add_quest(the_great_brain_robbery)
+    pirate_quest_series.add_quest(rocking_out)
+    pirate_quest_series.add_quest(a_clockwork_syringe)
+    pirate_quest_series.add_quest(pieces_of_hate)
+
     other_mahjarrat_quests = Other_Mahjarrat_Quests()
     other_mahjarrat_quests.add_quest(fight_arena)
     other_mahjarrat_quests.add_quest(hazeel_cult)
@@ -1285,6 +1295,7 @@ def create_all_quests():
                         monkey_series,
                         myreque_series,
                         penguin_series,
+                        pirate_quest_series,
                         other_mahjarrat_quests,
                         ozan,
                         sea_slug_series,

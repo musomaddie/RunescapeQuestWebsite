@@ -228,6 +228,7 @@ from quests.Zogre_Flesh_Eaters import Zogre_Flesh_Eaters
 from questseries.Ariane_Signature_Heroes_Quests import Ariane_Signature_Heroes_Quests
 from questseries.Camelot_Series import Camelot_Series
 from questseries.Desert_Series import Desert_Series
+from questseries.Dorgeshuun_Series import Dorgeshuun_Series
 from questseries.Dragonkin_Series import Dragonkin_Series
 from questseries.Druids_Circle_Series import Druids_Circle_Series
 from questseries.Elder_Gods import Elder_Gods
@@ -1060,6 +1061,16 @@ def create_all_quests():
     desert_series.add_quest(our_man_in_the_north)
     desert_series.add_quest(phite_club)
 
+    dorgeshuun_series = Dorgeshuun_Series()
+    dorgeshuun_series.add_quest(the_lost_tribe)
+    dorgeshuun_series.add_quest(death_to_the_dorgeshuun)
+    dorgeshuun_series.add_quest(another_slice_of_ham)
+    dorgeshuun_series.add_quest(land_of_the_goblins)
+    dorgeshuun_series.add_quest(the_chosen_commander)
+    dorgeshuun_series.add_related_quest(goblin_diplomacy)
+    dorgeshuun_series.add_related_quest(the_mighty_fall)
+    dorgeshuun_series.add_related_quest(nomads_elegy)
+
     dragonkin_series = Dragonkin_Series()
     dragonkin_series.add_quest(a_tail_of_two_cats)
     dragonkin_series.add_quest(while_guthix_sleeps)
@@ -1176,6 +1187,7 @@ def create_all_quests():
     all_quest_series = [ariane,
                         camelot_series,
                         desert_series,
+                        dorgeshuun_series,
                         dragonkin_series,
                         druids_circles_series,
                         elder_gods,

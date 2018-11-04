@@ -248,6 +248,7 @@ from questseries.Penguin_Series import Penguin_Series
 from questseries.Pirate_Quest_Series import Pirate_Quest_Series
 from questseries.Other_Mahjarrat_Quests import Other_Mahjarrat_Quests
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
+from questseries.Rise_Of_The_Red_Axe import Rise_Of_The_Red_Axe
 from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
 from questseries.Temple_Knight_Series import Temple_Knight_Series
@@ -1235,6 +1236,16 @@ def create_all_quests():
     ozan.add_quest(diamond_in_the_rough, 2)
     ozan.add_quest(the_jack_of_spades, 3)
 
+    rise_of_the_red_axe = Rise_Of_The_Red_Axe()
+    rise_of_the_red_axe.add_quest(the_giant_dwarf, 1)
+    rise_of_the_red_axe.add_quest(forgettable_tale, 2)
+    rise_of_the_red_axe.add_quest(forgiveness_of_a_chaos_dwarf, 3)
+    rise_of_the_red_axe.add_quest(king_of_the_dwarves, 4)
+    rise_of_the_red_axe.add_quest(birthright_of_the_dwarves, 5)
+    rise_of_the_red_axe.add_related_quest(between_a_rock)
+    rise_of_the_red_axe.add_related_quest(perils_of_ice_mountain)
+    rise_of_the_red_axe.add_related_quest(hunt_for_red_raktuber)
+
     sea_slug_series = Sea_Slug_Series()
     sea_slug_series.add_quest(sea_slug, 1)
     sea_slug_series.add_quest(the_slug_menace, 2)
@@ -1308,6 +1319,7 @@ def create_all_quests():
                         pirate_quest_series,
                         other_mahjarrat_quests,
                         ozan,
+                        rise_of_the_red_axe,
                         sea_slug_series,
                         sir_owen,
                         the_raptor,

@@ -244,6 +244,7 @@ from questseries.Linza_Signature_Heroes_Quests import Linza_Signature_Heroes_Que
 from questseries.Mahjarrat_Quest_Series import Mahjarrat_Quest_Series
 from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
+from questseries.Other_Mahjarrat_Quests import Other_Mahjarrat_Quests
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
 from questseries.Sea_Slug_Series import Sea_Slug_Series
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
@@ -1199,6 +1200,12 @@ def create_all_quests():
     penguin_series.add_quest(back_to_the_freezer)
     penguin_series.add_related_quest(recipe_for_disaster)
 
+    other_mahjarrat_quests = Other_Mahjarrat_Quests()
+    other_mahjarrat_quests.add_quest(fight_arena)
+    other_mahjarrat_quests.add_quest(hazeel_cult)
+    other_mahjarrat_quests.add_quest(desert_treasure)
+    other_mahjarrat_quests.add_quest(enakhras_lament)
+
     ozan = Ozan_Signature_Heroes_Quests()
     ozan.add_quest(stolen_hearts)
     ozan.add_quest(diamond_in_the_rough)
@@ -1264,6 +1271,7 @@ def create_all_quests():
                         mahjarrat_quest_series,
                         monkey_series,
                         penguin_series,
+                        other_mahjarrat_quests,
                         ozan,
                         sea_slug_series,
                         sir_owen,

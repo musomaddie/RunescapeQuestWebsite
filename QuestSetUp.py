@@ -239,6 +239,7 @@ from questseries.Monkey_Series import Monkey_Series
 from questseries.Penguin_Series import Penguin_Series
 from questseries.Ozan_Signature_Heroes_Quests import Ozan_Signature_Heroes_Quests
 from questseries.Sir_Owen_Signature_Heroes_Quests import Sir_Owen_Signature_Heroes_Quests
+from questseries.Temple_Knight_Series import Temple_Knight_Series
 from questseries.The_Raptor_Signature_Heroes_Quests import The_Raptor_Signature_Heroes_Quests
 from questseries.Xenia_Signature_Heroes_Quests import Xenia_Signature_Heroes_Quests
 
@@ -1129,6 +1130,15 @@ def create_all_quests():
 
     sir_owen = Sir_Owen_Signature_Heroes_Quests()
     sir_owen.add_quest(the_death_of_chivalry)
+
+    temple_knight_series = Temple_Knight_Series()
+    temple_knight_series.add_quest(recruitment_drive)
+    temple_knight_series.add_quest(wanted)
+    temple_knight_series.add_quest(the_slug_menace)
+    temple_knight_series.add_quest(while_guthix_sleeps)
+    temple_knight_series.add_quest(ritual_of_the_mahjarrat)
+    temple_knight_series.add_quest(the_death_of_chivalry)
+    temple_knight_series.add_related_quest(devious_minds)
 
     the_raptor = The_Raptor_Signature_Heroes_Quests()
     the_raptor.add_quest(song_from_the_depths)

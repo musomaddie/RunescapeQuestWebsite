@@ -7,7 +7,41 @@
 </head>
 
 <body>
-	<h1> QUEST </h1>
+	<h1> {{ quest_info["name"] }} </h1>
+
+	<p> Free: {{ quest_info["free?"] }} </p>
+	<p> Age: {{ quest_info["age"] }} </p>
+	<p> Difficulty: {{ quest_info["difficulty"] }} </p>
+	<p> Length: {{ quest_info["length"] }} </p>
+	<p> Quest Points Received: {{ quest_info["quest points"] }} </p>
+
+	<p> Required Quests: </p>
+	{% for quest in quest_info["pre quests"] %}
+		<p> Quest: {{ quest }} </p>
+	{% endfor %}
+
+	<p> Skills Needed </p>
+	{% for skill in quest_info["skills"] %}
+		<p> Skill: {{ skill[0] }} Level: {{ skill[1] }} </p>
+	{% endfor %}
+
+	<p> Other requirements </p>
+	{% for req in quest_info["other requirements"] %}
+		<p> Requirement: {{ req }} </p>
+	{% endfor %}
+
+
+	<p> Quest series: </p>
+	{% for series in quest_info["quest series"] %}
+		<p> {{ series }} </p>
+	{% endfor %}
+
+	<p> Related Quest Series: </p>
+	{% for series in quest_info["related quests"] %}
+		<p> {{ series }} </p>
+	{% endfor %}
+
+
 
 </body>
 </html>

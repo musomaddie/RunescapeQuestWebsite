@@ -95,7 +95,6 @@ def get_quest_info(quest_name):
     cur.execute(""" SELECT * FROM quest_details WHERE name=?""",
                 (quest_name,))
     results_details = cur.fetchone()
-    print(results_details)
 
     cur.execute(""" SELECT * FROM quest_levels WHERE name=?""",
                 (quest_name,))
@@ -111,9 +110,18 @@ def get_quest_info(quest_name):
                     WHERE name=?""", (quest_name,))
     result_other_requirements = [x[0] for x in cur.fetchall()]
 
+    cur.execute(""" SELECT name
+                    FROM quest_series
+                    WHERE quest=?""", (quest_name, ))
+    result_quest_series = [x[0] for x in cur.fetchall()]
+
+    cur.execute(""" SELECT name
+                    FROM quest_series_related
+                    WHERE quest=?""", (quest_name,))
+    result_quest_series_related = [x[0] for x in cur.fetchall()]
+
     # Make this all into a dictionary so we can refer to it easily inside the
     # HTML
-
     final_result = {"name": results_details[0],
                     "free?": "yes" if results_details[1] else "no",
                     "age": results_details[2],
@@ -122,7 +130,9 @@ def get_quest_info(quest_name):
                     "quest points": results_details[5],
                     "skills": result_levels,
                     "pre quests": result_pre_quests,
-                    "other requirements": result_other_requirements
+                    "other requirements": result_other_requirements,
+                    "quest series": result_quest_series,
+                    "related quests": result_quest_series_related
                     }
 
     cur.close()

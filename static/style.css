@@ -1,1 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c|Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+
+* { box-sizing: border-box; }
+
+body {
+	font-family: 'Oxygen', 'sans-serif';
+}
+
+h1, h2 {
+	font-family: 'Montserrat', 'sans-serif';
+	text-align:center;
+}
+
+.qdetails_info_section {
+	border: 1px solid blue;
+}

@@ -38,6 +38,7 @@ button > a {
 }
 
 .qtable_skills > th > img {
+	margin: 2%;
 	width: 100%;
 	height: auto;
 	text-align: center;
@@ -51,4 +52,9 @@ button > a {
 
 .qtable_skills > th {
 	border: 1px solid black;
+}
+
+.qtable_skills > .wide {
+	width: 12%;
+	border: 1px solid blue;
 }

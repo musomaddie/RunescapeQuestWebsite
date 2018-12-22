@@ -9,5 +9,13 @@
 <body>
 	<h1> {{ quest_info["name"] }} </h1>
 
+	<div class="switch_view_button">
+		<button type="button" method="post"> 
+			<a href="{{url_for('view_quest', quest_name=quest_info['name'])}}">
+			Switch to quest details view!
+			</a>
+		</button>
+		<br>
+	</div>
 </body>
 </html>

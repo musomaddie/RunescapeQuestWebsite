@@ -45,6 +45,12 @@ button > a {
 	vertical-align: center;
 }
 
+.qtable_all {
+	width: 100%;
+	padding: 1%;
+	text-align:center;
+}
+
 .qtable {
 	border: 1px solid black;
 	border-collapse: collapse;

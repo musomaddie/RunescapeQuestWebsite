@@ -10,7 +10,11 @@
 	<h1> {{ quest_info["name"] }} </h1>
 
 	<div class="switch_view_button">
-		<button type="switch_views"> Switch View! </button>
+		<button type="button" method="post"> 
+			<a href="{{url_for('view_quest_table', quest_name=quest_info['name'])}}">
+			Switch to table view!
+			</a>
+		</button>
 		<br>
 	</div>
 

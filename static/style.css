@@ -31,3 +31,8 @@ button {
 .switch_view_button {
 	text-align: center;
 }
+
+button > a {
+	text-decoration: none;
+	color: black;
+}

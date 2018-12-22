@@ -17,7 +17,12 @@ def list_all_quests():
     return render_template('list_all_quests.html', quest_list=quest_list)
 
 
-@app.route('/view_quest/<quest_name>', methods=['GET'])
+@app.route('/view_quest/<quest_name>', methods=['GET', 'POST'])
 def view_quest(quest_name):
     quest_info = db.get_quest_info(quest_name)
     return render_template('view_quest.html', quest_info=quest_info)
+
+@app.route('/view_quest_table/<quest_name>', methods=['GET', 'POST'])
+def view_quest_table(quest_name):
+    quest_info = db.get_quest_info(quest_name)
+    return render_template('view_quest_table.html', quest_info=quest_info)

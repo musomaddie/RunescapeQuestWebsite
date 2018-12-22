@@ -5,6 +5,7 @@
 
 body {
 	font-family: 'Oxygen', 'sans-serif';
+	width: 100%;
 }
 
 h1, h2 {
@@ -14,4 +15,8 @@ h1, h2 {
 
 .qdetails_info_section {
 	border: 1px solid blue;
+	width: 39%;
+	display: inline-block;
+	vertical-align: top;
+	margin: 20px 5%;
 }

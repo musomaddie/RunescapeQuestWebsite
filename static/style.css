@@ -36,3 +36,19 @@ button > a {
 	text-decoration: none;
 	color: black;
 }
+
+.qtable_skills > th > img {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	vertical-align: center;
+}
+
+.qtable {
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+.qtable_skills > th {
+	border: 1px solid black;
+}

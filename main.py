@@ -22,7 +22,8 @@ def view_quest(quest_name):
     quest_info = db.get_quest_info(quest_name)
     return render_template('view_quest.html', quest_info=quest_info)
 
+
 @app.route('/view_quest_table/<quest_name>', methods=['GET', 'POST'])
 def view_quest_table(quest_name):
-    quest_info = db.get_quest_info(quest_name)
-    return render_template('view_quest_table.html', quest_info=quest_info)
+    all_quests = db.get_quest_info_including_sub(quest_name)
+    return render_template('view_quest_table.html', all_quests=all_quests)

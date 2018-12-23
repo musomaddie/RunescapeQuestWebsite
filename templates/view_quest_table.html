@@ -7,11 +7,11 @@
 </head>
 
 <body>
-	<h1> {{ quest_info["name"] }} </h1>
+	<h1> {{ all_quests[0]["name"] }} </h1>
 
 	<div class="switch_view_button">
 		<button type="button" method="post"> 
-			<a href="{{url_for('view_quest', quest_name=quest_info['name'])}}">
+			<a href="{{url_for('view_quest', quest_name=all_quests[0]['name'])}}">
 			Switch to quest details view!
 			</a>
 		</button>
@@ -77,6 +77,39 @@
 			  			  alt="Woodcutting"> </th>
 				<th class="wide"> Other Requirements </th>
 			</tr>
+			{% for quest in all_quests %}
+			<tr class="qtable_quest_row">
+				<td> {{ quest["name"] }} </td>
+				<td> {{ quest["parent quest"] }} </td>
+				<td> {{ quest["Agility"] }} </td>
+				<td> {{ quest["Attack"] }} </td>
+				<td> {{ quest["Constitution"] }} </td>
+				<td> {{ quest["Construction"] }} </td>
+				<td> {{ quest["Cooking"] }} </td>
+				<td> {{ quest["Crafting"] }} </td>
+				<td> {{ quest["Defence"] }} </td>
+				<td> {{ quest["Divination"] }} </td>
+				<td> {{ quest["Dungeoneering"] }} </td>
+				<td> {{ quest["Farming"] }} </td>
+				<td> {{ quest["Firemaking"] }} </td>
+				<td> {{ quest["Fishing"] }} </td>
+				<td> {{ quest["Fletching"] }} </td>
+				<td> {{ quest["Herblore"] }} </td>
+				<td> {{ quest["Hunter"] }} </td>
+				<td> {{ quest["Magic"] }} </td>
+				<td> {{ quest["Mining"] }} </td>
+				<td> {{ quest["Prayer"] }} </td>
+				<td> {{ quest["Ranged"] }} </td>
+				<td> {{ quest["Runecrafting"] }} </td>
+				<td> {{ quest["Slayer"] }} </td>
+				<td> {{ quest["Smithing"] }} </td>
+				<td> {{ quest["Strength"] }} </td>
+				<td> {{ quest["Summoning"] }} </td>
+				<td> {{ quest["Thieving"] }} </td>
+				<td> {{ quest["Woodcutting"] }} </td>
+				<td> {{ quest["other requirements"] }} </td>
+			</tr>
+			{% endfor %}
 		</table>
 </body>
 </html>

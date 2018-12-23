@@ -1,0 +1,73 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module database</title>
+<meta charset="utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>database</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/Users/maddiewagner/Documents/RunescapeQuestWebsite/database.py">/Users/maddiewagner/Documents/RunescapeQuestWebsite/database.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="sqlite3.html">sqlite3</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-get_all_quest_names"><strong>get_all_quest_names</strong></a>()</dt><dd><tt>Queries&nbsp;the&nbsp;database&nbsp;for&nbsp;all&nbsp;the&nbsp;quest&nbsp;names<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&lt;tuple&lt;str&gt;&gt;&nbsp;a&nbsp;list&nbsp;of&nbsp;tuples&nbsp;of&nbsp;which&nbsp;the&nbsp;first&nbsp;(and&nbsp;only)&nbsp;element<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;quest</tt></dd></dl>
+ <dl><dt><a name="-get_level_dictionary"><strong>get_level_dictionary</strong></a>(result)</dt><dd><tt>Given&nbsp;a&nbsp;tuple&nbsp;from&nbsp;the&nbsp;quest_levels&nbsp;relation,&nbsp;turn&nbsp;it&nbsp;into&nbsp;a&nbsp;dictionary<br>
+of&nbsp;skill&nbsp;name&nbsp;to&nbsp;required&nbsp;level.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;result&nbsp;(tuple):&nbsp;a&nbsp;tuple&nbsp;consisting&nbsp;of&nbsp;one&nbsp;row&nbsp;from&nbsp;the&nbsp;quest_levels<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;relation<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict&lt;str,&nbsp;int&gt;&gt;:&nbsp;each&nbsp;skill&nbsp;mapped&nbsp;to&nbsp;its&nbsp;required&nbsp;level</tt></dd></dl>
+ <dl><dt><a name="-get_quest_info"><strong>get_quest_info</strong></a>(quest_name)</dt><dd><tt>For&nbsp;the&nbsp;quest&nbsp;with&nbsp;the&nbsp;given&nbsp;name,&nbsp;it&nbsp;returns&nbsp;a&nbsp;dictionary&nbsp;of&nbsp;all&nbsp;the<br>
+information.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quest_name&nbsp;(str):&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;quest&nbsp;we&nbsp;are&nbsp;investigating<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;dict&lt;str,&nbsp;?&gt;:&nbsp;a&nbsp;dictionary&nbsp;that&nbsp;maps&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;quest&nbsp;info&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;its&nbsp;actual&nbsp;info</tt></dd></dl>
+ <dl><dt><a name="-get_quest_info_including_sub"><strong>get_quest_info_including_sub</strong></a>(quest_name)</dt><dd><tt>For&nbsp;the&nbsp;quest&nbsp;with&nbsp;the&nbsp;given&nbsp;name&nbsp;return&nbsp;its&nbsp;level&nbsp;as&nbsp;well&nbsp;as&nbsp;the<br>
+levels&nbsp;for&nbsp;all&nbsp;its&nbsp;subquests.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;quest_name(str):&nbsp;the&nbsp;name&nbsp;of&nbsp;the&nbsp;quest&nbsp;we&nbsp;are&nbsp;investigating<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&lt;dict&lt;str,&nbsp;dict&lt;str,&nbsp;str&gt;&gt;&gt;:&nbsp;a&nbsp;list&nbsp;where&nbsp;each&nbsp;item&nbsp;corresponds<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;particular&nbsp;quest&nbsp;(in&nbsp;subquest&nbsp;order).&nbsp;This&nbsp;is&nbsp;a&nbsp;dictionary<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;containing&nbsp;the&nbsp;quest&nbsp;name,&nbsp;mapped&nbsp;to&nbsp;the&nbsp;levels,&nbsp;parent&nbsp;quest<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;other&nbsp;requirements&nbsp;for&nbsp;that&nbsp;quest.</tt></dd></dl>
+ <dl><dt><a name="-remove_zero_skills"><strong>remove_zero_skills</strong></a>(levels)</dt><dd><tt>Given&nbsp;a&nbsp;dict&nbsp;of&nbsp;skills,&nbsp;removes&nbsp;all&nbsp;skills&nbsp;that&nbsp;require&nbsp;level&nbsp;0&nbsp;and<br>
+returns&nbsp;the&nbsp;ones&nbsp;remaining.<br>
+&nbsp;<br>
+Parameters:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;levels&nbsp;(dict&lt;str,&nbsp;int&gt;):&nbsp;the&nbsp;original&nbsp;dictionary&nbsp;containing&nbsp;all&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skills<br>
+&nbsp;<br>
+Returns:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;list&lt;tuple&lt;str,&nbsp;int&gt;&gt;:&nbsp;the&nbsp;list&nbsp;of&nbsp;skills&nbsp;and&nbsp;levels,&nbsp;without&nbsp;the&nbsp;0s</tt></dd></dl>
+</td></tr></table>
+</body></html>

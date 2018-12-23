@@ -79,8 +79,8 @@
 			</tr>
 			{% for quest in all_quests %}
 			<tr class="qtable_quest_row">
-				<td> {{ quest["name"] }} </td>
-				<td> {{ quest["parent quest"] }} </td>
+				<td class="wide"> {{ quest["name"] }} </td>
+				<td class="wide"> {{ quest["parent quest"] }} </td>
 				<td> {{ quest["Agility"] }} </td>
 				<td> {{ quest["Attack"] }} </td>
 				<td> {{ quest["Constitution"] }} </td>
@@ -107,7 +107,12 @@
 				<td> {{ quest["Summoning"] }} </td>
 				<td> {{ quest["Thieving"] }} </td>
 				<td> {{ quest["Woodcutting"] }} </td>
-				<td> {{ quest["other requirements"] }} </td>
+				<td class="wide">
+					<ul class="qtable_other_requirements">
+					{% for req in quest["other requirements"] %}
+						<li> {{ req }} </li>
+					{% endfor %}
+					</ul>
 			</tr>
 			{% endfor %}
 		</table>

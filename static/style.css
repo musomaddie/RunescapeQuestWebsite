@@ -60,7 +60,20 @@ button > a {
 	border: 1px solid black;
 }
 
+.qtable_quest_row > td {
+	border: 1px solid black;
+}
+
+.qtable_quest_row > .wide {
+	text-align: left;
+}
+
+.qtable_other_requirements {
+	list-style-type: none;
+	padding: 0px;
+	margin: 0px;
+}
+
 .qtable_skills > .wide {
 	width: 12%;
-	border: 1px solid blue;
 }

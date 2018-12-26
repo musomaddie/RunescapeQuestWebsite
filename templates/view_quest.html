@@ -65,7 +65,8 @@
 		<h2> Required Quests </h2>
 		<ul class="qdetails_req_quests">
 			{% for quest in quest_info["pre quests"] %}
-				<li> {{ quest }} </li>
+			<li> <a href="{{url_for('view_quest', quest_name=quest)}}">
+					{{ quest }} </a> </li>
 			{% endfor %}
 		</ul>
 	</div>

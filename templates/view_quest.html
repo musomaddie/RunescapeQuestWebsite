@@ -32,7 +32,11 @@
 			</tr>
 			<tr class="qdetails_info_row">
 				<td class="qdetails_question"> Age </td>
-				<td class="qdetails_answer"> {{ quest_info["age"] }} </td>
+				<td class="qdetails_answer">
+					<a href="{{url_for('list_all_age_quests', value=quest_info['age'])}}">
+						{{ quest_info["age"] }}
+					</a>
+				</td>
 			</tr>
 			<tr class="qdetails_info_row">
 				<td class="qdetails_question"> Difficulty </td>

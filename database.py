@@ -249,3 +249,25 @@ def get_all_free_or_members_quests(free):
     if results is None:
         return []
     return results
+
+
+def get_all_age_quests(this_age):
+    """ Gets all the quest names that occur within the given age.
+
+    Parameters:
+        age<str>: the age we are investigating
+
+    Returns:
+        list<tuple<str>>: a list of tuples where the first (and only) element
+            is the name of the quest.
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute("""SELECT name FROM quest_details WHERE age=?""",
+                (int(this_age),))
+    results = cur.fetchall()
+    cur.close()
+    conn.close()
+    if results is None:
+        return []
+    return results

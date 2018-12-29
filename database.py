@@ -222,3 +222,30 @@ def get_quest_info_including_sub(quest_name):
     parent_quest = None
     get_quest_info_recursive(quest_name, parent_quest, all_quests)
     return all_quests
+
+
+def get_all_free_or_members_quests(free):
+    """ Get all the quest names where they are either paid or free
+
+        Parameters:
+            free(bool): whether or not the quest is available to free players
+                or not.
+
+        Returns:
+            list<tuple<str>>: a list of tuples where the first and only element
+                is the name of the quest.
+    """
+
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    is_free = False
+    if free == "yes":
+        is_free = True
+    cur.execute("""SELECT name FROM quest_details WHERE is_free=?""",
+                (is_free,))
+    results = cur.fetchall()
+    cur.close()
+    conn.close()
+    if results is None:
+        return []
+    return results

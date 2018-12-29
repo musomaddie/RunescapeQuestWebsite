@@ -24,7 +24,11 @@
 		<table class="start_info">
 			<tr class="qdetails_info_row"> 
 				<td class="qdetails_question"> Free? </td>
-				<td class="qdetails_answer"> {{ quest_info["free?"] }} </td>
+				<td class="qdetails_answer"> 
+					<a href="{{url_for('list_all_free_or_members_quests', value=quest_info['free?'])}}">
+						{{ quest_info["free?"] }}
+					</a>
+				</td>
 			</tr>
 			<tr class="qdetails_info_row">
 				<td class="qdetails_question"> Age </td>

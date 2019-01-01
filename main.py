@@ -32,7 +32,7 @@ def view_quest_table(quest_name):
 @app.route('/free/<value>', methods=['GET'])
 def list_all_free_or_members_quests(value):
     quest_list = [x[0] for x in db.get_all_free_or_members_quests(value)]
-    return render_template('list_all_quests.html', quest_list=quest_list)
+    return render_template('list_quests_by_paid.html', quest_list=quest_list)
 
 
 @app.route('/age/<value>', methods=['GET'])

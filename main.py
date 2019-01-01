@@ -38,4 +38,4 @@ def list_all_free_or_members_quests(value):
 @app.route('/age/<value>', methods=['GET'])
 def list_all_age_quests(value):
     quest_list = [x[0] for x in db.get_all_age_quests(value)]
-    return render_template('list_all_quests.html', quest_list=quest_list)
+    return render_template('list_quests_by_age.html', quest_list=quest_list)

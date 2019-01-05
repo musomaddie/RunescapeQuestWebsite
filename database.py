@@ -271,3 +271,25 @@ def get_all_age_quests(this_age):
     if results is None:
         return []
     return results
+
+
+def get_all_difficulty_quests(this_difficulty):
+    """ Gets all the quest names that have the given difficulty
+
+    Parameters:
+        difficulty<str>: the difficulty we are investigating
+
+    Returns:
+        list<tuple<str>>: a list of tuples where the first (and only) element
+            is the name of the quest.
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute("""SELECT name FROM quest_details WHERE difficulty=?""",
+                (this_difficulty,))
+    results = cur.fetchall()
+    cur.close()
+    conn.close()
+    if results is None:
+        return []
+    return results

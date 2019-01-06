@@ -48,7 +48,11 @@
 			</tr>
 			<tr class="qdetails_info_row">
 				<td class="qdetails_question"> Length </td>
-				<td class="qdetials_answer"> {{ quest_info["length"] }} </td>
+				<td class="qdetails_answer">
+					<a href="{{url_for('list_all_length_quests', value=quest_info['length'])}}">
+						{{ quest_info["length"] }} 
+					</a>
+				</td>
 			</tr>
 			<tr class="qdetails_info_row">
 				<td class="qdetails_question"> Quest Points Received </td>

@@ -47,3 +47,9 @@ def list_all_age_quests(value):
 def list_all_difficulty_quests(value):
     quest_list = [x[0] for x in db.get_all_difficulty_quests(value)]
     return render_template('list_all_quests.html', quest_list=quest_list)
+
+
+@app.route('/length/<value>', methods=['GET'])
+def list_all_length_quests(value):
+    quest_list = [x[0] for x in db.get_all_length_quests(value)]
+    return render_template('list_all_quests.html', quest_list=quest_list)

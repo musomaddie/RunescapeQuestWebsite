@@ -1,7 +1,6 @@
 import sqlite3
 
-MY_QUEST_DATABASE = "db/quests.db"
-MY_USER_DATABASE = "db/userdata.db"
+MY_DATABASE = "db/quests.db"
 
 
 def remove_zero_skills(levels):
@@ -90,7 +89,7 @@ def get_all_quest_names():
         list<tuple<str>> a list of tuples of which the first (and only) element
             is the name of the quest
     """
-    conn = sqlite3.connect(MY_QUEST_DATABASE)
+    conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     cur.execute("SELECT name FROM quest_details")
     results = cur.fetchall()
@@ -112,7 +111,7 @@ def get_quest_info(quest_name):
             dict<str, ?>: a dictionary that maps the name of the quest info to
                 its actual info
     """
-    conn = sqlite3.connect(MY_QUEST_DATABASE)
+    conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
 
     cur.execute(""" SELECT * FROM quest_details WHERE name=?""",
@@ -176,7 +175,7 @@ def get_quest_info_recursive(quest_name, parent_quest, all_quests):
         Returns:
             None: as the list is modified in place
     """
-    conn = sqlite3.connect(MY_QUEST_DATABASE)
+    conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
 
     cur.execute(""" SELECT * FROM quest_levels WHERE name=?""", (quest_name,))
@@ -237,7 +236,7 @@ def add_new_user(username, password):
         bool: True if the user was added successfully, false if there was an
             error.
     """
-    conn = sqlite3.connect(MY_USER_DATABASE)
+    conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     try:
         cur.execute(""" INSERT INTO username_password VALUES(

@@ -8,13 +8,10 @@ sys.path.insert(0,
 
 from QuestSetUp import create_all_quests
 
-QUEST_DB = "quests.db"
-USER_DB = "userdata.db"
 
-
-def populate_db():
+def populate_db(db):
     quests, quest_series = create_all_quests()
-    conn = sqlite3.connect(QUEST_DB)
+    conn = sqlite3.connect(db)
     cur = conn.cursor()
 
     for quest in quests:
@@ -92,8 +89,8 @@ def populate_db():
     conn.close()
 
 
-def init_db():
-    conn = sqlite3.connect(QUEST_DB)
+def init_db(filename):
+    conn = sqlite3.connect(filename)
     cur = conn.cursor()
     cur.execute("""DROP TABLE IF EXISTS quest_details""")
     cur.execute("""DROP TABLE IF EXISTS quest_levels""")
@@ -184,14 +181,7 @@ def init_db():
                     FOREIGN KEY (quest) REFERENCES quest_details(name)
                 );
                 ''')
-    conn.commit()
-    cur.close()
-    conn.close()
 
-    conn = sqlite3.connect(USER_DB)
-    cur = conn.cursor()
-
-    cur.execute("""DROP TABLE IF EXISTS username_password""")
     cur.execute('''
                 CREATE TABLE username_password(
                     username TEXT,
@@ -199,11 +189,14 @@ def init_db():
                     PRIMARY KEY(username)
                 );
                 ''')
+
     conn.commit()
     cur.close()
     conn.close()
 
+    # Set up table containing other requirements
+
 
 if __name__ == '__main__':
-    init_db()
-    populate_db()
+    init_db('quests.db')
+    populate_db('quests.db')

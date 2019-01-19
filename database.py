@@ -222,3 +222,30 @@ def get_quest_info_including_sub(quest_name):
     parent_quest = None
     get_quest_info_recursive(quest_name, parent_quest, all_quests)
     return all_quests
+
+
+def add_new_user(username, password):
+    """ Adds a new user to the database.
+
+    Parameters:
+        username(str): The username to register
+        password(str): The already hashed and salted password associated with
+            the username.
+
+    Returns:
+        bool: True if the user was added successfully, false if there was an
+            error.
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    try:
+        cur.execute(""" INSERT INTO username_password VALUES(
+                            ?, ?);
+                    """, (username, password))
+    except Exception as e:
+        print(e)
+        return False
+    conn.commit()
+    cur.close()
+    conn.close()
+    return True

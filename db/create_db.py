@@ -98,8 +98,8 @@ def init_db(filename):
     cur.execute("""DROP TABLE IF EXISTS quest_other_requirements""")
     cur.execute("""DROP TABLE IF EXISTS quest_series""")
     cur.execute("""DROP TABLE IF EXISTS quest_series_related""")
+    cur.execute("""DROP TABLE IF EXISTS username_password""")
 
-    # Set up table of quest details
     cur.execute('''
                 CREATE TABLE quest_details (
                     name TEXT PRIMARY KEY,
@@ -179,6 +179,14 @@ def init_db(filename):
                     quest TEXT,
                     PRIMARY KEY (name, quest)
                     FOREIGN KEY (quest) REFERENCES quest_details(name)
+                );
+                ''')
+
+    cur.execute('''
+                CREATE TABLE username_password(
+                    username TEXT,
+                    password TEXT,
+                    PRIMARY KEY(username)
                 );
                 ''')
 

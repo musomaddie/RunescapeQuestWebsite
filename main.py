@@ -37,7 +37,6 @@ def create_profile():
         return render_template('create_profile.html')
     username = request.form['username']
     encrypted_password = sha256_crypt.encrypt(request.form['password'])
-    print(encrypted_password)
     # Use .verify to check that they're the same.
     added_sucessfully = db.add_new_user(username, encrypted_password)
     if not added_sucessfully:

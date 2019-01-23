@@ -7,6 +7,8 @@ app = Flask(__name__)
 app.secret_key = "super_secret31415926535"
 app.secret = "super_secret11111"
 
+CURRENT_USER = None
+
 
 @app.route('/')
 def main_page():
@@ -37,11 +39,24 @@ def create_profile():
         return render_template('create_profile.html')
     username = request.form['username']
     encrypted_password = sha256_crypt.encrypt(request.form['password'])
-    print(encrypted_password)
-    # Use .verify to check that they're the same.
-    added_sucessfully = db.add_new_user(username, encrypted_password)
-    if not added_sucessfully:
+    added_successfully = db.add_new_user(username, encrypted_password)
+    if not added_successfully:
         flash("Username: {} is already taken".format(username))
     else:
         flash("Welcome {}!".format(username))
     return render_template('create_profile.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    username = request.form['username']
+    password = request.form['password']
+    login_successfully = db.login(username, password)
+    if not login_successfully[0]:
+        flash(login_successfully[1])
+        return render_template('login.html')
+    flash("Welcome {}".format(username))
+    CURRENT_USER = username
+    return redirect(url_for('list_all_quests'))

@@ -1,4 +1,5 @@
 import sqlite3
+from passlib.hash import sha256_crypt
 
 MY_DATABASE = "db/quests.db"
 
@@ -227,14 +228,14 @@ def get_quest_info_including_sub(quest_name):
 def add_new_user(username, password):
     """ Adds a new user to the database.
 
-    Parameters:
-        username(str): The username to register
-        password(str): The already hashed and salted password associated with
-            the username.
+        Parameters:
+            username(str): The username to register
+            password(str): The already hashed and salted password associated
+                with the username.
 
-    Returns:
-        bool: True if the user was added successfully, false if there was an
-            error.
+        Returns:
+            bool: True if the user was added successfully, false if there was
+                an error.
     """
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
@@ -242,10 +243,35 @@ def add_new_user(username, password):
         cur.execute(""" INSERT INTO username_password VALUES(
                             ?, ?);
                     """, (username, password))
-    except Exception as e:
-        print(e)
+    except Exception:
         return False
     conn.commit()
     cur.close()
     conn.close()
     return True
+
+
+def login(username, password):
+    """ Attempts to log in an existing user.
+
+        Parameters:
+            username(str): the username of the user that wishes to login.
+            password(str): the non salted and hashed password of the user
+
+        Returns:
+            list<bool, opt<str>>: the boolean contains whether the login was
+                successful and the str explains why not (if applicable)
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT password
+                    FROM username_password
+                    WHERE username=?""",
+                (username,))
+    encrypted_password = cur.fetchone()[0]
+    if encrypted_password is None:
+        return [False, "No user with that username exists"]
+    password_match = sha256_crypt.verify(password, encrypted_password)
+    if not password_match:
+        return [False, "Incorrect username or password"]
+    return [True]

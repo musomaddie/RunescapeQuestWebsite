@@ -52,7 +52,9 @@ def create_profile():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    # TODO : show something if you need to log out first !
+    if SESSION["logged in"]:
+        flash("You are already logged in")
+        return redirect(url_for('view_profile'))
     if request.method == 'GET':
         return render_template('login.html')
     username = request.form['username']
@@ -65,6 +67,17 @@ def login():
     SESSION["user"] = username
     flash("Welcome {}".format(username))
     return redirect(url_for('view_profile'))
+
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    if "logged in" not in SESSION or not SESSION["logged in"]:
+        flash("You are already logged out")
+    if request.method == 'GET':
+        return render_template('logout.html')
+    SESSION["logged in"] = False
+    SESSION["user"] = None
+    return redirect(url_for('list_all_quests'))
 
 
 @app.route('/view_profile', methods=['GET', 'POST'])

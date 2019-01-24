@@ -268,10 +268,10 @@ def login(username, password):
                     FROM username_password
                     WHERE username=?""",
                 (username,))
-    encrypted_password = cur.fetchone()[0]
+    encrypted_password = cur.fetchone()
     if encrypted_password is None:
         return [False, "No user with that username exists"]
-    password_match = sha256_crypt.verify(password, encrypted_password)
+    password_match = sha256_crypt.verify(password, encrypted_password[0])
     if not password_match:
         return [False, "Incorrect username or password"]
     return [True]

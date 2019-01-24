@@ -1,13 +1,13 @@
-from flask import *
+from flask import Flask, redirect, url_for, render_template, request, flash
 from passlib.hash import sha256_crypt
 import database as db
+
+SESSION = {}
 
 
 app = Flask(__name__)
 app.secret_key = "super_secret31415926535"
 app.secret = "super_secret11111"
-
-CURRENT_USER = None
 
 
 @app.route('/')
@@ -35,6 +35,7 @@ def view_quest_table(quest_name):
 
 @app.route('/create_profile', methods=['GET', 'POST'])
 def create_profile():
+    # TODO : show something if you need to log out first!
     if request.method == 'GET':
         return render_template('create_profile.html')
     username = request.form['username']
@@ -42,13 +43,16 @@ def create_profile():
     added_successfully = db.add_new_user(username, encrypted_password)
     if not added_successfully:
         flash("Username: {} is already taken".format(username))
-    else:
-        flash("Welcome {}!".format(username))
-    return render_template('create_profile.html')
+        return render_template('create_profile.html')
+    SESSION["logged in"] = True
+    SESSION["user"] = username
+    flash("Welcome {}!".format(username))
+    return redirect(url_for('view_profile'))
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # TODO : show something if you need to log out first !
     if request.method == 'GET':
         return render_template('login.html')
     username = request.form['username']
@@ -56,7 +60,16 @@ def login():
     login_successfully = db.login(username, password)
     if not login_successfully[0]:
         flash(login_successfully[1])
-        return render_template('login.html')
+        return redirect(url_for('create_profile'))
+    SESSION["logged in"] = True
+    SESSION["user"] = username
     flash("Welcome {}".format(username))
-    CURRENT_USER = username
-    return redirect(url_for('list_all_quests'))
+    return redirect(url_for('view_profile'))
+
+
+@app.route('/view_profile', methods=['GET', 'POST'])
+def view_profile():
+    if "logged in" not in SESSION or not SESSION["logged in"]:
+        flash("You must log in!")
+        return redirect(url_for('login'))
+    return render_template('view_profile.html', username=SESSION["user"])

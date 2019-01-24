@@ -74,7 +74,7 @@ def logout():
     if "logged in" not in SESSION or not SESSION["logged in"]:
         flash("You are already logged out")
     if request.method == 'GET':
-        return render_template('logout.html', hello='hello')
+        return render_template('logout.html')
     SESSION["logged in"] = False
     SESSION["user"] = None
     return redirect(url_for('list_all_quests'))

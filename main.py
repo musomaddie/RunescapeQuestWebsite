@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, render_template, request, flash
 from passlib.hash import sha256_crypt
 import database as db
 
-SESSION = {}
+SESSION = {"logged in": True, "user": "mwag"}
 
 
 app = Flask(__name__)
@@ -52,17 +52,21 @@ def create_profile():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if SESSION["logged in"]:
+    if "logged in" not in SESSION:
+        pass
+    elif SESSION["logged in"]:
         flash("You are already logged in")
         return redirect(url_for('view_profile'))
     if request.method == 'GET':
         return render_template('login.html')
+
     username = request.form['username']
     password = request.form['password']
     login_successfully = db.login(username, password)
     if not login_successfully[0]:
         flash(login_successfully[1])
         return redirect(url_for('create_profile'))
+
     SESSION["logged in"] = True
     SESSION["user"] = username
     flash("Welcome {}".format(username))
@@ -85,4 +89,10 @@ def view_profile():
     if "logged in" not in SESSION or not SESSION["logged in"]:
         flash("You must log in!")
         return redirect(url_for('login'))
+    if request.method == 'GET':
+        return render_template('view_profile.html', username=SESSION["user"])
+    if request.form['action'] == 'skills':
+        print("SKILLS")
+    elif request.form['action'] == 'quests':
+        print("QUESTS")
     return render_template('view_profile.html', username=SESSION["user"])

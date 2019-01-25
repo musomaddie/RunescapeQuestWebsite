@@ -18,6 +18,16 @@
 {% endwith %}
 
 <body>
-	<h1> This is your profile </h1>
+	<h1> {{ username }}'s profile </h1>
+
+	<h2> Skills </h2>
+	<form method="POST" action="{{url_for('view_profile')}}">
+		<button type="sumbit" name="action" value="skills"> edit </button>
+	</form>
+
+	<h2> Quests Completed </h2>
+	<form method="POST" action="{{url_for('view_profile')}}">
+		<button type="sumbit" name="action" value="quests"> edit </button>
+	</form>
 </body>
 </html>

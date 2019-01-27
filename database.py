@@ -245,6 +245,12 @@ def add_new_user(username, password):
                     """, (username, password))
     except Exception:
         return False
+
+    # If this was successfully added we need to add a row to user_skills to
+    # allow display even if the user has not added any skills
+    cur.execute(""" INSERT INTO user_skills VALUES(
+        ?, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0); """, (username,))
     conn.commit()
     cur.close()
     conn.close()

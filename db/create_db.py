@@ -100,6 +100,7 @@ def init_db(filename):
     cur.execute("""DROP TABLE IF EXISTS quest_series_related""")
     cur.execute("""DROP TABLE IF EXISTS username_password""")
     cur.execute("""DROP TABLE IF EXISTS user_skills""")
+    cur.execute("""DROP TABLE IF EXISTS user_quests""")
 
     cur.execute('''
                 CREATE TABLE quest_details (
@@ -219,9 +220,19 @@ def init_db(filename):
                     summoning INTEGER,
                     thieving INTEGER,
                     woodcutting INTEGER,
-                    FOREIGN KEY (username) REFERENCES username_password(username)
+                FOREIGN KEY (username) REFERENCES username_password(username)
                 );
             ''')
+
+    cur.execute('''
+                CREATE TABLE user_quests(
+                    username TEXT,
+                    quest_name TEXT,
+                    PRIMARY KEY(username, quest_name),
+                FOREIGN KEY (username) REFERENCES username_password(username),
+                    FOREIGN KEY (quest_name) REFERENCES quest_details(name)
+                );
+                ''')
 
     conn.commit()
     cur.close()

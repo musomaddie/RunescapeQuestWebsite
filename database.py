@@ -44,8 +44,8 @@ def string_skills(levels):
 
 def get_level_dictionary(result):
     """
-    Given a tuple from the quest_levels relation, turn it into a dictionary
-    of skill name to required level.
+    Given a tuple from the quest_levels or user_skills relation, turns it into
+    a dictionary of skill name to associated level.
 
     Parameters:
         result (tuple): a tuple consisting of one row from the quest_levels
@@ -281,3 +281,21 @@ def login(username, password):
     if not password_match:
         return [False, "Incorrect username or password"]
     return [True]
+
+
+def get_user_profile(username):
+    """ Retrieves all the details that are needed to display a user profile
+
+        Parameters:
+            username(str): the username of the profile to display
+
+        Returns:
+            dict<str: str>: maps the type of information to its actual value
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT * FROM user_skills WHERE username=?""",
+                (username,))
+    user_dict = get_level_dictionary(cur.fetchone())
+    user_dict["name"] = username
+    return user_dict

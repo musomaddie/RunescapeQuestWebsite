@@ -90,9 +90,23 @@ def view_profile():
         flash("You must log in!")
         return redirect(url_for('login'))
     if request.method == 'GET':
-        return render_template('view_profile.html', username=SESSION["user"])
+        return render_template('view_profile.html',
+                               user_details=db.get_user_profile(
+                                   SESSION["user"]))
     if request.form['action'] == 'skills':
-        print("SKILLS")
+        return redirect(url_for('profile_update_skills'))
     elif request.form['action'] == 'quests':
         print("QUESTS")
-    return render_template('view_profile.html', username=SESSION["user"])
+    return render_template('view_profile.html',
+                           user_details=db.get_user_profile(SESSION["user"]))
+
+
+@app.route('/view_profile_edit_skills', methods=['GET', 'POST'])
+def profile_update_skills():
+    if request.method == 'GET':
+        return render_template('edit_user_skills.html',
+                               user_details=db.get_user_profile(
+                                   SESSION["user"]))
+    print("WE ARE SAVING CHANGES")
+    print(request.form['attack'])
+    return render_template('edit_user_skills.html')

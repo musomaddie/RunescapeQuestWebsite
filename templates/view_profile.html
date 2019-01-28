@@ -18,32 +18,32 @@
 {% endwith %}
 
 <body>
-	<h1> {{ username }}'s profile </h1>
+	<h1> {{ user_details['name']}}'s profile </h1>
 
 	<h2> Skills </h2>
 	<div class="ptable_skills">
 		<table>
 			<tr class="ptable_skills_row">
 				<td class="ptable_row_skill">
-					<img src="/static/images/agility.png"
+					<img src="/static/images/attack.png"
 		  				 alt="Attack">
 				</td>
 				<td class="ptable_row_level">
-					00000
+					{{ user_details['Attack'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/constitution.png"
 		  				 alt="Constitution">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Constitution'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/mining.png"
 		  				 alt="Mining">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Mining'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -52,21 +52,21 @@
 		  				 alt="Strength">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Strength'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/agility.png"
 		  				 alt="Agility">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Agility'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/smithing.png"
 		  				 alt="Smithing">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Smithing'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -75,21 +75,21 @@
 		  				 alt="Defence">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Defence'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/herblore.png"
 		  				 alt="Herblore">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Herblore'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/fishing.png"
 		  				 alt="Fishing">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Fishing'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -98,21 +98,21 @@
 		  				 alt="Ranged">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Ranged'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/thieving.png"
 		  				 alt="Thieving">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Thieving'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/cooking.png"
 		  				 alt="Cooking">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Cooking'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -121,21 +121,21 @@
 		  				 alt="Prayer">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Prayer'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/crafting.png"
 		  				 alt="Crafting">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Crafting'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/firemaking.png"
 		  				 alt="Firemaking">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Firemaking'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -144,21 +144,21 @@
 		  				 alt="Magic">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Magic'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/fletching.png"
 		  				 alt="Fletching">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Fletching'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/woodcutting.png"
 		  				 alt="Woodcutting">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Woodcutting'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -167,21 +167,21 @@
 		  				 alt="Runecrafting">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Runecrafting'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/slayer.png"
 		  				 alt="Slayer">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Slayer'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/farming.png"
 		  				 alt="Farming">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Farming'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -190,21 +190,21 @@
 		  				 alt="Construction">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Construction'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/hunter.png"
 		  				 alt="Hunter">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Hunter'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/summoning.png"
 		  				 alt="Summoning">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Summoning'] }}
 				</td>
 			</tr>
 			<tr class="ptable_skills_row">
@@ -213,14 +213,14 @@
 		  				 alt="Dungeoneering">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Dungeoneering'] }}
 				</td>
 				<td class="ptable_row_skill">
 					<img src="/static/images/divination.png"
 		  				 alt="Divination">
 				</td>
 				<td class="ptable_row_level">
-					0000
+					{{ user_details['Divination'] }}
 				</td>
 			</tr>
 		</table>

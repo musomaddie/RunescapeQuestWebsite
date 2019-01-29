@@ -1,0 +1,259 @@
+<!doctype html>
+
+<html>
+<head>
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.1/css/all.css">
+	<link href="{{url_for('static', filename='style.css')}}" rel = "stylesheet" type="text/css" />
+</head>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul>
+	{% for message in messages %}
+	<li>
+		{{ message }}
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+
+<body>
+	<h1> {{ user_details['name'] }}'s profile </h1>
+
+	<h2> Skills </h2>
+	<div class="ptable_skills">
+	<form method="POST" action="{{url_for('profile_update_skills')}}">
+		<table>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/attack.png"
+		  				 alt="Attack">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="attack" 
+						value="{{user_details['Attack']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/constitution.png"
+		  				 alt="Constitution">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="constitution"
+						value="{{user_details['Constitution']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/mining.png"
+		  				 alt="Mining">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="mining"
+						value="{{user_details['Mining']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skills">
+					<img src="/static/images/strength.png"
+		  				 alt="Strength">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="strength"
+						value="{{user_details['Strength']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/agility.png"
+		  				 alt="Agility">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="agility"
+						value="{{user_details['Agility']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/smithing.png"
+		  				 alt="Smithing">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="smithing"
+						value="{{user_details['Smithing']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/defence.png"
+		  				 alt="Defence">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="defence"
+						value="{{user_details['Defence']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/herblore.png"
+		  				 alt="Herblore">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="herblore"
+						value="{{user_details['Herblore']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/fishing.png"
+		  				 alt="Fishing">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="fishing"
+						value="{{user_details['Fishing']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/ranged.png"
+		  				 alt="Ranged">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="ranged"
+						value="{{user_details['Ranged']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/thieving.png"
+		  				 alt="Thieving">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="thieving"
+						value="{{user_details['Thieving']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/cooking.png"
+		  				 alt="Cooking">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="cooking"
+						value="{{user_details['Cooking']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/prayer.png"
+		  				 alt="Prayer">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="prayer"
+						value="{{user_details['Prayer']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/crafting.png"
+		  				 alt="Crafting">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="crafting"
+						value="{{user_details['Crafting']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/firemaking.png"
+		  				 alt="Firemaking">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="firemaking"
+						value="{{user_details['Firemaking']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/magic.png"
+		  				 alt="Magic">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="magic"
+						value="{{user_details['Magic']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/fletching.png"
+		  				 alt="Fletching">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="fletching"
+						value="{{user_details['Fletching']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/woodcutting.png"
+		  				 alt="Woodcutting">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="woodcutting"
+						value="{{user_details['Woodcutting']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/runecrafting.png"
+		  				 alt="Runecrafting">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="runecrafting"
+						value="{{user_details['Runecrafting']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/slayer.png"
+		  				 alt="Slayer">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="slayer"
+						value="{{user_details['Slayer']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/farming.png"
+		  				 alt="Farming">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="farming"
+						value="{{user_details['Farming']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/construction.png"
+		  				 alt="Construction">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="construction"
+						value="{{user_details['Construction']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/hunter.png"
+		  				 alt="Hunter">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="hunter"
+						value="{{user_details['Hunter']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/summoning.png"
+		  				 alt="Summoning">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="summoning"
+						value="{{user_details['Summoning']}}" />
+				</td>
+			</tr>
+			<tr class="ptable_skills_row">
+				<td class="ptable_row_skill">
+					<img src="/static/images/dungeoneering.png"
+		  				 alt="Dungeoneering">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="dungeoneering"
+						value="{{user_details['Dungeoneering']}}" />
+				</td>
+				<td class="ptable_row_skill">
+					<img src="/static/images/divination.png"
+		  				 alt="Divination">
+				</td>
+				<td class="ptable_row_level">
+					<input type="number" min="0" max="99" name="divination"
+						value="{{user_details['Divination']}}" />
+				</td>
+			</tr>
+		</table>
+	</div>
+		<button type="sumbit" name="action" value="skills"> Save Changes </button>
+	</form>
+
+</body>
+</html>

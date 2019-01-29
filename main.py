@@ -107,6 +107,8 @@ def profile_update_skills():
         return render_template('edit_user_skills.html',
                                user_details=db.get_user_profile(
                                    SESSION["user"]))
-    print("WE ARE SAVING CHANGES")
-    print(request.form['attack'])
-    return render_template('edit_user_skills.html')
+    successfully_updated_skills = db.update_user_skills(SESSION["user"],
+                                                        request.form)
+    if not successfully_updated_skills[0]:
+        flash("There was an error: {}".format(successfully_updated_skills[1]))
+    return redirect(url_for('view_profile'))

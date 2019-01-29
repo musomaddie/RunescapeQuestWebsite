@@ -4,7 +4,18 @@ from passlib.hash import sha256_crypt
 MY_DATABASE = "db/quests.db"
 
 
-def remove_zero_skills(levels):
+def _make_dictionary_int(str_dict):
+    print(str_dict)
+    new_int_dict = {}
+    for key in str_dict:
+        try:
+            new_int_dict[key] = int(str_dict[key])
+        except ValueError:
+            continue
+    return new_int_dict
+
+
+def _remove_zero_skills(levels):
     """Given a dict of skills, removes all skills that require level 0 and
     returns the ones remaining.
 
@@ -22,7 +33,7 @@ def remove_zero_skills(levels):
     return actual_skills
 
 
-def string_skills(levels):
+def _string_skills(levels):
     """ Given a dictionary of skills, replaces all zeros with an empty string.
         Also makes everything else a string.
 
@@ -42,7 +53,7 @@ def string_skills(levels):
     return levels
 
 
-def get_level_dictionary(result):
+def _get_level_dictionary(result):
     """
     Given a tuple from the quest_levels or user_skills relation, turns it into
     a dictionary of skill name to associated level.
@@ -121,7 +132,7 @@ def get_quest_info(quest_name):
 
     cur.execute(""" SELECT * FROM quest_levels WHERE name=?""",
                 (quest_name,))
-    result_levels = remove_zero_skills(get_level_dictionary(cur.fetchone()))
+    result_levels = _remove_zero_skills(_get_level_dictionary(cur.fetchone()))
 
     cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
                 (quest_name, ))
@@ -163,7 +174,7 @@ def get_quest_info(quest_name):
     return final_result
 
 
-def get_quest_info_recursive(quest_name, parent_quest, all_quests):
+def _get_quest_info_recursive(quest_name, parent_quest, all_quests):
     """ A recursive helper method for get_quest_info_including_sub. Will
         process everything including subquests correctly.
 
@@ -180,7 +191,7 @@ def get_quest_info_recursive(quest_name, parent_quest, all_quests):
     cur = conn.cursor()
 
     cur.execute(""" SELECT * FROM quest_levels WHERE name=?""", (quest_name,))
-    skills = string_skills(get_level_dictionary(cur.fetchone()))
+    skills = _string_skills(_get_level_dictionary(cur.fetchone()))
     this_quest_skills_info = skills
 
     cur.execute(""" SELECT requirement
@@ -201,7 +212,7 @@ def get_quest_info_recursive(quest_name, parent_quest, all_quests):
     conn.close()
 
     for quest in sub_quests:
-        get_quest_info_recursive(quest, quest_name, all_quests)
+        _get_quest_info_recursive(quest, quest_name, all_quests)
 
 
 def get_quest_info_including_sub(quest_name):
@@ -221,7 +232,7 @@ def get_quest_info_including_sub(quest_name):
     """
     all_quests = []
     parent_quest = None
-    get_quest_info_recursive(quest_name, parent_quest, all_quests)
+    _get_quest_info_recursive(quest_name, parent_quest, all_quests)
     return all_quests
 
 
@@ -275,6 +286,8 @@ def login(username, password):
                     WHERE username=?""",
                 (username,))
     encrypted_password = cur.fetchone()
+    cur.close()
+    conn.close()
     if encrypted_password is None:
         return [False, "No user with that username exists"]
     password_match = sha256_crypt.verify(password, encrypted_password[0])
@@ -296,6 +309,88 @@ def get_user_profile(username):
     cur = conn.cursor()
     cur.execute(""" SELECT * FROM user_skills WHERE username=?""",
                 (username,))
-    user_dict = get_level_dictionary(cur.fetchone())
+    user_dict = _get_level_dictionary(cur.fetchone())
     user_dict["name"] = username
+    cur.close()
+    conn.close()
     return user_dict
+
+
+def update_user_skills(username, skills_to_update_str_dict):
+    """ Updates all the skill levels for the given user.
+
+        Parameters:
+            username(str): the user to update skills for
+            skills_to_update_str_dict(dict<str: str>): the dictionary
+                containing the updated skill values
+
+        Returns:
+            tuple(boolean, optional error message): if this process succeeded
+                returns (true) otherwise returns (false, error)
+    """
+    skills_to_update = _make_dictionary_int(skills_to_update_str_dict)
+    print(skills_to_update)
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute("""UPDATE user_skills
+                   SET
+                        agility=?,
+                        attack=?,
+                        constitution=?,
+                        construction=?,
+                        cooking=?,
+                        crafting=?,
+                        defence=?,
+                        divination=?,
+                        dungeoneering=?,
+                        farming=?,
+                        firemaking=?,
+                        fishing=?,
+                        fletching=?,
+                        herblore=?,
+                        hunter=?,
+                        magic=?,
+                        mining=?,
+                        prayer=?,
+                        ranged=?,
+                        runecrafting=?,
+                        slayer=?,
+                        smithing=?,
+                        strength=?,
+                        summoning=?,
+                        thieving=?,
+                        woodcutting=?
+                    WHERE username=?;
+                """, (
+                      skills_to_update["agility"],
+                      skills_to_update["attack"],
+                      skills_to_update["constitution"],
+                      skills_to_update["construction"],
+                      skills_to_update["cooking"],
+                      skills_to_update["crafting"],
+                      skills_to_update["defence"],
+                      skills_to_update["divination"],
+                      skills_to_update["dungeoneering"],
+                      skills_to_update["farming"],
+                      skills_to_update["firemaking"],
+                      skills_to_update["fishing"],
+                      skills_to_update["fletching"],
+                      skills_to_update["herblore"],
+                      skills_to_update["hunter"],
+                      skills_to_update["magic"],
+                      skills_to_update["mining"],
+                      skills_to_update["prayer"],
+                      skills_to_update["ranged"],
+                      skills_to_update["runecrafting"],
+                      skills_to_update["slayer"],
+                      skills_to_update["smithing"],
+                      skills_to_update["strength"],
+                      skills_to_update["summoning"],
+                      skills_to_update["thieving"],
+                      skills_to_update["woodcutting"],
+                      username
+                      ))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return [True]

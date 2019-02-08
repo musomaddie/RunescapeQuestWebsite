@@ -92,17 +92,28 @@ def view_profile():
     if request.method == 'GET':
         return render_template('view_profile.html',
                                user_details=db.get_user_profile(
+                                   SESSION["user"]),
+                               all_quests=db.get_quests_not_complete(
                                    SESSION["user"]))
     if request.form['action'] == 'skills':
         return redirect(url_for('profile_update_skills'))
     elif request.form['action'] == 'quests':
-        print("QUESTS")
+        quest_added_success = db.add_quest_to_user(SESSION["user"],
+                                                   request.form["quest_to_add"]
+                                                   )
+        if not quest_added_success[0]:
+            flash(quest_added_success[1])
     return render_template('view_profile.html',
-                           user_details=db.get_user_profile(SESSION["user"]))
+                           user_details=db.get_user_profile(SESSION["user"]),
+                           all_quests=db.get_quests_not_complete(
+                               SESSION["user"]))
 
 
 @app.route('/view_profile_edit_skills', methods=['GET', 'POST'])
 def profile_update_skills():
+    if "logged in" not in SESSION or not SESSION["logged in"]:
+        flash("You must log in!")
+        return redirect(url_for('login'))
     if request.method == 'GET':
         return render_template('edit_user_skills.html',
                                user_details=db.get_user_profile(

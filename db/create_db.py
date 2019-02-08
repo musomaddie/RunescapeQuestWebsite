@@ -84,7 +84,6 @@ def populate_db(db):
             """, (quest_s.name, quest.name))
 
     conn.commit()
-
     cur.close()
     conn.close()
 

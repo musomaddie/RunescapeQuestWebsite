@@ -4,8 +4,21 @@ from passlib.hash import sha256_crypt
 MY_DATABASE = "db/quests.db"
 
 
+def _fetch_quest_names(quests):
+    """ Retrieves the quest name from the tuple and adds to a new list.
+
+        Parameters:
+            quests(list<tuple<str>>): the tuples containing quest names to
+                modify.
+
+        Returns:
+            list<str>: the list of quest names
+    """
+    return [x[0] for x in quests]
+
+
 def _make_dictionary_int(str_dict):
-    print(str_dict)
+    """ Given a dictionary of keys being strings turns them all into ints """
     new_int_dict = {}
     for key in str_dict:
         try:
@@ -311,6 +324,11 @@ def get_user_profile(username):
                 (username,))
     user_dict = _get_level_dictionary(cur.fetchone())
     user_dict["name"] = username
+    cur.execute(""" SELECT quest_name
+                    FROM user_quests
+                    WHERE username=? """,
+                (username, ))
+    user_dict["Quests"] = _fetch_quest_names(cur.fetchall())
     cur.close()
     conn.close()
     return user_dict
@@ -329,7 +347,6 @@ def update_user_skills(username, skills_to_update_str_dict):
                 returns (true) otherwise returns (false, error)
     """
     skills_to_update = _make_dictionary_int(skills_to_update_str_dict)
-    print(skills_to_update)
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     cur.execute("""UPDATE user_skills
@@ -393,4 +410,60 @@ def update_user_skills(username, skills_to_update_str_dict):
     conn.commit()
     cur.close()
     conn.close()
+    return [True]
+
+
+def get_quests_not_complete(username):
+    """ Returns all the quest names the user HAS NOT completed
+
+        Parameters:
+            username(str): the user we are investigating
+
+        Returns:
+            list<str>: the list of quest names
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT name
+                        FROM quest_details
+                EXCEPT
+                    SELECT quest_name
+                        FROM user_quests
+                        WHERE username=? ; """, (username,))
+    all_matching_quests = _fetch_quest_names(cur.fetchall())
+    cur.close()
+    conn.close()
+    return all_matching_quests
+
+
+def add_quest_to_user(username, questname):
+    """ Adds the given quest to the given users completed quests
+
+        Parameters:
+            username(str): the user who completed the quest
+            quest(str): the quest that was completed
+
+        Returns:
+            list<bool, str>: if the quest was added successfully, true if it
+                was and false with an error message otherwise
+    """
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT name FROM quest_details WHERE name=?""",
+                (questname, ))
+    if not cur.fetchone():
+        return [False, "{} does not exist!".format(questname)]
+    cur.execute(""" SELECT quest_name
+                    FROM user_quests
+                    WHERE username=? AND quest_name=?""",
+                (username, questname))
+    if cur.fetchone():
+        return [False, "You have already completed {}".format(questname)]
+
+    cur.execute(""" INSERT INTO user_quests VALUES(?, ?); """,
+                (username, questname))
+    conn.commit()
+    cur.close()
+    conn.close()
+
     return [True]

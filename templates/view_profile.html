@@ -230,8 +230,18 @@
 	</form>
 
 	<h2> Quests Completed </h2>
+	{% for quest in user_details['Quests'] %}
+		<p> {{ quest }} </p>
+	{% endfor %}
+	<h3 class="add_quest_heading"> Add Quest </h3>
 	<form method="POST" action="{{url_for('view_profile')}}">
-		<button type="sumbit" name="action" value="quests"> edit </button>
+		<input list="add_quests" name="quest_to_add"\> 
+		<datalist id="add_quests">
+			{% for q in all_quests %}
+			<option value="{{q}}" \>
+			{% endfor %}
+		</datalist>
+		<button type="sumbit" name="action" value="quests"> Add Quest </button>
 	</form>
 </body>
 </html>

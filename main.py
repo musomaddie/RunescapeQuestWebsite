@@ -3,6 +3,7 @@ from passlib.hash import sha256_crypt
 import database as db
 
 SESSION = {"logged in": True, "user": "mwag"}
+# SESSION = {}
 
 
 app = Flask(__name__)

@@ -4,6 +4,60 @@ from passlib.hash import sha256_crypt
 MY_DATABASE = "db/quests.db"
 
 
+def _quests_with_prereqs(username, quests):
+    print(quests)
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+
+    cur.close()
+    conn.close()
+    return []
+
+
+def _quests_with_levels(username, quests):
+    # get the user skills
+    # for each quest: get the quest skills (including 0s). Compare
+    quests_can_complete = []
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT * FROM user_skills WHERE username=?""",
+                (username,))
+    user_skills = _get_level_dictionary(cur.fetchone())
+
+    for quest in quests:
+        cur.execute(""" SELECT * FROM quest_levels WHERE name=?""",
+                    (quest,))
+        quest_skills = _get_level_dictionary(cur.fetchone())
+        # We are fine to do the following as we know the dictionaries have
+        # exactly the same keys
+        can_do = True
+        for skill in user_skills:
+            if user_skills[skill] < quest_skills[skill]:
+                can_do = False
+                break
+        if can_do:
+            quests_can_complete.append(quest)
+
+    cur.close()
+    conn.close()
+    return quests_can_complete
+
+
+def _find_quests_can_complete(username):
+    """ Finds all the quests that the use can currently complete
+
+        Parameters:
+            username(str): the username of the user we are investigating
+
+        Returns:
+            list<str>: the names of the quests they can complete
+    """
+    # Get all quests they can not done
+    return _quests_with_prereqs(
+        username,
+        _quests_with_levels(username, get_quests_not_complete(username)))
+
+
 def _fetch_quest_names(quests):
     """ Retrieves the quest name from the tuple and adds to a new list.
 
@@ -329,6 +383,7 @@ def get_user_profile(username):
                     WHERE username=? """,
                 (username, ))
     user_dict["Quests"] = _fetch_quest_names(cur.fetchall())
+    user_dict["quests can complete"] = _find_quests_can_complete(username)
     cur.close()
     conn.close()
     return user_dict

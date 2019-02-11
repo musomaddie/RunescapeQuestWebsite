@@ -5,13 +5,29 @@ MY_DATABASE = "db/quests.db"
 
 
 def _quests_with_prereqs(username, quests):
-    print(quests)
+    quests_can_complete = []
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
+    cur.execute(""" SELECT quest_name
+                    FROM user_quests
+                    WHERE username=?""", (username,))
+    user_quests_complete = set(_fetch_quest_names(cur.fetchall()))
 
+    for quest in quests:
+        cur.execute(""" SELECT pre_quest
+                        FROM pre_quests
+                        WHERE main_quest=?""", (quest,))
+        quest_prereq = set(_fetch_quest_names(cur.fetchall()))
+        can_do = True
+        for q in quest_prereq:
+            if q not in user_quests_complete:
+                can_do = False
+                break
+        if can_do:
+            quests_can_complete.append(quest)
     cur.close()
     conn.close()
-    return []
+    return quests_can_complete
 
 
 def _quests_with_levels(username, quests):
@@ -52,7 +68,6 @@ def _find_quests_can_complete(username):
         Returns:
             list<str>: the names of the quests they can complete
     """
-    # Get all quests they can not done
     return _quests_with_prereqs(
         username,
         _quests_with_levels(username, get_quests_not_complete(username)))

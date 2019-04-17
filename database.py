@@ -1,7 +1,74 @@
 import sqlite3
+import operator
 from passlib.hash import sha256_crypt
 
 MY_DATABASE = "db/quests.db"
+
+
+def _calculate_quest_user_skill_distance_score(quest, username):
+    distance_score = 0
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT * FROM user_skills WHERE username=?""",
+                (username,))
+    user_skills = _get_level_dictionary(cur.fetchone())
+    cur.execute(""" SELECT * FROM quest_levels WHERE name=?""",
+                (quest,))
+    quest_skills = _get_level_dictionary(cur.fetchone())
+
+    for skill in user_skills:
+        if user_skills[skill] < quest_skills[skill]:
+            distance_score += quest_skills[skill] - user_skills[skill]
+    cur.close()
+    conn.close()
+
+    return distance_score
+
+
+def _calculate_quest_subquest_score(quest, username):
+    score = 0
+    print(quest)
+
+    conn = sqlite3.connect(MY_DATABASE)
+    cur = conn.cursor()
+    cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
+                (quest))
+
+
+    subquests = cur.fetchall()
+    print(subquests)
+    cur.close()
+    conn.close()
+
+    # get the subquests of the current quest
+    # if subquest complete, continue
+    # score += 10 (recursively calculate)
+
+
+def _find_quests_almost_available(username):
+    """ Return an ordered list of the quests the user is almost able to
+        complete by calculating a distance score for each quest and
+        choosing the top 10)
+
+        Parameters:
+            username(str): the username of the user we are investigating
+
+        Returns:
+            list<str>: the name of the top 10 quests they can almost complete
+    """
+    quests_can_complete = set(_find_quests_can_complete(username))
+    # Get all quests not complete
+    quest_skill_distance_score = {}
+    for quest in get_quests_not_complete(username):
+        if quest in quests_can_complete:
+            continue
+        score = (_calculate_quest_user_skill_distance_score(quest, username)
+                 + _calculate_quest_subquest_score(quest, username))
+        quest_skill_distance_score[quest] = score
+    sorted_skills = sorted(quest_skill_distance_score.items(),
+                           key=operator.itemgetter(1))
+    print(sorted_skills)
+    return []
 
 
 def _quests_with_prereqs(username, quests):
@@ -31,8 +98,6 @@ def _quests_with_prereqs(username, quests):
 
 
 def _quests_with_levels(username, quests):
-    # get the user skills
-    # for each quest: get the quest skills (including 0s). Compare
     quests_can_complete = []
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
@@ -399,6 +464,8 @@ def get_user_profile(username):
                 (username, ))
     user_dict["Quests"] = _fetch_quest_names(cur.fetchall())
     user_dict["quests can complete"] = _find_quests_can_complete(username)
+    user_dict["quests almost available"] = _find_quests_almost_available(
+        username)
     cur.close()
     conn.close()
     return user_dict

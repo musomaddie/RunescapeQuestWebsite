@@ -248,5 +248,9 @@
 	{% for quest in user_details['quests can complete'] %}
 		<p> {{ quest }} </p>
 	{% endfor %}
+	<h2> Quests Almost Available </h2>
+	{% for quest in user_details['quests almost available'] %}
+		<p> {{ quest }} </p>
+	{% endfor %}
 </body>
 </html>

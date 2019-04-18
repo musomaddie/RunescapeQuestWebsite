@@ -26,23 +26,26 @@ def _calculate_quest_user_skill_distance_score(quest, username):
 
 
 def _calculate_quest_subquest_score(quest, username):
+    # NOTE: this recursive approach took far too long to do.
+    # Only calculate the next result and save it. Use the result again.
     score = 0
-    print(quest)
-
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
+    print(quest)
     cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
-                (quest))
-
-
+                (quest,))
     subquests = cur.fetchall()
-    print(subquests)
     cur.close()
     conn.close()
+    for q in subquests:
+        q = q[0]
+        score += 10
+        score += _calculate_quest_subquest_score(q, username)
 
     # get the subquests of the current quest
     # if subquest complete, continue
     # score += 10 (recursively calculate)
+    return score
 
 
 def _find_quests_almost_available(username):

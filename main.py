@@ -2,8 +2,8 @@ from flask import Flask, redirect, url_for, render_template, request, flash
 from passlib.hash import sha256_crypt
 import database as db
 
-SESSION = {"logged in": True, "user": "mwag"}
-# SESSION = {}
+# SESSION = {"logged in": True, "user": "mwag"}
+SESSION = {}
 
 
 app = Flask(__name__)
@@ -87,6 +87,7 @@ def logout():
 
 @app.route('/view_profile', methods=['GET', 'POST'])
 def view_profile():
+    print("viewing my profile")
     if "logged in" not in SESSION or not SESSION["logged in"]:
         flash("You must log in!")
         return redirect(url_for('login'))

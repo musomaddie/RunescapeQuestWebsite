@@ -593,7 +593,7 @@ def create_all_quests():
     eadgars_ruse.add_pre_quest(troll_stronghold)
     elemental_workshop_ii.add_pre_quest(elemental_workshop_i)
     elemental_workshop_iii.add_pre_quest(elemental_workshop_ii)
-    elemental_workshop_iv.add_pre_quest(elemental_workshop_iv)
+    elemental_workshop_iv.add_pre_quest(elemental_workshop_iii)
     evil_daves_big_day_out.add_pre_quest(recipe_for_disaster)
     the_eyes_of_glouphrie.add_pre_quest(the_grand_tree)
 

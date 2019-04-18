@@ -678,7 +678,7 @@ def create_all_quests():
 
     making_history.add_pre_quest(the_restless_ghost)
     making_history.add_pre_quest(priest_in_peril)
-    meeting_history.add_pre_quest(meeting_history)
+    meeting_history.add_pre_quest(making_history)
     the_mighty_fall.add_pre_quest(missing_presumed_death)
     the_mighty_fall.add_pre_quest(the_chosen_commander)
     the_mighty_fall.add_pre_quest(my_arms_big_adventure)

@@ -5,6 +5,19 @@ from passlib.hash import sha256_crypt
 MY_DATABASE = "db/quests.db"
 
 
+class _Vertex_QuestDependencyGraph:
+    """ Stores the quest as a vertex in the quest dependency graph
+        Parameters:
+            quest_name: the name of the quest as it appears in the db
+            score: the skill score associated with the given quest
+    """
+    def __init__(self, quest_name, score):
+        self.quest_name = quest_name
+        self.score = score
+        self.full_processed = False
+        self.sub_quests = []
+
+
 def _calculate_quest_user_skill_distance_score(quest, username):
     distance_score = 0
     conn = sqlite3.connect(MY_DATABASE)
@@ -25,27 +38,89 @@ def _calculate_quest_user_skill_distance_score(quest, username):
     return distance_score
 
 
-def _calculate_quest_subquest_score(quest, username):
+def _get_subquests(quest, username, quests_can_complete):
     # NOTE: this recursive approach took far too long to do.
     # Only calculate the next result and save it. Use the result again.
-    score = 0
+    # Only consider quests that are not complete / cannot be completed
+
+    # yeah this was real dumb. GET THE QUESTS
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
-    print(quest)
-    cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
-                (quest,))
-    subquests = cur.fetchall()
+    cur.execute(""" SELECT pre_quest
+                    FROM pre_quests
+                    WHERE main_quest=?""", (quest,))
+    subquests = [x[0] for x in cur.fetchall()]
     cur.close()
     conn.close()
-    for q in subquests:
-        q = q[0]
-        score += 10
-        score += _calculate_quest_subquest_score(q, username)
+    subquests = list(filter(lambda x: x in subquests, subquests))
+    return subquests
 
-    # get the subquests of the current quest
-    # if subquest complete, continue
-    # score += 10 (recursively calculate)
-    return score
+
+def perform_bfs(start_quest, graph):
+    visited = [start_quest]
+    can_reach = list(filter(lambda x: not x.full_processed,
+                            graph[start_quest.quest_name].sub_quests))
+    while (can_reach):
+        current_quest = can_reach.pop()
+        visited.append(current_quest)
+
+        # Update start quest score
+        start_quest.score += 10
+        start_quest.score += current_quest.score
+
+        # Add it's subquests
+        for sq in current_quest.sub_quests:
+            if (sq not in visited and
+                sq not in can_reach and
+                not sq.full_processed):
+                can_reach.append(sq)
+
+    start_quest.full_processsed = True
+
+
+def _calculate_graph_overall_score(graph):
+    # TODO: try and speed this up by doing them in heap order with the fewest
+    # dependencies being down first. Challenge is will need a fast way to count
+    # these. Probably best to have an extra database table and refer to that.
+    for quest in graph:
+        perform_bfs(graph[quest], graph)
+    return graph
+
+
+def _build_quest_dependency_graph(subquests_by_quest,
+                                  quest_scores,
+                                  all_quests):
+    """ Builds a graph representing the dependencies of all the quests
+
+        Parameters:
+            dict<str, list<str>> : a dictionary storing the quest name and a
+                list of all the subject quest names
+
+        Returns:
+            dict<str, vertex>: a dictionary mapping the quiz name (per db) to
+                its vertex representation to easily explore the edges.
+    """
+    # Add every node as a vertex
+    # Only include quests we haven't completed / cannot complete
+    graph = {}
+    for quest in get_all_quest_names():
+        quest = quest[0]
+        if quest in all_quests:
+            graph[quest] = _Vertex_QuestDependencyGraph(quest,
+                                                        quest_scores[quest])
+        else:
+            graph[quest] = _Vertex_QuestDependencyGraph(quest, 0)
+
+    # Add all the relevant edges -> ignoring quests completed / can complete
+    for quest in subquests_by_quest:
+        # Ok subquests by quest quest is storing ALL the quests
+        for sq in subquests_by_quest[quest]:
+            if sq in graph:
+                graph[quest].sub_quests.append(graph[sq])
+
+    # Great we have all of this so now we need to actually calculate the score
+    # overall
+    return _calculate_graph_overall_score(graph)
 
 
 def _find_quests_almost_available(username):
@@ -62,13 +137,31 @@ def _find_quests_almost_available(username):
     quests_can_complete = set(_find_quests_can_complete(username))
     # Get all quests not complete
     quest_skill_distance_score = {}
+    quest_final_score = {}
+    subquests_for_quest = {}
+    considered_quests = []
     for quest in get_quests_not_complete(username):
         if quest in quests_can_complete:
             continue
-        score = (_calculate_quest_user_skill_distance_score(quest, username)
-                 + _calculate_quest_subquest_score(quest, username))
-        quest_skill_distance_score[quest] = score
-    sorted_skills = sorted(quest_skill_distance_score.items(),
+        considered_quests.append(quest)
+        quest_skill_distance_score[quest] = _calculate_quest_user_skill_distance_score(quest, username)
+        subquests_for_quest[quest] = _get_subquests(quest,
+                                                    username,
+                                                    quests_can_complete)
+
+    # Let's build the graph for all the quests and then use it.
+    quest_graph = _build_quest_dependency_graph(subquests_for_quest,
+                                                quest_skill_distance_score,
+                                                considered_quests)
+    """
+    for quest in quest_graph:
+        print("Quest: {} score: {}".format(quest, quest_graph[quest].score))
+    """
+    for quest in considered_quests:
+        quest_final_score[quest] = (quest_skill_distance_score[quest]
+                                    + quest_graph[quest].score)
+
+    sorted_skills = sorted(quest_final_score.items(),
                            key=operator.itemgetter(1))
     print(sorted_skills)
     return []

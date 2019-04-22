@@ -53,6 +53,7 @@ def _get_subquests(quest, username, quests_can_complete):
     cur.close()
     conn.close()
     subquests = list(filter(lambda x: x in subquests, subquests))
+    # TODO: I think this is over calculate the subquests.
     return subquests
 
 
@@ -60,6 +61,10 @@ def perform_bfs(start_quest, graph):
     visited = [start_quest]
     can_reach = list(filter(lambda x: not x.full_processed,
                             graph[start_quest.quest_name].sub_quests))
+    # TODO: no longer fully convinced by this. Need to add 10 for having a
+    # subquest as well as its score but don't need to get its subquests (that's
+    # the part that's already done)
+
     while (can_reach):
         current_quest = can_reach.pop()
         visited.append(current_quest)

@@ -38,12 +38,10 @@ def _calculate_quest_user_skill_distance_score(quest, username):
     return distance_score
 
 
-def _get_subquests(quest, username, quests_can_complete):
+def _get_subquests(quest):
     # NOTE: this recursive approach took far too long to do.
     # Only calculate the next result and save it. Use the result again.
     # Only consider quests that are not complete / cannot be completed
-
-    # yeah this was real dumb. GET THE QUESTS
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     cur.execute(""" SELECT pre_quest
@@ -52,14 +50,15 @@ def _get_subquests(quest, username, quests_can_complete):
     subquests = [x[0] for x in cur.fetchall()]
     cur.close()
     conn.close()
-    subquests = list(filter(lambda x: x in subquests, subquests))
     return subquests
 
 
-def perform_bfs(start_quest, graph):
+def _perform_bfs(start_quest, graph):
     visited = [start_quest]
-    can_reach = list(filter(lambda x: not x.full_processed,
-                            graph[start_quest.quest_name].sub_quests))
+    # If the quest has been full processed we still need to count it as
+    # existing
+    can_reach = graph[start_quest.quest_name].sub_quests
+
     while (can_reach):
         current_quest = can_reach.pop()
         visited.append(current_quest)
@@ -67,12 +66,12 @@ def perform_bfs(start_quest, graph):
         # Update start quest score
         start_quest.score += 10
         start_quest.score += current_quest.score
+        if current_quest.full_processed:
+            continue
 
         # Add it's subquests
         for sq in current_quest.sub_quests:
-            if (sq not in visited and
-                sq not in can_reach and
-                not sq.full_processed):
+            if (sq not in visited and sq not in can_reach):
                 can_reach.append(sq)
 
     start_quest.full_processsed = True
@@ -83,7 +82,7 @@ def _calculate_graph_overall_score(graph):
     # dependencies being down first. Challenge is will need a fast way to count
     # these. Probably best to have an extra database table and refer to that.
     for quest in graph:
-        perform_bfs(graph[quest], graph)
+        _perform_bfs(graph[quest], graph)
     return graph
 
 
@@ -113,13 +112,10 @@ def _build_quest_dependency_graph(subquests_by_quest,
 
     # Add all the relevant edges -> ignoring quests completed / can complete
     for quest in subquests_by_quest:
-        # Ok subquests by quest quest is storing ALL the quests
         for sq in subquests_by_quest[quest]:
             if sq in graph:
                 graph[quest].sub_quests.append(graph[sq])
 
-    # Great we have all of this so now we need to actually calculate the score
-    # overall
     return _calculate_graph_overall_score(graph)
 
 
@@ -145,26 +141,19 @@ def _find_quests_almost_available(username):
             continue
         considered_quests.append(quest)
         quest_skill_distance_score[quest] = _calculate_quest_user_skill_distance_score(quest, username)
-        subquests_for_quest[quest] = _get_subquests(quest,
-                                                    username,
-                                                    quests_can_complete)
+        subquests_for_quest[quest] = _get_subquests(quest)
 
     # Let's build the graph for all the quests and then use it.
     quest_graph = _build_quest_dependency_graph(subquests_for_quest,
                                                 quest_skill_distance_score,
                                                 considered_quests)
-    """
-    for quest in quest_graph:
-        print("Quest: {} score: {}".format(quest, quest_graph[quest].score))
-    """
     for quest in considered_quests:
         quest_final_score[quest] = (quest_skill_distance_score[quest]
                                     + quest_graph[quest].score)
 
     sorted_skills = sorted(quest_final_score.items(),
                            key=operator.itemgetter(1))
-    print(sorted_skills)
-    return []
+    return [x[0] for x in sorted_skills[:10]]
 
 
 def _quests_with_prereqs(username, quests):

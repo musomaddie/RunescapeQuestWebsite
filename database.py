@@ -148,8 +148,7 @@ def _find_quests_almost_available(username):
                                                 quest_skill_distance_score,
                                                 considered_quests)
     for quest in considered_quests:
-        quest_final_score[quest] = (quest_skill_distance_score[quest]
-                                    + quest_graph[quest].score)
+        quest_final_score[quest] = quest_graph[quest].score
 
     sorted_skills = sorted(quest_final_score.items(),
                            key=operator.itemgetter(1))

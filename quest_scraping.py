@@ -2,13 +2,18 @@ import requests
 from bs4 import BeautifulSoup
 
 
+def get_quest_name(soup):
+    return soup.find('h1').text
+
+
 def testing(url):
     page = requests.get(url)
 
     soup = BeautifulSoup(page.text, "html.parser")
 
-    h1 = soup.find('h1')
-    print(h1.text)
+    # Name!
+    name = get_quest_name(soup)
+    print(name)
 
 
 def test_all():
@@ -21,4 +26,4 @@ def test_all():
 
 
 testing('https://runescape.wiki/w/Cold_War')
-test_all()
+# test_all()

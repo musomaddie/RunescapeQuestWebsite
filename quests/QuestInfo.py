@@ -1,16 +1,12 @@
 class Quest:
 
-    def __init__(self, name):
+    def __init__(self, name, is_free, age, difficulty, length):
         self.name = name
-        self.free = False
-        self.age = None
-        self.difficulty = None
-        self.length = None
-        self.quest_points = 0
+        self.is_free = is_free
+        self.age = age
+        self.difficulty = difficulty
+        self.length = length
         self.pre_quests = []
-        self.post_quests = []
-        self.children = []
-        self.other_requirements = []
 
         self.agility = 0
         self.attack = 0

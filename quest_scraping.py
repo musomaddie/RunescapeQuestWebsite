@@ -30,6 +30,15 @@ def find_is_free(quest_details):
             continue
 
 
+def find_difficulty(quest_details):
+    for t in quest_details.find_all('tr'):
+        try:
+            if t.find('th').text == "Official difficulty":
+                return t.find('td').text.strip()
+        except AttributeError:
+            continue
+
+
 def find_age(soup):
     for tr in find_quest_infobox(soup).find_all('tr'):
         try:
@@ -60,6 +69,8 @@ def testing(url):
     print(age)
 
     # difficulty
+    difficulty = find_difficulty(quest_details)
+    print(difficulty)
 
     # length
 
@@ -77,8 +88,9 @@ def test_all():
             'https://runescape.wiki/w/Call_of_the_Ancestors',
             'https://runescape.wiki/w/The_World_Wakes']
     for u in urls:
+        print()
         testing(u)
 
 
 testing('https://runescape.wiki/w/Cold_War')
-# test_all()
+test_all()

@@ -1,0 +1,48 @@
+The Chosen Commander
+False
+5
+Experienced
+Long to Very Long
+['Land of the Goblins']
+
+The Blood Pact
+True
+5
+Novice
+Short
+[]
+
+Cold War
+False
+5
+Intermediate
+Long
+[]
+
+The Chosen Commander
+False
+5
+Experienced
+Long to Very Long
+['Land of the Goblins']
+
+Call of the Ancestors
+False
+6
+Novice
+Medium
+[]
+
+Land of the Goblins
+False
+5
+Experienced
+Long
+['Another Slice of H.A.M.', 'Fishing Contest']
+
+The World Wakes
+False
+5
+Grandmaster
+Long to Very Long
+['Ritual of the Mahjarrat', 'The Chosen Commander', 'The Void Stares Back', 'The Branches of Darkmeyer', "The Firemaker's Curse"]

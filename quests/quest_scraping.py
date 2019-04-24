@@ -1,5 +1,13 @@
 import requests
 from bs4 import BeautifulSoup
+import os
+import sys
+
+sys.path.insert(0,
+                os.path.dirname(os.path.realpath(__file__))[
+                    0:-len("")])
+from quests.QuestInfo import Quest
+
 
 valid_skills = {'Agility',
                 'Attack',
@@ -121,60 +129,21 @@ def find_age(soup):
             continue
 
 
-def testing(url):
+def create_quest(url, all_quests, quest_to_children):
     page = requests.get(url)
 
     soup = BeautifulSoup(page.text, "html.parser")
 
-    # Name!
-    name = get_quest_name(soup)
-    print(name)
-
-    # Get the table with the quest details. (Will help later).
     quest_details = find_quest_details(soup)
-
-    # is_free
-    is_free = find_is_free(quest_details)
-    print(is_free)
-
-    # age
-    age = find_age(soup)
-    print(age)
-
-    # difficulty
-    difficulty = find_difficulty_or_length(quest_details, "difficulty")
-    print(difficulty)
-
-    # length
-    length = find_difficulty_or_length(quest_details, "length")
-    print(length)
-
-    # quest_points  TODO: this are more complicated / less helpful so leaving
-    # them out for now
-
-    # quests needed
     requirements = find_requirements(quest_details)
+    name = get_quest_name(soup)
+
+    is_free = find_is_free(quest_details)
+    age = find_age(soup)
+    difficulty = find_difficulty_or_length(quest_details, "difficulty")
+    length = find_difficulty_or_length(quest_details, "length")
     quests = find_quests(requirements)
-    print(quests)
-
-    # Skills needed
     skills = find_skills(requirements)
-    print(skills)
 
-
-def test_all():
-    urls = ['https://runescape.wiki/w/The_Blood_Pact',
-            'https://runescape.wiki/w/Cold_War',
-            'https://runescape.wiki/w/The_Chosen_Commander',
-            'https://runescape.wiki/w/Call_of_the_Ancestors',
-            'https://runescape.wiki/w/Land_of_the_Goblins',
-            'https://runescape.wiki/w/The_World_Wakes']
-    for u in urls:
-        print()
-        testing(u)
-
-
-testing('https://runescape.wiki/w/Cold_War')
-print()
-testing('https://runescape.wiki/w/Land_of_the_Goblins')
-test_all()
+    quest_to_children[name] = quests
+    all_quests[name] = Quest(name, is_free, age, difficulty, length, skills)

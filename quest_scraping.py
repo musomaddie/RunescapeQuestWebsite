@@ -1,6 +1,33 @@
 import requests
 from bs4 import BeautifulSoup
 
+valid_skills = {'Agility',
+                'Attack',
+                'Constitution',
+                'Construction',
+                'Cooking',
+                'Crafting',
+                'Defence',
+                'Divination',
+                'Dungeoneering',
+                'Farming',
+                'Firemaking',
+                'Fishing',
+                'Fletching',
+                'Herblore',
+                'Hunter',
+                'Magic',
+                'Mining',
+                'Prayer',
+                'Ranged',
+                'Runecrafting'
+                'Slayer',
+                'Smithing',
+                'Strength',
+                'Summoning',
+                'Thieving',
+                'Woodcutting'}
+
 
 def get_quest_name(soup):
     return soup.find('h1').text
@@ -52,12 +79,28 @@ def find_quests(requirements):
             continue
     if quests is None:
         return []
-    # let's just find this quest
     this_quest = next(quests.children).find('ul')
     quests = []
     for child in this_quest:
         quests.append(child.contents[0].text)
     return quests
+
+
+def find_skills(requirements):
+    skills_maybe = []
+    for c in requirements.children:
+        if c.name == "ul":
+            skills_maybe.append(c)
+    actual_skills = {}
+
+    for s in skills_maybe:
+        try:
+            level, skill = s.text.split("  ")
+            if skill in valid_skills:
+                actual_skills[skill] = level
+        except (TypeError, ValueError):
+            continue
+    return actual_skills
 
 
 def find_difficulty_or_length(quest_details, opt):
@@ -115,6 +158,8 @@ def testing(url):
     print(quests)
 
     # Skills needed
+    skills = find_skills(requirements)
+    print(skills)
 
 
 def test_all():
@@ -129,5 +174,7 @@ def test_all():
         testing(u)
 
 
-testing('https://runescape.wiki/w/The_Chosen_Commander')
+testing('https://runescape.wiki/w/Cold_War')
+print()
+testing('https://runescape.wiki/w/Land_of_the_Goblins')
 test_all()

@@ -1,37 +1,10 @@
-The Chosen Commander
-False
-5
-Experienced
-Long to Very Long
-['Land of the Goblins']
-
-The Blood Pact
-True
-5
-Novice
-Short
-[]
-
 Cold War
 False
 5
 Intermediate
 Long
 []
-
-The Chosen Commander
-False
-5
-Experienced
-Long to Very Long
-['Land of the Goblins']
-
-Call of the Ancestors
-False
-6
-Novice
-Medium
-[]
+{'Hunter': '10', 'Construction': '34', 'Crafting': '30', 'Agility': '30'}
 
 Land of the Goblins
 False
@@ -39,6 +12,47 @@ False
 Experienced
 Long
 ['Another Slice of H.A.M.', 'Fishing Contest']
+{'Prayer': '30', 'Agility': '36', 'Fishing': '36', 'Thieving': '36'}
+
+The Blood Pact
+True
+5
+Novice
+Short
+[]
+{}
+
+Cold War
+False
+5
+Intermediate
+Long
+[]
+{'Hunter': '10', 'Construction': '34', 'Crafting': '30', 'Agility': '30'}
+
+The Chosen Commander
+False
+5
+Experienced
+Long to Very Long
+['Land of the Goblins']
+{'Agility': '46', 'Strength': '46', 'Thieving': '46'}
+
+Call of the Ancestors
+False
+6
+Novice
+Medium
+[]
+{}
+
+Land of the Goblins
+False
+5
+Experienced
+Long
+['Another Slice of H.A.M.', 'Fishing Contest']
+{'Prayer': '30', 'Agility': '36', 'Fishing': '36', 'Thieving': '36'}
 
 The World Wakes
 False
@@ -46,3 +60,4 @@ False
 Grandmaster
 Long to Very Long
 ['Ritual of the Mahjarrat', 'The Chosen Commander', 'The Void Stares Back', 'The Branches of Darkmeyer', "The Firemaker's Curse"]
+{}

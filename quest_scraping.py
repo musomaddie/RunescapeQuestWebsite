@@ -30,10 +30,10 @@ def find_is_free(quest_details):
             continue
 
 
-def find_difficulty(quest_details):
+def find_difficulty_or_length(quest_details, opt):
     for t in quest_details.find_all('tr'):
         try:
-            if t.find('th').text == "Official difficulty":
+            if t.find('th').text == "Official {}".format(opt):
                 return t.find('td').text.strip()
         except AttributeError:
             continue
@@ -69,10 +69,12 @@ def testing(url):
     print(age)
 
     # difficulty
-    difficulty = find_difficulty(quest_details)
+    difficulty = find_difficulty_or_length(quest_details, "difficulty")
     print(difficulty)
 
     # length
+    length = find_difficulty_or_length(quest_details, "length")
+    print(length)
 
     # quest_points
 

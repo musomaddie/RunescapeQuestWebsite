@@ -1,12 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
-import os
-import sys
-
-sys.path.insert(0,
-                os.path.dirname(os.path.realpath(__file__))[
-                    0:-len("")])
-from quests.QuestInfo import Quest
+from QuestInfo import Quest
 
 
 valid_skills = {'Agility',
@@ -74,23 +68,34 @@ def find_requirements(quest_details):
             continue
 
 
-def find_quests(requirements):
-    quests = None
+def _find_this_quest_heading(requirements):
     quests_found = False
     for tr in requirements.find_all('tr'):
         try:
             if quests_found:
-                quests = tr.find('td')
+                return tr.find('td')
             if tr.find('th').text.strip() == "Quests:":
                 quests_found = True
         except AttributeError:
             continue
+
+
+def find_quests(requirements):
+    quests = _find_this_quest_heading(requirements)
     if quests is None:
         return []
-    this_quest = next(quests.children).find('ul')
+    this_quest = next(quests.children)
+    this_quest_ul = this_quest.find('ul')
+
+    # currently special case for Chef's Assistant since diff layout on thing
+    if this_quest_ul is None:
+        return [this_quest.text]
     quests = []
-    for child in this_quest:
-        quests.append(child.contents[0].text)
+    for child in this_quest_ul:
+        try:
+            quests.append(child.contents[0].text)
+        except AttributeError:
+            continue
     return quests
 
 
@@ -147,3 +152,25 @@ def create_quest(url, all_quests, quest_to_children):
 
     quest_to_children[name] = quests
     all_quests[name] = Quest(name, is_free, age, difficulty, length, skills)
+
+
+def load_all_quests():
+    all_quests = {}
+    quest_to_children = {}
+    generic_quest_url = 'https://runescape.wiki/w/'
+    all_quests_page = requests.get('https://runescape.wiki/w/List_of_quests')
+    soup = BeautifulSoup(all_quests_page.text, "html.parser")
+    all_quests_table = soup.find('table')
+    num_quests = len(all_quests_table.find_all('tr')[1:])
+    count = 1
+    for tr in all_quests_table.find_all('tr')[1:]:
+        quest_name = tr.find("td").a["href"].replace("/w/", "")
+        print("\tProcessing: {}".format(quest_name))
+        create_quest(generic_quest_url + quest_name,
+                     all_quests,
+                     quest_to_children)
+        print("{} out of {} complete!\n".format(count, num_quests))
+        count += 1
+
+
+load_all_quests()

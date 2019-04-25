@@ -93,7 +93,11 @@ def find_quests(requirements):
     quests = []
     for child in this_quest_ul:
         try:
-            quests.append(child.contents[0].text)
+            content = child.contents[0].text
+            if "Recipe for Disaster" in content:
+                quests.append("Recipe for Disaster")
+            else:
+                quests.append(child.contents[0].text)
         except AttributeError:
             continue
     return quests
@@ -157,13 +161,16 @@ def create_quest(url, all_quests, quest_to_children):
 
 def remove_non_quest_requirements(all_quest_names, quest_to_children):
     for quest in quest_to_children:
+        # special case for recipe for disaster --> way to detect if a quest in
+        # this level is a quest from recipe for disaster. Remove additional
+        # information
         quest_to_children[quest] = [x for x in quest_to_children[quest]
                                     if x in all_quest_names]
 
 
 def load_all_quests():
     all_quests = {}
-    all_quest_names = set()
+    all_quest_names = set("Recipe for Disaster")
     quest_to_children = {}
     generic_quest_url = 'https://runescape.wiki/w/'
     all_quests_page = requests.get('https://runescape.wiki/w/List_of_quests')

@@ -152,10 +152,18 @@ def create_quest(url, all_quests, quest_to_children):
 
     quest_to_children[name] = quests
     all_quests[name] = Quest(name, is_free, age, difficulty, length, skills)
+    return name
+
+
+def remove_non_quest_requirements(all_quest_names, quest_to_children):
+    for quest in quest_to_children:
+        quest_to_children[quest] = [x for x in quest_to_children[quest]
+                                    if x in all_quest_names]
 
 
 def load_all_quests():
     all_quests = {}
+    all_quest_names = set()
     quest_to_children = {}
     generic_quest_url = 'https://runescape.wiki/w/'
     all_quests_page = requests.get('https://runescape.wiki/w/List_of_quests')
@@ -166,11 +174,13 @@ def load_all_quests():
     for tr in all_quests_table.find_all('tr')[1:]:
         quest_name = tr.find("td").a["href"].replace("/w/", "")
         print("\tProcessing: {}".format(quest_name))
-        create_quest(generic_quest_url + quest_name,
-                     all_quests,
-                     quest_to_children)
+        actual_name = create_quest(generic_quest_url + quest_name,
+                                   all_quests,
+                                   quest_to_children)
+        all_quest_names.add(actual_name)
         print("{} out of {} complete!\n".format(count, num_quests))
         count += 1
+    remove_non_quest_requirements(all_quest_names, quest_to_children)
 
 
 load_all_quests()

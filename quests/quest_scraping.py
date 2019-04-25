@@ -70,36 +70,42 @@ def find_requirements(quest_details):
 
 def _find_this_quest_heading(requirements):
     quests_found = False
+    all_quest_headings = []
     for tr in requirements.find_all('tr'):
         try:
             if quests_found:
-                return tr.find('td')
+                all_quest_headings.append(tr.find('td'))
+                quests_found = False
             if tr.find('th').text.strip() == "Quests:":
                 quests_found = True
         except AttributeError:
             continue
+    return all_quest_headings
 
 
 def find_quests(requirements):
-    quests = _find_this_quest_heading(requirements)
-    if quests is None:
-        return []
-    this_quest = next(quests.children)
-    this_quest_ul = this_quest.find('ul')
-
-    # currently special case for Chef's Assistant since diff layout on thing
-    if this_quest_ul is None:
-        return [this_quest.text]
+    quests_all = _find_this_quest_heading(requirements)
     quests = []
-    for child in this_quest_ul:
-        try:
-            content = child.contents[0].text
-            if "Recipe for Disaster" in content:
-                quests.append("Recipe for Disaster")
-            else:
-                quests.append(child.contents[0].text)
-        except AttributeError:
+    if len(quests_all) is 0:
+        return []
+    for quest in quests_all:
+        if quest is None:
             continue
+        this_quest = next(quest.children)
+        this_quest_ul = this_quest.find('ul')
+
+        # currently special case for Chef's Assistant since diff layout is diff
+        if this_quest_ul is None:
+            return [this_quest.text]
+        for child in this_quest_ul:
+            try:
+                content = child.contents[0].text
+                if "Recipe for Disaster" in content:
+                    quests.append("Recipe for Disaster")
+                else:
+                    quests.append(child.contents[0].text)
+            except AttributeError:
+                continue
     return quests
 
 
@@ -152,6 +158,8 @@ def create_quest(url, all_quests, quest_to_children):
     difficulty = find_difficulty_or_length(quest_details, "difficulty")
     length = find_difficulty_or_length(quest_details, "length")
     quests = find_quests(requirements)
+    # Need special case for if there is a quest (e.g. Fate of the Gods) that
+    # has required and suggested quests!
     skills = find_skills(requirements)
 
     quest_to_children[name] = quests

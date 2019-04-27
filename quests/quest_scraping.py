@@ -147,7 +147,10 @@ def find_age(soup):
 def create_quest(url, all_quests, quest_to_children):
     page = requests.get(url)
 
-    soup = BeautifulSoup(page.text, "html.parser")
+    try:
+        soup = BeautifulSoup(page.text, "html.parser")
+    except OSError:
+        raise OSError
 
     quest_details = find_quest_details(soup)
     requirements = find_requirements(quest_details)
@@ -182,16 +185,24 @@ def load_all_quests():
     quest_to_children = {}
     generic_quest_url = 'https://runescape.wiki/w/'
     all_quests_page = requests.get('https://runescape.wiki/w/List_of_quests')
-    soup = BeautifulSoup(all_quests_page.text, "html.parser")
+    try:
+        soup = BeautifulSoup(all_quests_page.text, "html.parser")
+    except OSError:
+        print("Lost network connection")
+        return
     all_quests_table = soup.find('table')
     num_quests = len(all_quests_table.find_all('tr')[1:])
     count = 1
     for tr in all_quests_table.find_all('tr')[1:]:
         quest_name = tr.find("td").a["href"].replace("/w/", "")
         print("\tProcessing: {}".format(quest_name))
-        actual_name = create_quest(generic_quest_url + quest_name,
-                                   all_quests,
-                                   quest_to_children)
+        try:
+            actual_name = create_quest(generic_quest_url + quest_name,
+                                       all_quests,
+                                       quest_to_children)
+        except OSError:
+            print("Network Connection Lost")
+            return
         all_quest_names.add(actual_name)
         print("{} out of {} complete!\n".format(count, num_quests))
         count += 1

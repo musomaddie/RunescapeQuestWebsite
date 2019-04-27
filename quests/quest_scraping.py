@@ -166,7 +166,14 @@ def create_quest(url, all_quests, quest_to_children):
     skills = find_skills(requirements)
 
     quest_to_children[name] = quests
-    all_quests[name] = Quest(name, is_free, age, difficulty, length, skills)
+    print(url)
+    all_quests[name] = Quest(name,
+                             is_free,
+                             age,
+                             difficulty,
+                             length,
+                             skills,
+                             url)
     return name
 
 
@@ -207,6 +214,13 @@ def load_all_quests():
         print("{} out of {} complete!\n".format(count, num_quests))
         count += 1
     remove_non_quest_requirements(all_quest_names, quest_to_children)
+
+    # add all the children to this graph
+    for quest in quest_to_children:
+        all_quests[quest].add_all_pre_quests(quest_to_children[quest])
+
+    for quest in all_quests:
+        print(all_quests[quest].pre_quests)
 
 
 load_all_quests()

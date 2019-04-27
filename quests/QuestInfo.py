@@ -1,11 +1,12 @@
 class Quest:
 
-    def __init__(self, name, is_free, age, difficulty, length, skills):
+    def __init__(self, name, is_free, age, difficulty, length, skills, link):
         self.name = name
         self.is_free = is_free
         self.age = age
         self.difficulty = difficulty
         self.length = length
+        self.wiki_link = link
         self.pre_quests = []
 
         self.agility = 0
@@ -90,8 +91,5 @@ class Quest:
     def __str__(self):
         return "{}".format(self.name)
 
-    def add_pre_quest(self, q):
-        self.pre_quests.append(q)
-
-    def add_post_quest(self, q):
-        self.post_quests.append(q)
+    def add_all_pre_quests(self, q):
+        self.pre_quests = q

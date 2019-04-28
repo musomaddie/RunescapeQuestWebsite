@@ -224,18 +224,7 @@ def get_quest_info_including_sub(quest_name):
     return all_quests
 
 
-def get_all_free_or_members_quests(free):
-    """ Get all the quest names where they are either paid or free
-
-        Parameters:
-            free(bool): whether or not the quest is available to free players
-                or not.
-
-        Returns:
-            list<tuple<str>>: a list of tuples where the first and only element
-                is the name of the quest.
-    """
-
+def _get_all_free_or_members_quests(free):
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     is_free = False
@@ -251,16 +240,7 @@ def get_all_free_or_members_quests(free):
     return results
 
 
-def get_all_age_quests(this_age):
-    """ Gets all the quest names that occur within the given age.
-
-    Parameters:
-        age<str>: the age we are investigating
-
-    Returns:
-        list<tuple<str>>: a list of tuples where the first (and only) element
-            is the name of the quest.
-    """
+def _get_all_age_quests(this_age):
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     cur.execute("""SELECT name FROM quest_details WHERE age=?""",
@@ -273,16 +253,7 @@ def get_all_age_quests(this_age):
     return results
 
 
-def get_all_difficulty_quests(this_difficulty):
-    """ Gets all the quest names that have the given difficulty
-
-    Parameters:
-        this_difficulty<str>: the difficulty we are investigating
-
-    Returns:
-        list<tuple<str>>: a list of tuples where the first (and only) element
-            is the name of the quest.
-    """
+def _get_all_difficulty_quests(this_difficulty):
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     cur.execute("""SELECT name FROM quest_details WHERE difficulty=?""",
@@ -295,16 +266,7 @@ def get_all_difficulty_quests(this_difficulty):
     return results
 
 
-def get_all_length_quests(this_length):
-    """ Gets all the quest names that have the given difficulty
-
-    Parameters:
-        this_length<str>: the length we are investigating
-
-    Returns:
-        list<tuple<str>>: a list of tuples where the first (and only) element
-            is the name of the quest.
-    """
+def _get_all_length_quests(this_length):
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
     cur.execute("""SELECT name FROM quest_details WHERE length=?""",
@@ -315,3 +277,23 @@ def get_all_length_quests(this_length):
     if results is None:
         return []
     return results
+
+
+def get_all_quests_filter(option, detail):
+    """ Fetches all the quests that match the given filters (option and detail)
+
+        Parameters:
+            option<str> : the overarching filter. e.g. length, age, etc
+            detail<str> : what option to chose inside the above filter
+
+        Returns:
+            list<Str> : all the quest names matching the provided details.
+    """
+    if option == "free":
+        return [x[0] for x in _get_all_free_or_members_quests(detail)]
+    if option == "age":
+        return [x[0] for x in _get_all_age_quests(detail)]
+    if option == "difficulty":
+        return [x[0] for x in _get_all_difficulty_quests(detail)]
+    if option == "length":
+        return [x[0] for x in _get_all_length_quests(detail)]

@@ -1,0 +1,86 @@
+================================QUESTS======================================
+
+---------- quest_details ---------------
+name (primary)
+is_free
+age
+difficulty
+length
+quest_points 
+
+
+---------- quest_levels ----------------
+name (primary)
+agility       |  attack        |  constitution
+construction  |  cooking       |  crafting
+defence       |  divination    |  dungeoneering 
+farming       |  firemaking    |  fishing
+fletching     |  herblore      |  hunter 
+magic         |  mining        |  prayer 
+ranged        |  runecrafting  |  slayer
+smithing      |  strength      |  summoning
+thieving      |  woodcutting 
+
+foreign: name -> quest_details (name)
+
+
+---------- pre_quests ------------------
+main_quest (primary)
+pre_quest (primary)
+
+foreign: main_quest -> quest_details (name)
+foreign: pre_quest -> quest_details (name)
+
+
+---------- quest_other_requirements ----
+name (primary)
+requirement (primary)
+
+foreign: name -> quest_details (name)
+
+
+==============================QUEST_SERIES======================================
+
+---------- quest_series ----------------
+name (primary)
+quest (primary)
+number 
+
+foreign: quest -> quest_details (name)
+
+
+---------- quest_series_related --------
+name (primary)
+quest (primary)
+
+foreign: quest -> quest_details (name)
+
+
+==============================USERS=============================================
+
+---------- username_password -----------
+username (primary)
+password
+
+
+---------- username_skills -----------
+username (primary)
+agility       |  attack        |  constitution
+construction  |  cooking       |  crafting
+defence       |  divination    |  dungeoneering 
+farming       |  firemaking    |  fishing
+fletching     |  herblore      |  hunter 
+magic         |  mining        |  prayer 
+ranged        |  runecrafting  |  slayer
+smithing      |  strength      |  summoning
+thieving      |  woodcutting 
+
+foreign: username -> username_password (username)
+
+
+---------- user_quests ---------------
+username (primary)
+quest_name (primary)
+
+foreign: username -> username_password (username)
+foreign: quest_name -> quest_details (name)

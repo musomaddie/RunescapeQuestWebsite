@@ -446,6 +446,46 @@ def _get_quest_info_recursive(quest_name, parent_quest, all_quests):
         _get_quest_info_recursive(quest, quest_name, all_quests)
 
 
+def _get_total_skill_row(all_quests):
+
+    total_skills_dict = {'Agility': 0,
+                         'Attack': 0,
+                         'Constitution': 0,
+                         'Construction': 0,
+                         'Cooking': 0,
+                         'Crafting': 0,
+                         'Defence': 0,
+                         'Divination': 0,
+                         'Dungeoneering': 0,
+                         'Farming': 0,
+                         'Firemaking': 0,
+                         'Fishing': 0,
+                         'Fletching': 0,
+                         'Herblore': 0,
+                         'Hunter': 0,
+                         'Magic': 0,
+                         'Mining': 0,
+                         'Prayer': 0,
+                         'Ranged': 0,
+                         'Runecrafting': 0,
+                         'Slayer': 0,
+                         'Smithing': 0,
+                         'Strength': 0,
+                         'Summoning': 0,
+                         'Thieving': 0,
+                         'Woodcutting': 0,
+                         }
+
+    for quest in all_quests:
+        for skill in total_skills_dict:
+            try:
+                total_skills_dict[skill] = max(total_skills_dict[skill],
+                                               int(quest[skill]))
+            except ValueError:
+                continue
+    print(total_skills_dict)
+
+
 def get_quest_info_including_sub(quest_name):
     """ For the quest with the given name return its level as well as the
         levels for all its subquests.
@@ -464,6 +504,7 @@ def get_quest_info_including_sub(quest_name):
     all_quests = []
     parent_quest = None
     _get_quest_info_recursive(quest_name, parent_quest, all_quests)
+    _get_total_skill_row(all_quests)
     return all_quests
 
 

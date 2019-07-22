@@ -20,7 +20,7 @@
 
 	<div class="qtable_all">
 		<table class="qtable">
-			<tr class="qtable_skills">
+			<tr class="qtable_skills_header">
 				<th class="wide"> Quest </th>
 				<th class="wide"> Parent Quest </th>
 				<th> <img src="/static/images/agility.png" 
@@ -76,6 +76,37 @@
 				<th> <img src="/static/images/woodcutting.png"
 			  			  alt="Woodcutting"> </th>
 				<th class="wide"> Other Requirements </th>
+			</tr>
+			<tr class="qtable_skills_total">
+				<td class="wide"> Highest Level Needed </td>
+				<td class="wide"> </td>
+				<td> {{ total_skills["Agility"] }} </td>
+				<td> {{ total_skills["Attack"] }} </td>
+				<td> {{ total_skills["Constitution"] }} </td>
+				<td> {{ total_skills["Construction"] }} </td>
+				<td> {{ total_skills["Cooking"] }} </td>
+				<td> {{ total_skills["Crafting"] }} </td>
+				<td> {{ total_skills["Defence"] }} </td>
+				<td> {{ total_skills["Divination"] }} </td>
+				<td> {{ total_skills["Dungeoneering"] }} </td>
+				<td> {{ total_skills["Farming"] }} </td>
+				<td> {{ total_skills["Firemaking"] }} </td>
+				<td> {{ total_skills["Fishing"] }} </td>
+				<td> {{ total_skills["Fletching"] }} </td>
+				<td> {{ total_skills["Herblore"] }} </td>
+				<td> {{ total_skills["Hunter"] }} </td>
+				<td> {{ total_skills["Magic"] }} </td>
+				<td> {{ total_skills["Mining"] }} </td>
+				<td> {{ total_skills["Prayer"] }} </td>
+				<td> {{ total_skills["Ranged"] }} </td>
+				<td> {{ total_skills["Runecrafting"] }} </td>
+				<td> {{ total_skills["Slayer"] }} </td>
+				<td> {{ total_skills["Smithing"] }} </td>
+				<td> {{ total_skills["Strength"] }} </td>
+				<td> {{ total_skills["Summoning"] }} </td>
+				<td> {{ total_skills["Thieving"] }} </td>
+				<td> {{ total_skills["Woodcutting"] }} </td>
+				<td class="wide"> </td>
 			</tr>
 			{% for quest in all_quests %}
 			<tr class="qtable_quest_row">

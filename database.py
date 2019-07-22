@@ -483,7 +483,7 @@ def _get_total_skill_row(all_quests):
                                                int(quest[skill]))
             except ValueError:
                 continue
-    print(total_skills_dict)
+    return total_skills_dict
 
 
 def get_quest_info_including_sub(quest_name):
@@ -504,8 +504,8 @@ def get_quest_info_including_sub(quest_name):
     all_quests = []
     parent_quest = None
     _get_quest_info_recursive(quest_name, parent_quest, all_quests)
-    _get_total_skill_row(all_quests)
-    return all_quests
+    total_skills = _string_skills(_get_total_skill_row(all_quests))
+    return all_quests, total_skills
 
 
 def add_new_user(username, password):

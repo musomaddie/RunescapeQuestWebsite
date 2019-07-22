@@ -30,8 +30,10 @@ def view_quest(quest_name):
 
 @app.route('/view_quest_table/<quest_name>', methods=['GET', 'POST'])
 def view_quest_table(quest_name):
-    all_quests = db.get_quest_info_including_sub(quest_name)
-    return render_template('view_quest_table.html', all_quests=all_quests)
+    all_quests, total_skills = db.get_quest_info_including_sub(quest_name)
+    return render_template('view_quest_table.html',
+                           all_quests=all_quests,
+                           total_skills=total_skills)
 
 
 @app.route('/create_profile', methods=['GET', 'POST'])

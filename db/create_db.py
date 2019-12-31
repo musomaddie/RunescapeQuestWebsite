@@ -6,94 +6,77 @@ sys.path.insert(0,
                 os.path.dirname(os.path.realpath(__file__))[
                     0:-len("db")])
 
-from QuestSetUp import create_all_quests
+from quests.quest_scraping import load_all_quests
+
+DB_NAME = "quests.db"
 
 
-def populate_db(db):
-    quests, quest_series = create_all_quests()
-    conn = sqlite3.connect(db)
+def populate_db():
+    conn = sqlite3.connect(DB_NAME)
     cur = conn.cursor()
-
+    quests = load_all_quests()
     for quest in quests:
-        cur.execute("""
-                    INSERT INTO quest_details VALUES(
-                        ?, ?, ?, ?, ?, ?
-                    );
-                    """, (quest.name,
-                          quest.free,
-                          quest.age,
-                          quest.difficulty,
-                          quest.length,
-                          quest.quest_points))
-
-        cur.execute(""" INSERT INTO quest_levels VALUES (
-                        ?, ?, ?, ?, ?, ?, ?,
-                        ?, ?, ?, ?, ?, ?,
-                        ?, ?, ?, ?, ?, ?, ?,
-                        ?, ?, ?, ?, ?, ?, ?);
-        """, (quest.name,
-              quest.agility,
-              quest.attack,
-              quest.constitution,
-              quest.construction,
-              quest.cooking,
-              quest.crafting,
-              quest.defence,
-              quest.divination,
-              quest.dungeoneering,
-              quest.farming,
-              quest.firemaking,
-              quest.fishing,
-              quest.fletching,
-              quest.herblore,
-              quest.hunter,
-              quest.magic,
-              quest.mining,
-              quest.prayer,
-              quest.ranged,
-              quest.runecrafting,
-              quest.slayer,
-              quest.smithing,
-              quest.strength,
-              quest.summoning,
-              quest.thieving,
-              quest.woodcutting)
-        )
-
-    for main_quest in quests:
-        for pre_quest in main_quest.pre_quests:
-            cur.execute("""
-                       INSERT INTO pre_quests VALUES(?, ?);
-             """, (main_quest.name, pre_quest.name))
-
-    for quest in quests:
-        for requirement in quest.other_requirements:
-            cur.execute("""
-                        INSERT INTO quest_other_requirements VALUES(?, ?);
-            """, (quest.name, requirement))
-
-    for quest_s in quest_series:
-        for quest in quest_s.quests:
-            cur.execute("""
-                        INSERT INTO quest_series VALUES (?, ?, ?);
-            """, (quest_s.name, quest[0].name, quest[1]))
-
-        for quest in quest_s.related_quests:
-            cur.execute("""
-                        INSERT INTO quest_series_related VALUES (?, ?);
-            """, (quest_s.name, quest.name))
-
+        cur.execute('''
+                    INSERT INTO quest_details
+                    VALUES (?, ?, ?, ?, ?, 0);
+                    ''',
+                    (quests[quest].name,
+                     quests[quest].is_free,
+                     quests[quest].age,
+                     quests[quest].difficulty,
+                     quests[quest].length))
+        cur.execute('''
+                    INSERT INTO quest_levels
+                    VALUES (?, ?, ?, ?, ?, ?,
+                            ?, ?, ?, ?, ?,
+                            ?, ?, ?, ?, ?,
+                            ?, ?, ?, ?, ?,
+                            ?, ?, ?, ?, ?, ?);
+                    ''',
+                    (quests[quest].name,
+                     quests[quest].agility,
+                     quests[quest].attack,
+                     quests[quest].constitution,
+                     quests[quest].construction,
+                     quests[quest].cooking,
+                     quests[quest].crafting,
+                     quests[quest].defence,
+                     quests[quest].divination,
+                     quests[quest].dungeoneering,
+                     quests[quest].farming,
+                     quests[quest].firemaking,
+                     quests[quest].fishing,
+                     quests[quest].fletching,
+                     quests[quest].herblore,
+                     quests[quest].hunter,
+                     quests[quest].magic,
+                     quests[quest].mining,
+                     quests[quest].prayer,
+                     quests[quest].ranged,
+                     quests[quest].runecrafting,
+                     quests[quest].slayer,
+                     quests[quest].smithing,
+                     quests[quest].strength,
+                     quests[quest].summoning,
+                     quests[quest].thieving,
+                     quests[quest].woodcutting))
+    for quest in quests.values():
+        for prequest in quest.pre_quests:
+            cur.execute('''
+                        INSERT INTO required_quests
+                        VALUES (?, ?); ''',
+                        (quest.name, prequest))
     conn.commit()
     cur.close()
     conn.close()
 
 
-def init_db(filename):
-    conn = sqlite3.connect(filename)
+def init_db():
+    conn = sqlite3.connect(DB_NAME)
     cur = conn.cursor()
     cur.execute("""DROP TABLE IF EXISTS quest_details""")
     cur.execute("""DROP TABLE IF EXISTS quest_levels""")
-    cur.execute("""DROP TABLE IF EXISTS pre_quests""")
+    cur.execute("""DROP TABLE IF EXISTS required_quests""")
     cur.execute("""DROP TABLE IF EXISTS quest_other_requirements""")
     cur.execute("""DROP TABLE IF EXISTS quest_series""")
     cur.execute("""DROP TABLE IF EXISTS quest_series_related""")
@@ -146,12 +129,13 @@ def init_db(filename):
             ''')
 
     cur.execute('''
-                CREATE TABLE pre_quests (
+                CREATE TABLE required_quests(
                     main_quest TEXT,
-                    pre_quest TEXT,
-                    PRIMARY KEY (main_quest, pre_quest)
+                    required_quest TEXT,
+                    PRIMARY KEY (main_quest, required_quest)
                     FOREIGN KEY (main_quest) REFERENCES quest_details (name),
-                    FOREIGN KEY (pre_quest) REFERENCES quest_details (name)
+                    FOREIGN KEY (required_quest)
+                            REFERENCES quest_details (name)
                 );
                 ''')
 
@@ -241,5 +225,5 @@ def init_db(filename):
 
 
 if __name__ == '__main__':
-    init_db('quests.db')
-    populate_db('quests.db')
+    init_db()
+    populate_db()

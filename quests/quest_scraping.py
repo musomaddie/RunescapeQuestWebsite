@@ -1,6 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
-from QuestInfo import Quest
+import os
+import sys
+sys.path.insert(0,
+                os.path.dirname(os.path.realpath(__file__))[
+                    0:-len("quests")])
+from quests.QuestInfo import Quest
 
 
 valid_skills = {'Agility',
@@ -166,7 +171,6 @@ def create_quest(url, all_quests, quest_to_children):
     skills = find_skills(requirements)
 
     quest_to_children[name] = quests
-    print(url)
     all_quests[name] = Quest(name,
                              is_free,
                              age,
@@ -219,8 +223,11 @@ def load_all_quests():
     for quest in quest_to_children:
         all_quests[quest].add_all_pre_quests(quest_to_children[quest])
 
-    for quest in all_quests:
-        print(all_quests[quest].pre_quests)
+    # TODO: this actually looks mostly complete, just need to actually save
+    # into the database now, *I think*
+    # TODO: quest series (somehow)
+    return all_quests
 
 
-load_all_quests()
+if __name__ == '__main__':
+    load_all_quests()

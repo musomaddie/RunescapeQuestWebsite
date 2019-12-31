@@ -24,12 +24,12 @@ thieving      |  woodcutting
 foreign: name -> quest_details (name)
 
 
----------- pre_quests ------------------
+---------- required_quests ------------------
 main_quest (primary)
-pre_quest (primary)
+required_quest (primary)
 
 foreign: main_quest -> quest_details (name)
-foreign: pre_quest -> quest_details (name)
+foreign: required_quest -> quest_details (name)
 
 
 ---------- quest_other_requirements ----

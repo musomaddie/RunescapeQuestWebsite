@@ -8,6 +8,7 @@ class Quest:
         self.length = length
         self.wiki_link = link
         self.pre_quests = []
+        # TODO: store quest points (probably)
 
         self.agility = 0
         if "Agility" in skills:
@@ -89,7 +90,10 @@ class Quest:
             self.woodcutting = skills["Woodcutting"]
 
     def __str__(self):
-        return "{}".format(self.name)
+        return "{}: {} {} {}".format(self.name,
+                                     self.is_free,
+                                     self.age,
+                                     self.length)
 
     def add_all_pre_quests(self, q):
         self.pre_quests = q

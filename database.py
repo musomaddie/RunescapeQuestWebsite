@@ -44,8 +44,8 @@ def _get_subquests(quest):
     # Only consider quests that are not complete / cannot be completed
     conn = sqlite3.connect(MY_DATABASE)
     cur = conn.cursor()
-    cur.execute(""" SELECT pre_quest
-                    FROM pre_quests
+    cur.execute(""" SELECT required_quest
+                    FROM required_quests
                     WHERE main_quest=?""", (quest,))
     subquests = [x[0] for x in cur.fetchall()]
     cur.close()
@@ -165,8 +165,8 @@ def _quests_with_prereqs(username, quests):
     user_quests_complete = set(_fetch_quest_names(cur.fetchall()))
 
     for quest in quests:
-        cur.execute(""" SELECT pre_quest
-                        FROM pre_quests
+        cur.execute(""" SELECT required_quest
+                        FROM required_quests
                         WHERE main_quest=?""", (quest,))
         quest_prereq = set(_fetch_quest_names(cur.fetchall()))
         can_do = True
@@ -365,7 +365,9 @@ def get_quest_info(quest_name):
                 (quest_name,))
     result_levels = _remove_zero_skills(_get_level_dictionary(cur.fetchone()))
 
-    cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
+    cur.execute(""" SELECT required_quest
+                     FROM required_quests
+                     WHERE main_quest=?""",
                 (quest_name, ))
     result_pre_quests = [x[0] for x in cur.fetchall()]
     result_pre_quests.sort()
@@ -436,7 +438,9 @@ def _get_quest_info_recursive(quest_name, parent_quest, all_quests):
     all_quests.append(this_quest_skills_info)
     # TODO: update return types to match this in documentation
 
-    cur.execute(""" SELECT pre_quest FROM pre_quests WHERE main_quest=?""",
+    cur.execute(""" SELECT required_quest
+                    FROM required_quests
+                    WHERE main_quest=?""",
                 (quest_name, ))
     sub_quests = [x[0] for x in cur.fetchall()]
     cur.close()

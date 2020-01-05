@@ -15,11 +15,16 @@ MAPPING_WIDTH = 14
 #  from inside the folder
 DATABASE_NAME = "db/quests.db"
 
-def calculate_quest_positions(mapping, all_quests):
+
+def calculate_quest_positions(mapping, all_quests, quests_relations):
+
     def add_to_mapping(quest_list, x, y):
         for q in quest_list:
             if q is not None:
-                mapping[y][x].add_quest(GridQuest(q, (x, y)))
+                gq = GridQuest(q, (x, y))
+                quests_relations[q] = gq
+                mapping[y][x].add_quest(gq)
+                # print("Q: {} AQ: {}".format(q, all_quests[q]))
             y += 1
 
     order_of_quests = ["Sheep Herder", "Mountain Daughter",
@@ -72,9 +77,11 @@ def calculate_quest_positions(mapping, all_quests):
         "Ghosts Ahoy", "Nature Spirit", "Creature of Fenkenstrain",
         "Making History", "Animal Magnetism", "Spirit of Summer", None,
         "The Lost Tribe", "Diamond in the Rough", None, None,
-        "Hunt for Red Raktuber", None, "Monkey Madness", "The Eyes of Glouphrie",
+        "Hunt for Red Raktuber", None, "Monkey Madness",
+        "The Eyes of Glouphrie",
         "Between a Rock...", "Forgettable Tale of a Drunken Dwarf",
-        "Grim Tales", None, None, None, None, None, "Elemental Workshop II"
+        "Grim Tales", None, None, None, None, None, "Elemental Workshop II",
+        "Fur 'n Seek"
     ]
     add_to_mapping(second_order_of_quests, 1, 3)
 
@@ -107,8 +114,9 @@ def calculate_quest_positions(mapping, all_quests):
                            "Quiet Before the Swarm", "Another Slice of H.A.M.",
                            "Contact!", "Rat Catchers", "Smoking Kills",
                            "A Tail of Two Cats", "Back to the Freezer",
-                           "The Slug Menace", None, None, None, None, None, None,
-                           None, None, None, None, "Elemental Workshop IV"
+                           "The Slug Menace", None, None, None, None, None,
+                           None, None, None, None, None,
+                           "Elemental Workshop IV"
                            ]
     add_to_mapping(fourth_order_quests, 3, 12)
 
@@ -171,6 +179,15 @@ def calculate_quest_positions(mapping, all_quests):
     add_to_mapping(["Children of Mah"], 12,  37)
     add_to_mapping(["Sliske's Endgame"], 13, 38)
 
+    # All all the quests to the relations mapping
+    for quest in quests_relations:
+        for nextquest in all_quests[quest]:
+            try:
+                quests_relations[quest].required_for.append(
+                    quests_relations[nextquest])
+            except KeyError:
+                print("{} doesn't exist".format(nextquest))
+
 
 def get_all_quests():
     conn = sqlite3.connect(DATABASE_NAME)
@@ -191,17 +208,36 @@ def get_all_quests():
     return quests_and_reqs
 
 
+def calculate_arrow(original_quest, parent_quest, cell_mapping):
+    orig_x, orig_y = original_quest.position
+    left_distance = original_quest.left_difference_to(parent_quest)
+    above = original_quest.above(parent_quest)
+    below = original_quest.below(parent_quest)
+    # Find the exit point
+    if left_distance > 1:
+        cell_mapping[orig_y][orig_x].add_exit_point(2)
+    # The above depends on the distance
+    if left_distance == 1 and above:
+        cell_mapping[orig_y][orig_x].add_exit_point(1)
+
+    # Find the middle flow
+        # Heads Right
+        # Heads Down
+    # Find the entry point
+
+
 def create_initial_mapping():
     mapping = [[GridCell((i, j)) for i in range(MAPPING_WIDTH)]
                for j in range(MAPPING_HEIGHT)]
     # Remember when indexing it's y x
     all_quests = get_all_quests()
-    # Place everything where it belongs
-    # TODO: leaving all exit / entry points for now, will worry about them
-    # later
-    # TODO: populate the required for values AFTER this. dictionary?
-    # TODO: will need fast lookup for quest types
-    calculate_quest_positions(mapping, all_quests)
+    all_quests_relations = {}
+    calculate_quest_positions(mapping, all_quests, all_quests_relations)
+    # TODO: make the arrows!
+    for q in all_quests_relations:
+        for rq in all_quests_relations[q].required_for:
+            calculate_arrow(all_quests_relations[q], rq, mapping)
+        x, y = all_quests_relations[q].position
 
 
 if __name__ == '__main__':

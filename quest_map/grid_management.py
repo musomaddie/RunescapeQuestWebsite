@@ -68,7 +68,7 @@ def calculate_quest_positions(mapping, all_quests, quests_relations):
     add_to_mapping(order_of_quests, 0, 0)
 
     second_order_of_quests = [
-        "Chef's Assistant", "Carnillean Rising", None, None,
+        "Chef's Assistant", "Carnillean Rising", None, None, None,
         "Rune Memories", None, "The Fremennik Isles", "Olaf's Quest", None,
         "Biohazard", "Zogre Flesh Eaters", "Tai Bwo Wannai Trio",
         "Shilo Village", "Holy Grail", None, "Heroes' Quest", None, None,
@@ -210,15 +210,55 @@ def get_all_quests():
 
 def calculate_arrow(original_quest, parent_quest, cell_mapping):
     orig_x, orig_y = original_quest.position
-    left_distance = original_quest.left_difference_to(parent_quest)
-    above = original_quest.above(parent_quest)
-    below = original_quest.below(parent_quest)
+    par_x, par_y = parent_quest.position
+    vertical_difference_1 = original_quest.vertical_difference(
+        parent_quest) == 1
+    vertical_difference_neg1 = original_quest.vertical_difference(
+        parent_quest) == -1
+    even_layer_cell = orig_x % 2 == 0
+    vertical_difference_0 = original_quest.vertical_difference(
+        parent_quest) == 0
+    horizontal_distance = original_quest.horizontal_difference(
+        parent_quest)
+
+    def calc_exit_point():
+        # Returns true if the whole arrow has been calculated
+        # If it's far away =
+        if horizontal_distance > 1:
+            cell_mapping[orig_y][orig_x].add_exit_point(2)
+            return False
+
+        # Points to the one just below it
+        if ((vertical_difference_0
+             and even_layer_cell)
+            or (vertical_difference_1
+                and not even_layer_cell)):
+            cell_mapping[orig_y][orig_x].add_exit_point(3)
+            cell_mapping[par_y][par_x].add_entry_point(1)
+            return True
+
+        # Points to the one just above it
+        if ((vertical_difference_neg1
+             and even_layer_cell)
+            or (vertical_difference_0
+                and not even_layer_cell)):
+            cell_mapping[orig_y][orig_x].add_exit_point(1)
+            cell_mapping[par_y][par_x].add_entry_point(3)
+            return True
+
+        # More then 2 away
+        if (original_quest.vertical_difference(parent_quest) > 1
+            or (vertical_difference_1
+                and even_layer_cell)):
+            cell_mapping[orig_y][orig_x].add_exit_point(4)
+            return False
+        if original_quest.vertical_difference(parent_quest) < -1:
+            cell_mapping[orig_y][orig_x].add_exit_point(0)
+            return False
+
     # Find the exit point
-    if left_distance > 1:
-        cell_mapping[orig_y][orig_x].add_exit_point(2)
-    # The above depends on the distance
-    if left_distance == 1 and above:
-        cell_mapping[orig_y][orig_x].add_exit_point(1)
+    if(calc_exit_point()):
+        return
 
     # Find the middle flow
         # Heads Right

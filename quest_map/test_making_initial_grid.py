@@ -24,41 +24,57 @@ def add_quest(width, height, cells, q_type="OG"):
 
 
 class ImmediatelyBelowTests(unittest.TestCase):
+    def setUp(self):
+        self.exit_results = [False, False, False, True, False]
+        self.entry_results = [False, True, False, False, False]
+
     def test_even(self):
         cell_mapping = draw_blank_scenario(2, 1)
         og_quest = add_quest(0, 0, cell_mapping)
         par_quest = add_quest(1, 0, cell_mapping, "PAR")
         calculate_arrow(og_quest, par_quest, cell_mapping)
-        self.assertEqual(
-            [False, False, False, True, False],
-            cell_mapping[0][0].exit_points)
+        self.assertEqual(self.exit_results,
+                         cell_mapping[0][0].exit_points)
+        self.assertEqual(self.entry_results,
+                         cell_mapping[0][1].entry_points)
 
     def test_odd(self):
         cell_mapping = draw_blank_scenario(3, 2)
         og_quest = add_quest(1, 0, cell_mapping)
         par_quest = add_quest(2, 1, cell_mapping, "PAR")
-        cell_mapping[0][1].add_quest(og_quest)
-        cell_mapping[1][2].add_quest(par_quest)
         calculate_arrow(og_quest, par_quest, cell_mapping)
-        self.assertEqual([False, False, False, True, False],
+        self.assertEqual(self.exit_results,
                          cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_results,
+                         cell_mapping[1][2].entry_points)
+
 
 class ImmediatelyAboveTestCases(unittest.TestCase):
+
+    def setUp(self):
+        self.exit_results = [False, True, False, False, False]
+        self.entry_results = [False, False, False, True, False]
+
     def test_even(self):
         cell_mapping = draw_blank_scenario(2, 2)
         og_quest = add_quest(0, 1, cell_mapping)
         par_quest = add_quest(1, 0, cell_mapping, "PAR")
         calculate_arrow(og_quest, par_quest, cell_mapping)
-        self.assertEqual([False, True, False, False, False],
+        self.assertEqual(self.exit_results,
                          cell_mapping[1][0].exit_points)
+        self.assertEqual(self.entry_results,
+                         cell_mapping[0][1].entry_points)
 
     def test_odd(self):
         cell_mapping = draw_blank_scenario(3, 1)
         og_quest = add_quest(1, 0, cell_mapping)
         par_quest = add_quest(2, 0, cell_mapping, "PAR")
         calculate_arrow(og_quest, par_quest, cell_mapping)
-        self.assertEquals([False, True, False, False, False],
-                          cell_mapping[0][1].exit_points)
+        self.assertEqual(self.exit_results,
+                         cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_results,
+                         cell_mapping[0][2].entry_points)
+
 
 class DiagonallyBelow(unittest.TestCase):
     def test_even(self):
@@ -68,6 +84,8 @@ class DiagonallyBelow(unittest.TestCase):
         calculate_arrow(og_quest, par_quest, cell_mapping)
         self.assertEqual([False, False, False, False, True],
                          cell_mapping[0][0].exit_points)
+        self.assertEqual([True, False, False, False, False],
+                         cell_mapping[1][1].entry_points)
 
     def test_odd(self):
         cell_mapping = draw_blank_scenario(3, 3)
@@ -76,6 +94,8 @@ class DiagonallyBelow(unittest.TestCase):
         calculate_arrow(og_quest, par_quest, cell_mapping)
         self.assertEqual([False, False, False, False, True],
                          cell_mapping[0][1].exit_points)
+        self.assertEqual([True, False, False, False, False],
+                         cell_mapping[2][2].entry_points)
 
 
 if __name__ == "__main__":

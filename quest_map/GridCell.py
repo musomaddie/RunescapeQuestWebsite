@@ -54,7 +54,7 @@ class GridCell:
         self.location = location
         self.entry_points = [False for i in range(5)]
         self.exit_points = [False for i in range(5)]
-        self.lines = [False for i in range(6)]
+        self.lines = [False for i in range(3)]
         self.quest = None
 
     def add_entry_point(self, point):

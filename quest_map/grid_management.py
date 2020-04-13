@@ -216,7 +216,6 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
     # Saving vertical difference as a variable to save soo much typing
     # this is positive if parent is higher, negative otherwise
     vertical_difference = original_quest.vertical_difference(parent_quest)
-    # Returns true if the orig quest is in an even layer
     is_orig_even_layer = orig_x % 2 == 0
     is_par_imm_below = (vertical_difference == 0 if is_orig_even_layer else
                         vertical_difference == 1)
@@ -230,30 +229,34 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
     is_par_far_above = vertical_difference < -1
     is_par_across = vertical_difference == 0
 
+    original_quest_cell = cell_mapping[orig_y][orig_x]
+    parent_quest_cell = cell_mapping[par_y][par_x]
+
     def calc_exit_point():
         # Returns true if the whole arrow has been calculated
         # TODO: neaten this part!
         # If it's far away =
         if horizontal_distance > 1:
-            cell_mapping[orig_y][orig_x].add_exit_point(2)
+            original_quest_cell.add_exit_point(2)
             # TODO: deal with this!
+            return
         elif is_par_imm_below:
-            cell_mapping[orig_y][orig_x].add_exit_point(3)
-            cell_mapping[par_y][par_x].add_entry_point(1)
+            original_quest_cell.add_exit_point(3)
+            parent_quest_cell.add_entry_point(1)
             return True
         elif is_par_imm_above:
-            cell_mapping[orig_y][orig_x].add_exit_point(1)
-            cell_mapping[par_y][par_x].add_entry_point(3)
+            original_quest_cell.add_exit_point(1)
+            parent_quest_cell.add_entry_point(3)
             return True
         elif is_par_diag_below:
-            cell_mapping[orig_y][orig_x].add_exit_point(4)
+            original_quest_cell.add_exit_point(4)
         elif is_par_diag_above:
-            cell_mapping[orig_y][orig_x].add_exit_point(0)
+            original_quest_cell.add_exit_point(0)
         # Order matters (otherwise far will count when it's not meant too
         elif is_par_far_below:
-            cell_mapping[orig_y][orig_x].add_exit_point(4)
+            original_quest_cell.add_exit_point(4)
         elif is_par_far_above:
-            cell_mapping[orig_y][orig_x].add_exit_point(0)
+            original_quest_cell.add_exit_point(0)
         return False
 
     def calc_entry_point():
@@ -261,17 +264,19 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
         if horizontal_distance > 1:
             # TODO: deal with this!!
             if is_par_across:
-                cell_mapping[par_y][par_x].add_entry_point(2)
+                parent_quest_cell.add_entry_point(2)
+            elif is_par_far_below:
+                parent_quest_cell.add_entry_point(0)
             return
         if is_par_diag_below:
-            cell_mapping[par_y][par_x].add_entry_point(0)
+            parent_quest_cell.add_entry_point(0)
         elif is_par_diag_above:
-            cell_mapping[par_y][par_x].add_entry_point(4)
+            parent_quest_cell.add_entry_point(4)
         # Again order matters:
         elif is_par_far_below:
-            cell_mapping[par_y][par_x].add_entry_point(0)
+            parent_quest_cell.add_entry_point(0)
         elif is_par_far_above:
-            cell_mapping[par_y][par_x].add_entry_point(4)
+            parent_quest_cell.add_entry_point(4)
 
     # Find the exit point
     if calc_exit_point():
@@ -298,7 +303,6 @@ def create_initial_mapping():
         for rq in all_quests_relations[q].required_for:
             calculate_arrow(all_quests_relations[q], rq, mapping)
         x, y = all_quests_relations[q].position
-
 
 
 if __name__ == '__main__':

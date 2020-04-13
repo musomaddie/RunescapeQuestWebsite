@@ -189,6 +189,48 @@ class DirectlyAcross(unittest.TestCase):
                          cell_mapping[0][3].entry_points)
 
 
+class FarBelowAcross(unittest.TestCase):
+    def setUp(self):
+        self.exit_points = [False, False, True, False, False]
+        self.entry_points = [True, False, False, False, False]
+
+    def test_even_to_even(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (3, 3), (0, 0), (2, 2))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[2][2].entry_points)
+
+    def test_even_to_odd(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 3), (0, 0), (3, 2))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[2][3].entry_points)
+
+    def test_odd_to_odd(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 3), (1, 0), (3, 2))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[2][3].entry_points)
+
+    def test_odd_to_even(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (5, 3), (1, 0), (4, 2))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[2][4].entry_points)
+
+
 if __name__ == "__main__":
     log_file = "quest_map/testing_initial_creation.txt"
     f = open(log_file, 'w')

@@ -5,6 +5,9 @@ class GridQuest:
         self.position = position
         self.required_for = []
 
+    def __repr__(self):
+        return self.name
+
     def __str__(self):
         return "{} ({})".format(self.name, self.required_for)
 

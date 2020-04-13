@@ -35,16 +35,18 @@ class GridCell:
              `----4
     GridQuest quest: the quest stored inside the cell
     Lines: the number of lines as they pass through the cell (corresponds
-        correctly to neighbouring cells)
-            (ordered clockwise from top)
+        correctly to neighbouring cells). Only three as we will only store
+        lines as they pass through the top of the cell (lines passing through
+        bottom will be counted by cell below)
+            (ordered clockwise from top).
                 0
              .----,
-          5 /      \ 1
+            /      \ 1
            /        \
            \        /
-         4  \      / 2
+            \      / 2
              `----'
-               3
+
     """
 
     def __init__(self, location):

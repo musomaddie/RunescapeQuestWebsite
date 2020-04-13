@@ -179,7 +179,7 @@ def calculate_quest_positions(mapping, all_quests, quests_relations):
     add_to_mapping(["Children of Mah"], 12,  37)
     add_to_mapping(["Sliske's Endgame"], 13, 38)
 
-    # All all the quests to the relations mapping
+    # Add all the quests to the relations mapping
     for quest in quests_relations:
         for nextquest in all_quests[quest]:
             try:
@@ -289,15 +289,16 @@ def create_initial_mapping():
     mapping = [[GridCell((i, j)) for i in range(MAPPING_WIDTH)]
                for j in range(MAPPING_HEIGHT)]
     # Remember when indexing it's y x
-    all_quests = get_all_quests()
-    all_quests_relations = {}
-    # Some comments explaining wtf this is would help :)
+    all_quests = get_all_quests()  # List of all the quests
+    all_quests_relations = {}  # quest_name: grid_quest object!
     calculate_quest_positions(mapping, all_quests, all_quests_relations)
     # TODO: make the arrows!
     for q in all_quests_relations:
+        print(all_quests_relations[q])
         for rq in all_quests_relations[q].required_for:
             calculate_arrow(all_quests_relations[q], rq, mapping)
         x, y = all_quests_relations[q].position
+
 
 
 if __name__ == '__main__':

@@ -178,6 +178,7 @@ class FarAbove(unittest.TestCase):
         self.assertEqual(self.entry_points,
                          cell_mapping[0][2].entry_points)
 
+
 class DirectlyAcross(unittest.TestCase):
     def setUp(self):
         self.exit_points = [False, False, True, False, False]
@@ -188,6 +189,20 @@ class DirectlyAcross(unittest.TestCase):
         og_quest = add_quest(0, 0, cell_mapping)
         par_quest = add_quest(2, 0, cell_mapping, "PAR")
         calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][2].entry_points)
+
+    def test_odd(self):
+        cell_mapping = draw_blank_scenario(4, 1)
+        og_quest = add_quest(1, 0, cell_mapping)
+        par_quest = add_quest(3, 0, cell_mapping, "PAR")
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][3].entry_points)
 
 
 if __name__ == "__main__":

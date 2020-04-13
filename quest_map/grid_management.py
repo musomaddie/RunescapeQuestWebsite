@@ -228,6 +228,7 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
                          vertical_difference == -1)
     is_par_far_below = vertical_difference > 1
     is_par_far_above = vertical_difference < -1
+    is_par_across = vertical_difference == 0
 
     def calc_exit_point():
         # Returns true if the whole arrow has been calculated
@@ -235,41 +236,41 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
         # If it's far away =
         if horizontal_distance > 1:
             cell_mapping[orig_y][orig_x].add_exit_point(2)
-            return False
-
-        if is_par_imm_below:
+            # TODO: deal with this!
+        elif is_par_imm_below:
             cell_mapping[orig_y][orig_x].add_exit_point(3)
             cell_mapping[par_y][par_x].add_entry_point(1)
             return True
-        if is_par_imm_above:
+        elif is_par_imm_above:
             cell_mapping[orig_y][orig_x].add_exit_point(1)
             cell_mapping[par_y][par_x].add_entry_point(3)
             return True
-        if is_par_diag_below:
+        elif is_par_diag_below:
             cell_mapping[orig_y][orig_x].add_exit_point(4)
-            return False
-        if is_par_diag_above:
+        elif is_par_diag_above:
             cell_mapping[orig_y][orig_x].add_exit_point(0)
-            return False
         # Order matters (otherwise far will count when it's not meant too
-        if is_par_far_below:
+        elif is_par_far_below:
             cell_mapping[orig_y][orig_x].add_exit_point(4)
-        if is_par_far_above:
+        elif is_par_far_above:
             cell_mapping[orig_y][orig_x].add_exit_point(0)
+        return False
 
     def calc_entry_point():
         # If the exit and entry points are the same it won't reach here
         if horizontal_distance > 1:
             # TODO: deal with this!!
+            if is_par_across:
+                cell_mapping[par_y][par_x].add_entry_point(2)
             return
         if is_par_diag_below:
             cell_mapping[par_y][par_x].add_entry_point(0)
-        if is_par_diag_above:
+        elif is_par_diag_above:
             cell_mapping[par_y][par_x].add_entry_point(4)
         # Again order matters:
-        if is_par_far_below:
+        elif is_par_far_below:
             cell_mapping[par_y][par_x].add_entry_point(0)
-        if is_par_far_above:
+        elif is_par_far_above:
             cell_mapping[par_y][par_x].add_entry_point(4)
 
     # Find the exit point

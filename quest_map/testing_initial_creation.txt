@@ -1,24 +1,5 @@
-F.....
-======================================================================
-FAIL: test_even (__main__.DiagonallyBelow)
+............
 ----------------------------------------------------------------------
-Traceback (most recent call last):
-  File "quest_map/test_making_initial_grid.py", line 88, in test_even
-    cell_mapping[1][1].entry_points)
-AssertionError: Lists differ: [True, False, False, False, False] != [True, False, False, False, True]
+Ran 12 tests in 0.002s
 
-First differing element 4:
-False
-True
-
-- [True, False, False, False, False]
-?                             ^^^^
-
-+ [True, False, False, False, True]
-?                             ^^^
-
-
-----------------------------------------------------------------------
-Ran 6 tests in 0.002s
-
-FAILED (failures=1)
+OK

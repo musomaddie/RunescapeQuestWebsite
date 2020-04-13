@@ -211,59 +211,78 @@ def get_all_quests():
 def calculate_arrow(original_quest, parent_quest, cell_mapping):
     orig_x, orig_y = original_quest.position
     par_x, par_y = parent_quest.position
-    vertical_difference_1 = original_quest.vertical_difference(
-        parent_quest) == 1
-    vertical_difference_neg1 = original_quest.vertical_difference(
-        parent_quest) == -1
-    even_layer_cell = orig_x % 2 == 0
-    vertical_difference_0 = original_quest.vertical_difference(
-        parent_quest) == 0
     horizontal_distance = original_quest.horizontal_difference(
         parent_quest)
+    # Saving vertical difference as a variable to save soo much typing
+    # this is positive if parent is higher, negative otherwise
+    vertical_difference = original_quest.vertical_difference(parent_quest)
+    # Returns true if the orig quest is in an even layer
+    is_orig_even_layer = orig_x % 2 == 0
+    is_par_imm_below = (vertical_difference == 0 if is_orig_even_layer else
+                        vertical_difference == 1)
+    is_par_imm_above = (vertical_difference == -1 if is_orig_even_layer else
+                        vertical_difference == 0)
+    is_par_diag_below = (vertical_difference == 1 if is_orig_even_layer else
+                         vertical_difference == 2)
+    is_par_diag_above = (vertical_difference == -2 if is_orig_even_layer else
+                         vertical_difference == -1)
+    is_par_far_below = vertical_difference > 1
+    is_par_far_above = vertical_difference < -1
 
     def calc_exit_point():
         # Returns true if the whole arrow has been calculated
+        # TODO: neaten this part!
         # If it's far away =
         if horizontal_distance > 1:
             cell_mapping[orig_y][orig_x].add_exit_point(2)
             return False
 
-        # Points to the one just below it
-        if ((vertical_difference_0
-             and even_layer_cell)
-            or (vertical_difference_1
-                and not even_layer_cell)):
+        if is_par_imm_below:
             cell_mapping[orig_y][orig_x].add_exit_point(3)
             cell_mapping[par_y][par_x].add_entry_point(1)
             return True
-
-        # Points to the one just above it
-        if ((vertical_difference_neg1
-             and even_layer_cell)
-            or (vertical_difference_0
-                and not even_layer_cell)):
+        if is_par_imm_above:
             cell_mapping[orig_y][orig_x].add_exit_point(1)
             cell_mapping[par_y][par_x].add_entry_point(3)
             return True
-
-        # More then 2 away
-        if (original_quest.vertical_difference(parent_quest) > 1
-            or (vertical_difference_1
-                and even_layer_cell)):
+        if is_par_diag_below:
             cell_mapping[orig_y][orig_x].add_exit_point(4)
             return False
-        if original_quest.vertical_difference(parent_quest) < -1:
+        if is_par_diag_above:
             cell_mapping[orig_y][orig_x].add_exit_point(0)
             return False
+        # Order matters (otherwise far will count when it's not meant too
+        if is_par_far_below:
+            cell_mapping[orig_y][orig_x].add_exit_point(4)
+        if is_par_far_above:
+            cell_mapping[orig_y][orig_x].add_exit_point(0)
+
+    def calc_entry_point():
+        # If the exit and entry points are the same it won't reach here
+        if horizontal_distance > 1:
+            # TODO: deal with this!!
+            return
+        if is_par_diag_below:
+            cell_mapping[par_y][par_x].add_entry_point(0)
+        if is_par_diag_above:
+            cell_mapping[par_y][par_x].add_entry_point(4)
+        # Again order matters:
+        if is_par_far_below:
+            cell_mapping[par_y][par_x].add_entry_point(0)
+        if is_par_far_above:
+            cell_mapping[par_y][par_x].add_entry_point(4)
 
     # Find the exit point
-    if(calc_exit_point()):
+    if calc_exit_point():
+        # If returns true, nothing more to calculate
         return
 
     # Find the middle flow
         # Heads Right
         # Heads Down
+
     # Find the entry point
+    calc_entry_point()
 
 
 def create_initial_mapping():
@@ -272,6 +291,7 @@ def create_initial_mapping():
     # Remember when indexing it's y x
     all_quests = get_all_quests()
     all_quests_relations = {}
+    # Some comments explaining wtf this is would help :)
     calculate_quest_positions(mapping, all_quests, all_quests_relations)
     # TODO: make the arrows!
     for q in all_quests_relations:

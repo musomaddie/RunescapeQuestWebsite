@@ -183,6 +183,12 @@ class DirectlyAcross(unittest.TestCase):
         self.exit_points = [False, False, True, False, False]
         self.entry_points = [False, False, True, False, False]
 
+    def test_even(self):
+        cell_mapping = draw_blank_scenario(3, 1)
+        og_quest = add_quest(0, 0, cell_mapping)
+        par_quest = add_quest(2, 0, cell_mapping, "PAR")
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+
 
 if __name__ == "__main__":
     log_file = "quest_map/testing_initial_creation.txt"

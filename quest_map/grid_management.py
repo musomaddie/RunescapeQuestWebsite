@@ -294,7 +294,6 @@ def create_initial_mapping():
     calculate_quest_positions(mapping, all_quests, all_quests_relations)
     # TODO: make the arrows!
     for q in all_quests_relations:
-        print(all_quests_relations[q])
         for rq in all_quests_relations[q].required_for:
             calculate_arrow(all_quests_relations[q], rq, mapping)
         x, y = all_quests_relations[q].position

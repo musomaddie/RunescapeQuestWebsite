@@ -73,6 +73,7 @@ class DiagonallyBelow(unittest.TestCase):
     def setUp(self):
         self.exit_points = [False, False, False, False, True]
         self.entry_points = [True, False, False, False, False]
+        self.lines = [False, True, False]
 
     def test_even(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -82,6 +83,8 @@ class DiagonallyBelow(unittest.TestCase):
                          cell_mapping[0][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[1][1].entry_points)
+        self.assertEqual(self.lines,
+                         cell_mapping[1][0].lines)
 
     def test_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -91,12 +94,15 @@ class DiagonallyBelow(unittest.TestCase):
                          cell_mapping[0][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[2][2].entry_points)
+        self.assertEqual(self.lines,
+                         cell_mapping[1][1].lines)
 
 
 class DiagonallyAbove(unittest.TestCase):
     def setUp(self):
         self.exit_points = [True, False, False, False, False]
         self.entry_points = [False, False, False, False, True]
+        self.lines = [False, False, True]
 
     def test_even(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -106,6 +112,8 @@ class DiagonallyAbove(unittest.TestCase):
                          cell_mapping[2][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[0][1].entry_points)
+        self.assertEqual(self.lines,
+                         cell_mapping[1][0].lines)
 
     def test_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -115,6 +123,8 @@ class DiagonallyAbove(unittest.TestCase):
                          cell_mapping[1][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[0][2].entry_points)
+        self.assertEqual(self.lines,
+                         cell_mapping[0][1].lines)
 
 
 class FarBelow(unittest.TestCase):
@@ -130,6 +140,11 @@ class FarBelow(unittest.TestCase):
                          cell_mapping[0][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[2][1].entry_points)
+        # Lines
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][0].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[2][0].lines)
 
     def test_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -139,6 +154,13 @@ class FarBelow(unittest.TestCase):
                          cell_mapping[0][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[3][2].entry_points)
+        # Lines
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][1].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[2][1].lines)
+
+# TODO: add tests to test further below?? (check it grows correctly?
 
 
 class FarAbove(unittest.TestCase):
@@ -154,6 +176,11 @@ class FarAbove(unittest.TestCase):
                          cell_mapping[3][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[0][1].entry_points)
+        # Lines
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][0].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[1][0].lines)
 
     def test_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -163,12 +190,19 @@ class FarAbove(unittest.TestCase):
                          cell_mapping[2][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[0][2].entry_points)
+        # Lines
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][1].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[0][1].lines)
+# TODO: add tests to check this also grows correctly
 
 
 class DirectlyAcross(unittest.TestCase):
     def setUp(self):
         self.exit_points = [False, False, True, False, False]
         self.entry_points = [False, False, True, False, False]
+        self.lines = [True, False, False]
 
     def test_even(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -178,15 +212,19 @@ class DirectlyAcross(unittest.TestCase):
                          cell_mapping[0][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[0][2].entry_points)
+        self.assertEqual(self.lines,
+                         cell_mapping[0][1].lines)
 
     def test_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
-            (4, 1), (1, 0), (3, 0))
+            (4, 2), (1, 0), (3, 0))
         calculate_arrow(og_quest, par_quest, cell_mapping)
         self.assertEqual(self.exit_points,
                          cell_mapping[0][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[0][3].entry_points)
+        self.assertEqual(self.lines,
+                         cell_mapping[1][2].lines)
 
 
 class FarBelowAcross(unittest.TestCase):
@@ -202,6 +240,11 @@ class FarBelowAcross(unittest.TestCase):
                          cell_mapping[0][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[2][2].entry_points)
+        # Lines
+        self.assertEqual([True, True, True],
+                         cell_mapping[0][1].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[1][1].lines)
 
     def test_even_to_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -211,6 +254,13 @@ class FarBelowAcross(unittest.TestCase):
                          cell_mapping[0][0].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[2][3].entry_points)
+        # Lines
+        self.assertEqual([True, True, False],
+                         cell_mapping[0][1].lines)
+        self.assertEqual([True, True, True],
+                         cell_mapping[1][2].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[2][2].lines)
 
     def test_odd_to_odd(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -220,6 +270,11 @@ class FarBelowAcross(unittest.TestCase):
                          cell_mapping[0][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[2][3].entry_points)
+        # Lines
+        self.assertEqual([True, True, True],
+                         cell_mapping[1][2].lines)
+        self.assertEqual([False, True, False],
+                        cell_mapping[2][2].lines)
 
     def test_odd_to_even(self):
         cell_mapping, og_quest, par_quest = draw_populated_scenario(
@@ -229,6 +284,13 @@ class FarBelowAcross(unittest.TestCase):
                          cell_mapping[0][1].exit_points)
         self.assertEqual(self.entry_points,
                          cell_mapping[2][4].entry_points)
+        # Lines
+        self.assertEqual([True, True, False],
+                         cell_mapping[1][2].lines)
+        self.assertEqual([True, True, False],
+                         cell_mapping[1][3].lines)
+
+    # TODO: tests moving further across!!
 
 
 if __name__ == "__main__":

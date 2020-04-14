@@ -61,8 +61,8 @@ Diagonally Below: even column
 \        /     \        
  \      /       \      
   )----x         )
- /      \       /      
-/		 \x____/        
+ /      x       /      
+/		 x_____/        
 \        /     \        
  \      /       \      
   `----(  PAR    )
@@ -77,10 +77,10 @@ Diagonally Below: odd column
  \      /       \      /
   )----(    OG   )----(
  /      \       /      \
-/		 \_____x        \
-\        /     \        /
- \      /       \      /
-  )----(         )x---(
+/		 \____x(        \
+\        /     x        /
+ \      /       x      /
+  )----(         x----(
  /      \       /      \
 /		 \_____/  PAR   \
 \        /     \        /
@@ -98,8 +98,8 @@ Diagonally Above even column
   )----(  PAR    )----(
  /      \       /      \
 /		 \x____/        \
-\        /     \        /
- \      /       \      /
+\        x     \        /
+ \      x       \      /
   )----x         )----(
  /      \       /      \
 /   OG	 \_____/        \
@@ -116,7 +116,7 @@ Diagonally Above odd column
 \        /     \        /
  \      /       \      /
   )----(         x----(
- /      \       /      \
+ /      \       x      \
 /		 \_____x        \
 \        /     \        /
  \      /       \      /
@@ -131,13 +131,13 @@ Far Below Narrow: even column
 \        /     \        
  \      /       \      
   )----x         )
- /      \       /      
-/		 \_____/        
-\        /     \        
- \      /       \      
-  )----(         )
- /      \       /      
-/		 \x____/        
+ /      x       /      
+/		 x_____/        
+\        x     \        
+ \      x       \      
+  )----x         )
+ /      x       /      
+/		 x_____/        
 \        /     \        
  \      /       \      
   `----(  PAR    )
@@ -153,14 +153,14 @@ Far Below Narrow: odd column
   )----(    OG   )----(
  /      \       /      \
 /		 \_____x        \
-\        /     \        /
- \      /       \      /
-  )----(         )----(
- /      \       /      \
-/		 \_____/        \
-\        /     \        /
- \      /       \      /
-  )----(         )x---(
+\        /     x        /
+ \      /       x      /
+  )----(         x----(
+ /      \       x      \
+/		 \_____x        \
+\        /     x        /
+ \      /       x      /
+  )----(         x----(
  /      \       /      \
 /		 \_____/  PAR   \
 \        /     \        /
@@ -178,14 +178,14 @@ Far Above Narrow: even column
  \      /       \      
   )----(   PAR   )
  /      \       /      
-/		 x_____/        
-\        /     \        
- \      /       \      
-  )----(         )
- /      \       /      
-/        \_____/        
-\        /     \        
- \      /       \      
+/		 )x____/        
+\        x     \        
+ \      x       \      
+  )----x         )
+ /      x       /      
+/        x_____/        
+\        x     \        
+ \      x       \      
   `----x         )
  /      \       /
 / OG     \_____/        
@@ -196,19 +196,19 @@ Far Above Narrow: even column
 		 \_____/
 
 
-Far Below Narrow: odd column
+Far Above Narrow: odd column
   ,----,         .----.
  /      \       /      \
 /        \_____/  PAR   \
 \        /     \        /
  \      /       \      /
   )----(         x----(
- /      \       /      \
-/		 \_____/        \
-\        /     \        /
- \      /       \      /
-  )----(         )----(
- /      \       /      \
+ /      \       x      \
+/		 \_____x        \
+\        /     x        /
+ \      /       x      /
+  )----(         x----(
+ /      \       x      \
 /		 \_____x        \
 \        /     \        /
  \      / OG    \      /
@@ -237,7 +237,7 @@ Directly across: odd column:
         \       /      \      /
  		 \_____/        \____/
 
-TODO: further across!
+TODO: further across -> and slightly down
 
 Far Below Across: even -> even
   ,----,         .----.

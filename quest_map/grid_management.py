@@ -208,6 +208,40 @@ def get_all_quests():
     return quests_and_reqs
 
 
+def _snake_down_helper(cell_mapping, x, y, r):
+    for i in range(0, r):
+        print("Calling snake down")
+        cell_mapping[y][x].add_line(1)
+        cell_mapping[y][x].add_line(2)
+        y += 1
+    cell_mapping[y][x].add_line(1)
+
+
+def _snake_up_helper(cell_mapping, x, y, r):
+    for i in range(0, r):
+        cell_mapping[y][x].add_line(2)
+        cell_mapping[y][x].add_line(1)
+        y -= 1
+    cell_mapping[y][x].add_line(2)
+
+
+def _snake_across_down_helper(cell_mapping, x, y, r, is_x_odd,
+                              target_x, target_y):
+    # Returns true if target is reached
+    for i in range(0, r):
+        cell_mapping[y][x].add_line(0)
+        cell_mapping[y][x].add_line(1)
+        if is_x_odd:
+            y += 1
+        x += 1
+        is_x_odd = not is_x_odd
+    if x == target_x and y == target_y:
+        return True
+    update_y = y if is_x_odd else y - 1
+    cell_mapping[update_y][x - 1].add_line(2)
+    return False
+
+
 def calculate_arrow(original_quest, parent_quest, cell_mapping):
     orig_x, orig_y = original_quest.position
     par_x, par_y = parent_quest.position
@@ -259,6 +293,43 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
             original_quest_cell.add_exit_point(0)
         return False
 
+    def calc_arrow_middle():
+        # Assuming will only be called when there is something to calculate
+        if horizontal_distance == 1:
+            if is_par_diag_below:
+                cell_mapping[orig_y + 1][orig_x].add_line(1)
+            elif is_par_diag_above:
+                cell_mapping[orig_y - 1][orig_x].add_line(2)
+            elif is_par_far_below:
+                r = (vertical_difference - 1 if is_orig_even_layer else
+                     vertical_difference - 2)
+                _snake_down_helper(cell_mapping, orig_x, orig_y + 1, r)
+            elif is_par_far_above:
+                r = ((vertical_difference * -1) - 2 if is_orig_even_layer else
+                     (vertical_difference * -1) - 1)
+                _snake_up_helper(cell_mapping, orig_x, orig_y - 1, r)
+            return
+        # TODO -> apply this for longer distances!
+        if is_par_across:
+            if is_orig_even_layer:
+                cell_mapping[orig_y][orig_x + 1].add_line(0)
+            else:
+                cell_mapping[orig_y + 1][orig_x + 1].add_line(0)
+
+        elif is_par_far_below:
+            # Need to move across
+            starting_y = orig_y if is_orig_even_layer else orig_y + 1
+            if _snake_across_down_helper(cell_mapping, orig_x + 1, starting_y,
+                                         horizontal_distance - 1,
+                                         is_orig_even_layer, par_x, par_y):
+                return
+            # Perform a snake down
+            new_x, new_y = par_x - 1, orig_y + vertical_difference - 1
+            if par_x % 2 != 0:
+                new_y += 1
+            r = par_y - new_y - 1
+            _snake_down_helper(cell_mapping, new_x, new_y, r)
+
     def calc_entry_point():
         # If the exit and entry points are the same it won't reach here
         if horizontal_distance > 1:
@@ -283,9 +354,7 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
         # If returns true, nothing more to calculate
         return
 
-    # Find the middle flow
-        # Heads Right
-        # Heads Down
+    calc_arrow_middle()
 
     # Find the entry point
     calc_entry_point()

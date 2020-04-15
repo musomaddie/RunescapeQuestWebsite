@@ -209,8 +209,7 @@ def get_all_quests():
 
 
 def _snake_down_helper(cell_mapping, x, y, r):
-    for i in range(0, r):
-        print("Calling snake down")
+    for _ in range(r):
         cell_mapping[y][x].add_line(1)
         cell_mapping[y][x].add_line(2)
         y += 1
@@ -218,7 +217,7 @@ def _snake_down_helper(cell_mapping, x, y, r):
 
 
 def _snake_up_helper(cell_mapping, x, y, r):
-    for i in range(0, r):
+    for _ in range(r):
         cell_mapping[y][x].add_line(2)
         cell_mapping[y][x].add_line(1)
         y -= 1
@@ -228,7 +227,7 @@ def _snake_up_helper(cell_mapping, x, y, r):
 def _snake_across_down_helper(cell_mapping, x, y, r, is_x_odd,
                               target_x, target_y):
     # Returns true if target is reached
-    for i in range(0, r):
+    for _ in range(r):
         cell_mapping[y][x].add_line(0)
         cell_mapping[y][x].add_line(1)
         if is_x_odd:
@@ -240,6 +239,25 @@ def _snake_across_down_helper(cell_mapping, x, y, r, is_x_odd,
     update_y = y if is_x_odd else y - 1
     cell_mapping[update_y][x - 1].add_line(2)
     return False
+
+
+def _snake_across_helper(cell_mapping, x, y, r, is_orig_even):
+    is_current_flat = True
+    for _ in range(r):
+        if is_current_flat:
+            cell_mapping[y][x].add_line(0)
+            if not is_orig_even:
+                y -= 1
+        else:
+            cell_mapping[y][x].add_line(0)
+            cell_mapping[y][x].add_line(1)
+            if is_orig_even:
+                cell_mapping[y - 1][x - 1].add_line(2)
+            else:
+                cell_mapping[y][x - 1].add_line(2)
+                y += 1
+        x += 1
+        is_current_flat = not is_current_flat
 
 
 def calculate_arrow(original_quest, parent_quest, cell_mapping):
@@ -273,7 +291,7 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
         if horizontal_distance > 1:
             original_quest_cell.add_exit_point(2)
             # TODO: deal with this!
-            return
+            return False
         elif is_par_imm_below:
             original_quest_cell.add_exit_point(3)
             parent_quest_cell.add_entry_point(1)
@@ -309,12 +327,16 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
                      (vertical_difference * -1) - 1)
                 _snake_up_helper(cell_mapping, orig_x, orig_y - 1, r)
             return
-        # TODO -> apply this for longer distances!
-        if is_par_across:
-            if is_orig_even_layer:
-                cell_mapping[orig_y][orig_x + 1].add_line(0)
-            else:
-                cell_mapping[orig_y + 1][orig_x + 1].add_line(0)
+
+        elif is_par_across:
+            starting_y = orig_y if is_orig_even_layer else orig_y + 1
+            _snake_across_helper(cell_mapping, orig_x + 1,
+                                 starting_y, horizontal_distance - 1,
+                                 is_orig_even_layer)
+            # if is_orig_even_layer:
+            #     cell_mapping[orig_y][orig_x + 1].add_line(0)
+            # else:
+            #     cell_mapping[orig_y + 1][orig_x + 1].add_line(0)
 
         elif is_par_far_below:
             # Need to move across

@@ -227,6 +227,26 @@ Directly across: even column
         \       /       
  		 \_____/         
 
+Directly across further: even
+  ,----,         xxxxxx         .----.
+ /      \       x      x       /      \
+/   OG   xxxxxxx        xxxxxxx  PAR   \
+\        /     \        /     \        /
+ \      /       \      /       \      /
+  )----(         )----(         )----`
+        \       /      \       /
+ 		 \_____/        \_____/
+
+Directly across: even -> odd
+  ,----,         xxxxxx
+ /      \       x      x
+/   OG   xxxxxxx        x_____
+\        /     \        /     \
+ \      /       \      /  PAR  \
+  )----(         )----(         )
+        \       /      \       /
+ 		 \_____/        \_____/
+
 Directly across: odd column: 
   ,----,         .----.
  /      \       /      \
@@ -237,7 +257,25 @@ Directly across: odd column:
         \       /      \      /
  		 \_____/        \____/
 
-TODO: further across -> and slightly down
+Directly across further: odd
+  ,----,         .____.         .----.
+ /      \       /      \       /      \
+/        \_____/        \xxxxx/        \_____
+\        /     \        x     x        /     \
+ \      /  OG   \      x       x      /  PAR  \
+  )----(         xxxxxx         xxxxxx         )
+        \       /      \       /      \       /
+ 		 \_____/        \_____/        \_____/
+
+Directly across: odd -> even
+  ,----,         .____.         .----.
+ /      \       /      \       /      \
+/        \_____/        \xxxxx/  PAR   \
+\        /     \        x     \        /     
+ \      /  OG   \      x       \      /      
+  )----(         xxxxxx         )----'
+        \       /      \       /      
+ 		 \_____/        \_____/        
 
 Far Below Across: even -> even
   ,----,         .----.

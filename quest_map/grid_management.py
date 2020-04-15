@@ -269,6 +269,7 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
     # this is positive if parent is higher, negative otherwise
     vertical_difference = original_quest.vertical_difference(parent_quest)
     is_orig_even_layer = orig_x % 2 == 0
+    is_par_even_layer = par_x % 2 == 0
     is_par_imm_below = (vertical_difference == 0 if is_orig_even_layer else
                         vertical_difference == 1)
     is_par_imm_above = (vertical_difference == -1 if is_orig_even_layer else
@@ -333,10 +334,6 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
             _snake_across_helper(cell_mapping, orig_x + 1,
                                  starting_y, horizontal_distance - 1,
                                  is_orig_even_layer)
-            # if is_orig_even_layer:
-            #     cell_mapping[orig_y][orig_x + 1].add_line(0)
-            # else:
-            #     cell_mapping[orig_y + 1][orig_x + 1].add_line(0)
 
         elif is_par_far_below:
             # Need to move across
@@ -346,10 +343,9 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
                                          is_orig_even_layer, par_x, par_y):
                 return
             # Perform a snake down
-            new_x, new_y = par_x - 1, orig_y + vertical_difference - 1
-            if par_x % 2 != 0:
-                new_y += 1
-            r = par_y - new_y - 1
+            new_x, new_y = par_x - 1, orig_y + horizontal_distance - 1
+            r = par_y - new_y - 1 if is_par_even_layer else par_y - new_y
+            print("X {} Y {} r {}".format(new_x, new_y, r))
             _snake_down_helper(cell_mapping, new_x, new_y, r)
 
     def calc_entry_point():

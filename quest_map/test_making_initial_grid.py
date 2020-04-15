@@ -342,7 +342,71 @@ class FarBelowAcross(unittest.TestCase):
         self.assertEqual([True, True, False],
                          cell_mapping[1][3].lines)
 
-    # TODO: tests moving further across!!
+    def test_even_to_even_with_down_snake(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (3, 4), (0, 0), (2, 3))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[3][2].entry_points)
+        # Lines
+        self.assertEqual([True, True, True],
+                         cell_mapping[0][1].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][1].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[2][1].lines)
+
+    def test_even_to_odd_with_down_snake(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 4), (0, 0), (3, 3))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[3][3].entry_points)
+        # Lines
+        self.assertEqual([True, True, False],
+                         cell_mapping[0][1].lines)
+        self.assertEqual([True, True, True],
+                         cell_mapping[1][2].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[3][2].lines)
+
+    def test_odd_to_odd_with_down_snake(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 4), (1, 0), (3, 3))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[3][3].entry_points)
+        # Lines
+        self.assertEqual([True, True, True],
+                         cell_mapping[1][2].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[3][2].lines)
+
+    def test_odd_to_even_with_down_snake(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (5, 4), (1, 0), (4, 3))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[0][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[3][4].entry_points)
+        # Lines
+        self.assertEqual([True, True, False],
+                         cell_mapping[1][2].lines)
+        self.assertEqual([True, True, True],
+                         cell_mapping[1][3].lines)
+        self.assertEqual([False, True, False],
+                         cell_mapping[2][3].lines)
 
 
 if __name__ == "__main__":

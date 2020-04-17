@@ -409,6 +409,160 @@ class FarBelowAcross(unittest.TestCase):
                          cell_mapping[2][3].lines)
 
 
+class FarAboveAcross(unittest.TestCase):
+    def setUp(self):
+        self.exit_points = [False, False, True, False, False]
+        self.entry_points = [False, False, False, False, True]
+
+    def test_even_to_even(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (3, 3), (0, 2), (2, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[2][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][2].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[2][1].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][1].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[0][1].lines)
+
+    def test_even_to_odd(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 3), (0, 2), (3, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[2][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][3].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[2][1].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[1][1].lines)
+        self.assertEqual([True, False, False],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[1][2].lines)
+
+    def test_odd_to_odd(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 4), (1, 2), (3, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[2][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][3].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[3][2].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[1][2].lines)
+
+    def test_odd_to_even(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (5, 4), (1, 2), (4, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[2][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][4].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[3][2].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([True, False, False],
+                         cell_mapping[2][3].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][3].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[0][3].lines)
+
+    def test_even_to_even_snake_up(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (3, 4), (0, 3), (2, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[3][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][2].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[3][1].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][1].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][1].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[0][1].lines)
+
+    def test_even_to_odd_snake_up(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 4), (0, 3), (3, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[3][0].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][3].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[3][1].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[2][1].lines)
+        self.assertEqual([True, False, False],
+                         cell_mapping[3][2].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[1][2].lines)
+
+    def test_odd_to_odd_snake_up(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (4, 5), (1, 3), (3, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[3][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][3].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[4][2].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[3][2].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][2].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[1][2].lines)
+
+    def test_odd_to_even_with_snake(self):
+        cell_mapping, og_quest, par_quest = draw_populated_scenario(
+            (5, 5), (1, 3), (4, 0))
+        calculate_arrow(og_quest, par_quest, cell_mapping)
+        self.assertEqual(self.exit_points,
+                         cell_mapping[3][1].exit_points)
+        self.assertEqual(self.entry_points,
+                         cell_mapping[0][4].entry_points)
+        # Lines
+        self.assertEqual([True, False, False],
+                         cell_mapping[4][2].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[3][2].lines)
+        self.assertEqual([True, False, False],
+                         cell_mapping[3][3].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[2][3].lines)
+        self.assertEqual([False, True, True],
+                         cell_mapping[1][3].lines)
+        self.assertEqual([False, False, True],
+                         cell_mapping[0][3].lines)
+
+
 if __name__ == "__main__":
     log_file = "quest_map/testing_initial_creation.txt"
     f = open(log_file, 'w')

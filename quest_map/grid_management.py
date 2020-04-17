@@ -11,8 +11,6 @@ from quest_map.GridQuest import GridQuest
 
 MAPPING_HEIGHT = 84
 MAPPING_WIDTH = 14
-# TODO: the database name does depend on where you run it, currently cant run
-#  from inside the folder
 DATABASE_NAME = "db/quests.db"
 
 
@@ -241,6 +239,22 @@ def _snake_across_down_helper(cell_mapping, x, y, r, is_x_odd,
     return False
 
 
+def _snake_across_up_helper(cell_mapping, x, y, r, is_x_odd,
+                            target_x, target_y):
+    # Returns true if target is reached
+    for _ in range(r):
+        cell_mapping[y][x].add_line(0)
+        cell_mapping[y - 1][x].add_line(2)
+        if not is_x_odd:
+            y -= 1
+        x += 1
+        is_x_odd = not is_x_odd
+    if x == target_x and y - 1 == target_y:
+        return True
+    update_y = y if is_x_odd else y - 1
+    cell_mapping[update_y][x - 1].add_line(1)
+
+
 def _snake_across_helper(cell_mapping, x, y, r, is_orig_even):
     is_current_flat = True
     for _ in range(r):
@@ -345,8 +359,20 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
             # Perform a snake down
             new_x, new_y = par_x - 1, orig_y + horizontal_distance - 1
             r = par_y - new_y - 1 if is_par_even_layer else par_y - new_y
-            print("X {} Y {} r {}".format(new_x, new_y, r))
             _snake_down_helper(cell_mapping, new_x, new_y, r)
+
+        elif is_par_far_above:
+            starting_y = orig_y if is_orig_even_layer else orig_y + 1
+            if _snake_across_up_helper(cell_mapping,
+                                       orig_x + 1, starting_y,
+                                       horizontal_distance - 1,
+                                       is_orig_even_layer, par_x, par_y):
+                return
+            # Perform a snake up
+            new_x = par_x - 1
+            new_y = orig_y - horizontal_distance + 1
+            r = new_y - par_y if is_par_even_layer else new_y - par_y - 1
+            _snake_up_helper(cell_mapping, new_x, new_y, r)
 
     def calc_entry_point():
         # If the exit and entry points are the same it won't reach here
@@ -356,6 +382,8 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
                 parent_quest_cell.add_entry_point(2)
             elif is_par_far_below:
                 parent_quest_cell.add_entry_point(0)
+            elif is_par_far_above:
+                parent_quest_cell.add_entry_point(4)
             return
         if is_par_diag_below:
             parent_quest_cell.add_entry_point(0)

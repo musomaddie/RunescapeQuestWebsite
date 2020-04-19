@@ -11,7 +11,7 @@ from quest_map.GridQuest import GridQuest
 
 MAPPING_HEIGHT = 84
 MAPPING_WIDTH = 14
-DATABASE_NAME = "db/quests.db"
+DB_NAME = "db/quests.db"
 
 
 def calculate_quest_positions(mapping, all_quests, quests_relations):
@@ -188,7 +188,7 @@ def calculate_quest_positions(mapping, all_quests, quests_relations):
 
 
 def get_all_quests():
-    conn = sqlite3.connect(DATABASE_NAME)
+    conn = sqlite3.connect(DB_NAME)
     cur = conn.cursor()
     cur.execute(""" SELECT name, required_quest
                     FROM quest_details LEFT OUTER JOIN required_quests
@@ -407,6 +407,69 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
     calc_entry_point()
 
 
+def populate_db(cell, cur):
+    q_val = cell.quest.for_db() if cell.quest else None
+    cur.execute("""
+                INSERT INTO grid_cell_details
+                    VALUES(?, ?,
+                           ?, ?, ?, ?, ?,
+                           ?, ?, ?, ?, ?,
+                           ?, ?, ?,
+                           ?);
+                """,
+                (cell.location[0], cell.location[1],
+                 cell.entry_points[0],
+                 cell.entry_points[1],
+                 cell.entry_points[2],
+                 cell.entry_points[3],
+                 cell.entry_points[4],
+                 cell.exit_points[0],
+                 cell.exit_points[1],
+                 cell.exit_points[2],
+                 cell.exit_points[3],
+                 cell.exit_points[4],
+                 cell.lines[0],
+                 cell.lines[1],
+                 cell.lines[2],
+                 q_val
+                 ))
+
+
+def write_to_db(mapping):
+    conn = sqlite3.connect(DB_NAME)
+    cur = conn.cursor()
+    # Create the table
+    cur.execute("""DROP TABLE IF EXISTS grid_cell_details""")
+    cur.execute("""
+                CREATE TABLE grid_cell_details(
+                    x_position INTEGER NOT NULL,
+                    y_position INTEGER NOT NULL,
+                    entry_point_0 BOOLEAN NOT NULL,
+                    entry_point_1 BOOLEAN NOT NULL,
+                    entry_point_2 BOOLEAN NOT NULL,
+                    entry_point_3 BOOLEAN NOT NULL,
+                    entry_point_4 BOOLEAN NOT NULL,
+                    exit_point_0 BOOLEAN NOT NULL,
+                    exit_point_1 BOOLEAN NOT NULL,
+                    exit_point_2 BOOLEAN NOT NULL,
+                    exit_point_3 BOOLEAN NOT NULL,
+                    exit_point_4 BOOLEAN NOT NULL,
+                    line_0 INTEGER NOT NULL,
+                    line_1 INTEGER NOT NULL,
+                    line_2 INTEGER NOT NULL,
+                    quest_name TEXT,
+                    PRIMARY KEY (x_position, y_position)
+                );
+                """)
+    # Populate it now
+    for y in range(len(mapping)):
+        for x in range(len(mapping[y])):
+            populate_db(mapping[y][x], cur)
+    conn.commit()
+    cur.close()
+    conn.close()
+
+
 def create_initial_mapping():
     mapping = [[GridCell((i, j)) for i in range(MAPPING_WIDTH)]
                for j in range(MAPPING_HEIGHT)]
@@ -419,6 +482,8 @@ def create_initial_mapping():
         for rq in all_quests_relations[q].required_for:
             calculate_arrow(all_quests_relations[q], rq, mapping)
         x, y = all_quests_relations[q].position
+
+    write_to_db(mapping)
 
 
 if __name__ == '__main__':

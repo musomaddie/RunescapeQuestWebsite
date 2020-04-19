@@ -11,6 +11,9 @@ class GridQuest:
     def __str__(self):
         return "{} ({})".format(self.name, self.required_for)
 
+    def for_db(self):
+        return self.name
+
     def horizontal_difference(self, other):
         return other.position[0] - self.position[0]
 

@@ -233,10 +233,10 @@ def _snake_across_down_helper(cell_mapping, x, y, r, is_x_odd,
         x += 1
         is_x_odd = not is_x_odd
     if x == target_x and y == target_y:
-        return True
+        return (True, None, None)
     update_y = y if is_x_odd else y - 1
     cell_mapping[update_y][x - 1].add_line(2)
-    return False
+    return (False, x - 1, update_y)
 
 
 def _snake_across_up_helper(cell_mapping, x, y, r, is_x_odd,
@@ -250,9 +250,10 @@ def _snake_across_up_helper(cell_mapping, x, y, r, is_x_odd,
         x += 1
         is_x_odd = not is_x_odd
     if x == target_x and y - 1 == target_y:
-        return True
+        return (True, None, None)
     update_y = y if is_x_odd else y - 1
     cell_mapping[update_y][x - 1].add_line(1)
+    return (False, x - 1, update_y)
 
 
 def _snake_across_helper(cell_mapping, x, y, r, is_orig_even):
@@ -352,25 +353,25 @@ def calculate_arrow(original_quest, parent_quest, cell_mapping):
         elif is_par_far_below:
             # Need to move across
             starting_y = orig_y if is_orig_even_layer else orig_y + 1
-            if _snake_across_down_helper(cell_mapping, orig_x + 1, starting_y,
-                                         horizontal_distance - 1,
-                                         is_orig_even_layer, par_x, par_y):
+            is_end_reached, new_x, new_y = _snake_across_down_helper(
+                cell_mapping, orig_x + 1, starting_y,
+                horizontal_distance - 1,
+                is_orig_even_layer, par_x, par_y)
+            if is_end_reached:
                 return
-            # Perform a snake down
-            new_x, new_y = par_x - 1, orig_y + horizontal_distance - 1
+            new_y += 1
             r = par_y - new_y - 1 if is_par_even_layer else par_y - new_y
             _snake_down_helper(cell_mapping, new_x, new_y, r)
 
         elif is_par_far_above:
             starting_y = orig_y if is_orig_even_layer else orig_y + 1
-            if _snake_across_up_helper(cell_mapping,
-                                       orig_x + 1, starting_y,
-                                       horizontal_distance - 1,
-                                       is_orig_even_layer, par_x, par_y):
+            is_end_reached, new_x, new_y = _snake_across_up_helper(
+                cell_mapping, orig_x + 1, starting_y,
+                horizontal_distance - 1,
+                is_orig_even_layer, par_x, par_y)
+            if is_end_reached:
                 return
-            # Perform a snake up
-            new_x = par_x - 1
-            new_y = orig_y - horizontal_distance + 1
+            new_y -= 1
             r = new_y - par_y if is_par_even_layer else new_y - par_y - 1
             _snake_up_helper(cell_mapping, new_x, new_y, r)
 

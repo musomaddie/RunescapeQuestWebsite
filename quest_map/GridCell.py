@@ -37,7 +37,8 @@ class GridCell:
     Lines: the number of lines as they pass through the cell (corresponds
         correctly to neighbouring cells). Only three as we will only store
         lines as they pass through the top of the cell (lines passing through
-        bottom will be counted by cell below)
+        bottom will be counted by cell below). The number represents how many
+        lines are passing through
             (ordered clockwise from top).
                 0
              .----,
@@ -46,7 +47,6 @@ class GridCell:
            \        /
             \      / 2
              `----'
-
     """
 
     def __init__(self, location):
@@ -54,7 +54,7 @@ class GridCell:
         self.location = location
         self.entry_points = [False for i in range(5)]
         self.exit_points = [False for i in range(5)]
-        self.lines = [False for i in range(3)]
+        self.lines = [0 for i in range(3)]
         self.quest = None
 
     def add_entry_point(self, point):
@@ -64,10 +64,11 @@ class GridCell:
         self.exit_points[point] = True
 
     def add_line(self, edge):
-        self.lines[edge] = True
+        self.lines[edge] += 1
 
     def add_quest(self, quest):
         self.quest = quest
 
     def __str__(self):
-        return "{}: ({}, {})".format(self.quest, self.location[0], self.location[1])
+        return "{}: ({}, {})".format(self.quest,
+                                     self.location[0], self.location[1])
